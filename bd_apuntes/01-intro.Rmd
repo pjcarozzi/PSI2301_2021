@@ -1,0 +1,1348 @@
+# Introduccion a R {#intro}
+
+## R y R Studio
+
+### El entorno de R
+
+R es un entorno para la computacion estadistica, una suite integrada de software para manipulacion, calculo y visualizacion grafica de datos, que reune una gran cantidad de funcionalidades en un sistema coherente. El entorno de R combina:
+
+- Una manejo de datos y funcionalidades de almacenamiento.
+- Una suite de operadores para el calculo con distintos tipos de formaciones (*arrays*).
+- Una coleccion amplia, coherente e integrada de herramientas intermedias para el analisis de datos.
+- Funcionalidades graficas para el analisis y visualizacion de datos.
+- Un lenguaje de programacion bien desarrollado, simple y efectivo.
+
+R es ampliamente usado por las comunidad de estadistica y desarrollo de software estadistico y se ha convertido en la lengua franca en el mundo del data science y analytics. Como lenguaje de programacion, se basa en el lenguaje S, que se convirtio en S-Plus una implementacion comercial, pero a diferencia de este R es esta disponible como un software libre bajo los terminos de la [Free Software Foundation](http://www.gnu.org/)’s [GNU General Public License](https://www.r-project.org/COPYING) en su forma de codigo fuente. Gracias a esto, se ha desarrollado una comunidad de pares amplia y en crecimiento en torno al desarrollo de nuevas funcionalidades. 
+
+R corre en los sistemas operativos Windows y Mac y tambien en una amplia variedad de plataformas UNIX (incluyendo Linux y FreeBSD).
+
+### RStudio
+
+RStudio es un Entorno de Desarrollo Integrado (IDE) que entrega herramientas que facilitan el uso de R, mejorando la habilidad del usuario de interactuar con R y mantener un espacio de trabajo organizado. RStudio es una muy buena alternativa a trabajar con R directamente desde la terminal. RStudio:
+
+- Incluye una interfaz de usuario grafica (GUI) que permite al usuario interactuar a traves de iconos, no solo una interfaz de linea de comandos.
+- Tiene una amplia de funcionalidades adicionales a la GUI de R base: Ademas de una consola de comandos, un editor con subrayado de sintaxis que permite la ejecucion de codigo directa, herramientas para graficar, historial, debugging y administracion del espacio de trabajo, entre otros.
+- Es open-source y gratis para su uso academico.
+- Al igual que R, corre en multiples plataformas. 
+
+### Instalando R y R Studio
+Para usar R, instalaremos dos paquetes de software distintos: R y R Studio. R es el software basico que contiene la programacion del entorno R. R Studio es la IDE que usaremos para interactuar con R. No es necesario contar con R Studio para usar R, pero es esencial que descarguemos e instalemos R antes de empezar a usar R Studio.
+
+Para instalar R, vamos a uno de los siguientes links y seguimos las instrucciones.
+
+   - Windows: [http://cran.r-project.org/bin/windows/base/](http://cran.r-project.org/bin/windows/base/)
+   - Mac: [http://cran.r-project.org/bin/macosx/](http://cran.r-project.org/bin/macosx/)
+
+Una vez que hemos instalado R en nuestro computador, podemos abrirlo. Veremos una pantalla como la siguiente. 
+
+![Interfaz de R](C:/Users/pjcar/Dropbox/PSI2301_2021/bd_apuntes/_bookdown_files/Apuntes-PSI2301_files/figuras-ext/Screenshot_R.png)
+
+Descarguemos R Studio, que sera el programa que utilizaremos en lo sucesivo en nuestra programacion de R. Para descargar e instalar R Studio, vamos a [http://www.rstudio.com/products/rstudio/download/](http://www.rstudio.com/products/rstudio/download/) y seguimos las instrucciones.
+
+Abramos R Studio para explorar su interfaz.
+
+### La interfaz de R Studio (y algunos conceptos basicos)
+
+La interfaz de R Studio tiene cuatro paneles principales:
+
+1. __Console__: Donde podemos tipear los comandos y donde aparecen los resultados u *output*. La consola es lo unico que veriamos si corrieramos R desde su GUI original.
+2. __Script editor__: Donde podemos escribir nuestro codigo y guardarlos en un archivo. Tambien podemos correr nuestro codigo a ejecutar en la consola directamente desde aqui. 
+3. __Environment/History__: Son dos pestañas. Environment muestra todos los objetos activos e History va registrando todos los comandos que han sido ejecutados.
+4. __Files/Plots/Packages/Help__: Estas pestañas muestran informacion util que veremos en detalle a continuacion.
+
+![Interfaz de R Studio](C:/Users/pjcar/Dropbox/PSI2301_2021/bd_apuntes/_bookdown_files/Apuntes-PSI2301_files/figuras-ext/Screenshot_RStudio.png)
+
+#### Consola {-} 
+La ventana __console__ es el lugar donde R espera recibir las instrucciones que escribimos en el lenguaje R, o __comandos__, y muestra los resultados de dichas instrucciones. En esta guia, los comandos en R que utilicemos apareceran en una caja gris como la siguiente:
+
+```{r eval=FALSE}
+c(1,2,3,4,5,6,7,8,9,10,11,12)
+```
+
+La __command prompt__ o linea de comandos, ubicada en la parte baja de la consola, tiene diferentes estados: 
+
+Cuando R esta listo para aceptar un comando, la linea de comandos muestra un `>`. Si escribimos el codigo anterior en la linea de comandos y presionamos __Enter__, el codigo sera ejecutado y producira un __output__ o resultado en la misma consola. En este caso el resultado sera:
+
+```{r echo=FALSE}
+c(1,2,3,4,5,6,7,8,9,10,11,12)
+```
+
+Tras su ejecucion, la consola muestra los resultados,limpia la linea y vuelve a mostrar un `>`, avisando que ya puede recibir un nuevo comando. 
+
+Cuando la consola esta esperando que se ingresen mas datos muestra un `+`. Esto indica que el comando entregado no esta completo y aun no puede ser ejecutado. Probemos escribiendo lo siguiente:
+
+```{r eval=FALSE}
+c(1,2,3,4,5,6,7,8,9,10,11,12
+```
+
+La consola no nos devuelve un resultado sino un `+`. En este caso es porque no hemos cerrado el parentesis. Si lo tipeamos y presionamos __Enter__ obtendremos el resultado anterior. 
+
+Si no queremos continuar con la ejecucion de un comando incompleto, hacemos click situando el cursor en la linea de comandos y presionamos `esc` para salir del comando sin correrlo. R volvera a mostrar un un `>`.
+
+#### Script editor {-}
+
+Los comandos que escribimos directamente en la consola no quedan registrados y se eliminan una vez se cierra la sesion. Por eso es recomendable ingresar los comandos en el __editor de scripts__, lo que nos permite guardar el codigo en un archivo `.R` de texto plano. Otra ventaja de usar un script es que nos evita tener que ejecutar los comandos de forma inmediata y secuencial, lo que nos permite ir modificando el codigo a nuestro ritmo.
+
+El editor de scripts de R Studio nos permite "mandar" lineas de codigo a la consola para su ejecucion. Para hacerlo, destacamos el texto del codigo que queremos correr y hacemos click en el boton `Run`, situado en la parte superior derecha del editor de scripts. Alternativamente, podemos ejecutar el texto destacado presionando de manera simultanea `Ctrl`+`Enter` en Windows o `cmd` + `Enter` en Mac. 
+
+R interpreta todo lo que es escrito en la consola o en el script como comandos. Para evitar que una linea de texto sea ejecutada como tal, usamos el signo `#` al comienzo de la linea o, dentro de una linea, desde la posicion en la que queremos que deje de ejecutar. Todo el texto que siga al signo `#` sera ignorado a la hora de ejecutar el codigo. 
+
+```{r echo=TRUE}
+# Esta linea completa no se ejecutara.
+
+mean(1:12) # Esta linea contiene un comando que sera ejecutado y una parte que no sera ejecutada
+```
+
+Esta funcionalidad es muy util, porque permite comentar y documentar el codigo que escribimos en el mismo script. De esta manera, no solo disponemos de un registro completo de los analisis que realizamos, que podremos volver a correr si lo necesitamos. Tambien podemos mostrarle a otros como lo hicimos, porque lo hicimos y que ellos puedan ejecutar nuestros analisis por su cuenta.
+
+En investigacion cuantitativa, esto se relaciona con uno de los mayores principios del metodo cientifico: la reproducibilidad o capacidad de obtener los mismos resultados de un estudio si este es replicado usando los mismos datos y metodologias. Cuando la investigacion se apoya en metodos computacionales, esto implica que los set de datos y procesos de analisis deben ser documentados rigurosamente tal que una tercera parte pueda ejecutar el codigo y, disponiendo de los datos, obtener identicos resultados. Hoy esto es considerado una buena practica y cada vez mas un estandar minimo en la publicacion cientifica. 
+
+#### Environment e History {-}
+
+La pestaña __environment__ muestra los nombres de los objetos de datos que han sido definidos en la sesion actual de R. Un __objeto__ es una "cosa", un numero, un set de datos, estadisticos o tests. Los objetos tienen distintas formas, tamaños y atributos: Hay objetos simples que representan numeros, como los vectores; objetos un poco mas complejos que tienen mas de una dimension, como los dataframes o las matrices; y objetos mucho mas complejos, como los producidos a partir de test de hipotesis o regresiones, que contienen muchos tipos distintos de informacion estadistica. Mas adelante vamos a ahondar en la asignacion de objetos y los tipos de objetos en R y sus caracteristicas. Por ahora solo quedemonos con la idea de que en R hay distintos tipos de objetos. 
+
+Veamos un ejemplo. Ejecutando el siguiente codigo crearemos distintos objetos:
+
+```{r echo=TRUE}
+mi_vector <- c(1:12)
+mi_matriz <- matrix(1:12, byrow = T,  nrow = 3)
+mi_df <- iris
+mi_lista <- list(mi_vector,mi_matriz,mi_df)
+tu_vector <- c(1:120)
+tu_matriz <- matrix(1:21, byrow = T,  nrow = 3)
+tu_df <- mtcars
+```
+
+Una vez definidos, los objetos aparecen en la pestaña environment en secciones dependiendo del tipo de objeto en cuestion. En este ejemplo, encontramos nuestros objetos en __Data__ y __Values__. Tambien se muestra informacion basica de cada uno, sus dimensiones (ej. la cantidad de elementos que contienen, el numero de filas y columnas, observaciones y variables) y el tipo de dato que contienen. 
+
+Veamos brevemente algunas utiles para explorar nuestro espacio de trabajo. Supongamos hemos cargado o creado muchos objetos y queremos revisarlos rapidamente. La funcion `ls()` muestra los nombres de todos los objetos que tenemos actualmente en el espacio de trabajo.
+
+```{r echo=TRUE}
+ls()
+```
+
+Para eliminar objetos del espacio de trabajo tenemos varias opciones. Podriamos usar el boton en la parte superior de la pestaña environment que muestra el icono de una escoba y eliminar todos los objetos. Si lo presionamos aparece una ventana emergente que pide confirmacion. 
+
+Otra alternativa, que nos permite mayor control, es eliminar objetos utilizando la funcion `rm()`.
+
+Podemos indicar los nombres de los objetos a eliminar uno a uno:
+
+```{r echo=TRUE}
+rm(mi_vector,tu_vector)
+```
+
+O eliminarlos siguiento un patron de busqueda. En este ejemplo, eliminamos todos los objetos que terminan en "_df"
+
+```{r echo=TRUE}
+rm(list = ls(pattern = "_df$"))
+```
+
+Tambien podemos eliminar todos los elementos usando el siguiente codigo.
+
+```{r echo=TRUE}
+rm(list=ls(all=TRUE))
+```
+
+La pestaña __History__ en este panel simplemente muestra un historial de todos los codigos que han sido ejecutados previamente.
+
+#### Funciones y librerias {-}
+Antes de seguir revisando la interfaz de R Studio, clarifiquemos un par de cosas basicas. En la medida en que trabajemos mas con R, vamos a notar que casi todo en R es un objeto o una funcion. Ya hemos hablado introductoriamente de los objetos y mencionado algunas funciones, pero ¿que es una funcion? 
+
+Las __funciones__ son modulos de codigo autocontenidos que cumplen con una tarea especifica. En terminos practicos, una funcion es un procedimiento que toma uno o mas objetos como inputs, hace algo con esos objetos y luego devuelve otro objeto como resultado. Una funcion basica tiene tres partes: nombre, parentesis y argumentos. Se veria de la siguiente manera:
+
+```{r eval=FALSE}
+nombre_de_la_funcion(argumento)
+```
+
+No todas las funciones incluyen argumentos (como vimos con la funcion `ls()`), no obstante, la mayoria de las funciones si los toman. Los argumentos de una funcion pueden incluir:
+
+   - El objeto fisico que sera procesado.
+   - Opciones, especificaciones que alteran como opera la funcion.
+
+Si no especificamos un argumento requerido al llamar una funcion, recibiremos un error o la funcion va a operar con los valores que trae por defecto. Los default de una funcion representan valores estandar que el o la autora de la funcion ha especificado como "lo suficientemente buenos en casos estandar". Siempre es bueno tener claridad de cuales son los defaults de las funciones que usamos y cuales son las opciones que estas permiten, de manera de que, si necesitamos un procesamiento especifico, podamos indicarlo. 
+
+Veamos un ejemplo basico. La funcion `mean()` toma datos numericos como argumento (esto va entre parentesis), calcula la media aritmetica de esos datos y luego devuelve un numero unico como resultado. 
+
+Primero intentemos correr la funcion `mean()` sin argumentos.
+
+```{r eval=FALSE}
+mean()
+```
+
+```{r eval=FALSE}
+> mean()
+Error in mean.default() : argument "x" is missing, with no default
+```
+
+Esto resulta en error, porque la funcion `mean()` requiere que especifiquemos un objeto (un vector) numerico para operar. En el codigo siguiente, creamos un objeto con numeros y lo ingresamos al interior de los parentesis de la funcion `mean()`.
+
+```{r echo=TRUE}
+mi_vector <- c(-500,1,6,5,7,10,9,4,2,8,3,10000)
+mean(mi_vector)
+```
+
+Esta vez si obtenemos un resultado, el promedio de los numeros que especificamos. Modifiquemos nuestro argumento `mi_vector` para que incluya casos perdidos (indicados con `NA`, *not available*). Los casos perdidos son algo con lo que de seguro nos vamos a enfrentar al analizar datos en el futuro. Corremos el codigo para hacer efectivos nuestros cambios.
+
+```{r echo=TRUE}
+mi_vector <- c(-500,1,6,5,7,NA,10,9,4,2,8,NA,3,10000)
+```
+
+Ahora intentemos correr la funcion `mean()` usando `mi_vector` como argumento.
+
+```{r echo=TRUE}
+mean(mi_vector)
+```
+
+Esta vez obtenemos `NA` como resultado, porque, bajo las opciones *default*, `mean()` no nos puede entregar un promedio. Le faltan datos. 
+
+Aprovechemos de introducir los archivos de ayuda de R. El operador de ayuda `?` nos da acceso a la documentacion de R para funciones, datasets y otros objetos. Para leer la documentacion de la funcion `mean()`, tipeamos `?mean` en la consola o en el script y ejecutamos.
+
+```{r eval=FALSE}
+?mean
+```
+
+La documentacion aparecera automaticamente en la pestaña __Help__. Si nos fijamos en el subtitulo *Usage*, leemos:
+
+```{r eval=FALSE}
+## Default S3 method:
+mean(x, trim = 0, na.rm = FALSE, ...)
+```
+
+Lo que indica que que `mean()` usa tres argumentos. Uno de ellos es `x`, nuestro objeto numerico, pero posee dos defaults `trim = 0` y `na.rm = FALSE`. Mas abajo indica que la opcion `na.rm` acepta un argumento logico que indica si los valores `NA` deben ser excluidos de los calculos. Veamos que sucede si corremos `mean()` indicando `na.rm = TRUE`.
+
+
+```{r echo=TRUE}
+mean(mi_vector, na.rm=TRUE)
+```
+
+Esta vez si nos entrega un resultado. Probemos cambiando el otro argumento que viene por default. `trim` sirve para calcular medias truncadas, un procedimiento especifico que excluye parte de los valores ingresados del calculo de la media. Por lo general, usamos todos los numeros para calcular la media, por lo que se entiende que la opcion por default sea `trim = 0`. `trim` acepta argumentos numericos que representan la fraccion de las observaciones que deben ser excluidas del calculo de la media a cada extremo de `x`. Supongamos que queremos una media truncada de nuestra secuencia de numeros, que excluya los valores outliers `-500` y `10000`. Nos quedariamos solo con una secuencia de numeros del 1 al 10 (sabemos que el promedio de los numeros del 1 al 10 es 5.5). Usemos `mean()` y especificamos que se trunque el 0.1 de los valores y recalculamos.
+
+```{r echo=TRUE}
+mean(mi_vector, na.rm=T, trim=0.1)
+```
+
+Otra opcion. Cuando no necesitamos leer toda la documentacion asociada a una funcion porque ya sabemos como trabaja, pero conocemos exactamente cuales son sus argumentos, podemos usar la funcion `args()`. Veamos otro ejemplo. La funcion `round()` nos permite redondear valores que tienen decimales. Sabemos que $\pi \approx 3.1415926535$. 
+
+```{r echo=TRUE}
+round(3.1415926535)
+```
+
+Por default, `round()` trunco $\pi$, nos devuelve solo la parte entera, lo que puede no ser tan util. Revisemos los argumentos de `round()` con la funcion `args()`.
+
+```{r echo=TRUE}
+args(round)
+```
+
+El output nos muestra el argumento `digits` y que por default `digits = 0`. Especifiquemos que queremos redondear a cuatro digitos: 
+
+```{r echo=TRUE}
+round(3.1415926535, digits=4)
+```
+
+A veces solo necesitamos ejemplos del funcionamiento de una funcion. Por ejemplo, la funcion `sum()` devuelve la suma de los valores presentes en sus argumentos. Veamos algunos ejemplos de `sum()`.
+
+```{r echo=TRUE}
+example(sum)
+```
+
+
+El entorno base de R trae implementadas internamente funciones basicas como `mean()`, `round()` o `sum()`, pero muchas otras han sido desarrolladas y forman parte de __packages__ o __libraries__. 
+
+Los __packages__ o paquetes son colecciones de funciones de R, datos y codigos compilados en un formato bien definido, creado para agregar una funcionalidad especifica. Existe un set de paquetes standard o recomendados de R que son considerados parte del codigo fuente de R y estan automaticamente disponibles como parte de la instalacion de R. Estos paquetes base contienen funciones basicas que permiten que R trabaje y el desarrollo de analisis estadisticos y graficos (como las que hemos visto hasta ahora). Los directorios en R donde los paquetes son almacenados se llaman __libraries__ o librerias. A veces, los terminos paquete y libreria se usan como sinonimos.
+
+En la medida en que usemos R para realizar tareas mas especificas, nos vamos a dar cuenta de que existen muchisimos paquetes y que estos ofrecen una gran variedad de funcionalidades. Para usar paquetes adicionales a los standard necesitamos instalarlos desde [CRAN](http://cran.r-project.org/). 
+
+En [CRAN](http://cran.r-project.org/) encontraremos, ademas las ultimas versiones de R, un repositorio con miles de paquetes de R contribuidos por los usuarios. Para instalarlos utilizamos la funcion `install.packages()`, que va a descargar el codigo fuente del paquete desde los mirrors de CRAN, e instalara el paquete y sus dependencias localmente en nuestros computadores.
+
+Como ejemplo, instalemos el paquete de visualizacion de datos `ggplot2`. Corremos el siguiente codigo. En la consola indicara el tamaño del paquete, el avance de la instalacion y la ruta donde quedo instalado. 
+
+```{r eval=FALSE}
+install.packages("ggplot2")
+```
+
+Una vez hemos instalado el paquete localmente, necesitamos cargar la libreria en la sesion actual de R. Las funciones especificas del paquete estaran disponibles para ser usadas tal y como hemos estado llamando las funciones que revisamos hasta ahora, pero solo una vez la libreria sea cargada. Para cargar una libreria usamos la funcion `library()`.
+
+```{r echo=TRUE}
+library(ggplot2)
+```
+
+Algo importante a mencionar es que solo necesitamos instalar los paquetes una vez en nuestros computadores. No obstante, para usar el paquete, necesitamos cargar su libreria cada vez que iniciamos una nueva sesion en R. Una analogia util es pensar en una ampolleta y encender la luz. Instalamos la ampolleta una vez, `install.packages("luz")`, pero tenemos que apretar el interruptor cada vez que queremos encender la luz, `library(luz)` (sin comillas!). 
+
+Podemos chequear que librerias estan cargadas en el entorno usando la funcion `sessionInfo()`.
+
+```{r echo=TRUE}
+sessionInfo()
+```
+
+En este caso, varios paquetes se cargaron necesarios para usar las funciones de `ggplot2` se cargaron automaticamente junto a `ggplot2`.
+
+#### Files / Plots / Packages / Help {-}
+Ahora podemos volver a nuestra revision de la interfaz de R Studio. La pestaña __Packages__, como su nombre lo indica, nos muestra listados todos los paquetes que estan instalados localmente. Las librerias que estan cargadas en la sesion actual aparecen marcadas con un "check". 
+
+Si hacemos click en el nombre del paquete accedemos a la documentacion: su descripcion, guias de usuario y las paginas de ayuda para cada una de sus funciones. Esto nos lleva a la pestaña __Help__, el menu de ayuda de R. Podemos acceder a la misma informacion que cuando usamos el operador `?` si tipeamos el nombre de una funcion en la caja de busqueda que esta en la parte superior de la pestaña. 
+
+El panel __Files__ da acceso a los directorios en el disco duro. Una de las caracteristicas utiles del panel archivos es que se puede usar para declarar el directorio de trabajo, de lo que hablaremos en la proxima seccion.
+
+Finalmente la pestaña __Plots__ muestra los graficos que hemos generado en la sesion. Los botones permiten abrir los graficos en una ventana separada, exportarlos y guardarlos (aunque esto tambien se puede hacer usando codigo). Veamos brevemente como funciona, tendremos una sesion dedicada a la visualizacion de datos mas adelante.
+
+Cargamos en nuestro espacio de trabajo la base de datos `iris`, que viene incluida como ejemplo con los paquetes standard de R. Se trata de una base de datos que contiene medidas en centimetros de petalos y sepalos de 50 flores de cada una de las tres especies de iris.  
+
+```{r echo=TRUE}
+iris_dt <- iris
+```
+
+Con el codigo a continuacion, generamos un histograma del largo de los petalos.
+
+```{r echo=TRUE, fig.cap="El panel Plot contiene los graficos, como este histograma de la distribucion del largo del sepalo para la muestra de flores de la base de datos Iris."}
+hist(x = iris_dt$Petal.Length,
+     ylim = c(0, 50),
+     main = "Largo del Petalo",
+     xlab = "Largo (cm)",
+     ylab = "Frecuencia",
+     col = "skyblue",
+     border = "white")
+```
+
+### Administrando, importando y guardando archivos y datos.
+
+#### Working directory  {-}
+Para ayudarnos a mantener nuestros archivos ordenados, R usa __working directories__ o directorios de trabajo. Un directorio de trabajo es una ruta local que indica la localizacion por defecto de los archivos que cargaremos o guardaremos en una sesion de R. La carpeta a la que refiere dicha ruta puede estar en cualquier lado, pero es recomendable asociar una carpeta para cada proyecto de analisis especifico de manera de mantener en un solo lugar sus archivos.
+
+Si, por ejemplo, pedimos a R que cargue determinado archivo, R supone en primera instancia que este se encuentra en el directorio de trabajo, lo que nos ahorra tener que especificar la ruta completa. 
+
+Solo podemos tener un directorio de trabajo activo por sesion. Para ver cual es el directorio de trabajo actual, usamos la funcion `getwd()`
+
+```{r echo=TRUE}
+getwd()
+```
+
+Como podemos ver, cuando ejecuto la funcion, R me indica que el directorio de trabajo actual es una carpeta llamada `bd_apuntes`. Esto implica que cuando leo nuevos archivos en R, R asume que se encuentran en esta carpeta.
+
+Si queremos cambiar el directorio de trabajo, usamos la funcion `setwd()`. Por ejemplo, me gustaria cambiar mi directorio de trabajo a una carpeta en mi Escritorio llamada `ayud_1`.
+
+```{r eval=FALSE}
+setwd("C:/Users/pjcar/Desktop/ayud_1")
+```
+
+Comprobemos si realizo el cambio
+
+```{r eval=FALSE}
+getwd()
+```
+
+```{r eval=FALSE}
+## [1] "C:/Users/pjcar/Desktop/ayud_1"
+```
+
+#### .RData  {-}
+La mejor manera de almacenar objetos de R son los archivos `.RData`, especificos de R. Los archivos `.RData` pueden guardar muchos objetos en un unico archivo.
+
+Para guardar un archivo `.RData`, usamos la funcion `save()`. Sus argumentos son los objetos que queremos almacenar en el archivo y la opcion `file`, donde indicamos el nombre del archivo.
+
+Guardemos uno de los objetos que tenemos en nuestro espacio de trabajo.
+
+```{r echo=TRUE}
+save(iris_dt, file="mi_objeto.RData")
+```
+
+Una vez que ejecutamos la funcion, podremos ver `mi_objeto.RData` en el directorio de trabajo.
+
+Si tuvieramos muchos objetos y no queremos tipear cada uno de sus nombres, podemos usar la funcion `save.image()`, que guardara todos los objetos que estan actualmente en el espacio de trabajo.
+
+```{r echo=TRUE}
+save.image(file="mis_objetos.RData")
+```
+
+Borremos nuestos objetos con la funcion `rm()` que ya revisamos.
+
+```{r echo=TRUE}
+rm(list=ls(all=TRUE))
+```
+
+Para cargar un archivo `.RData`, importando los objetos que contiene, usamos la funcion `load()`. 
+
+```{r echo=TRUE}
+load(file="mis_objetos.RData")
+```
+
+#### Exportando e importando .csv {-}
+R permite exportar datos a archivos que pueden ser leidos por otros programas. `CSV` es un formato de archivo simple y mas o menos universal usado para guardar datos en dos dimensiones (ej. bases de datos). Para guardar un objeto de estas caracteristicas, usamos la funcion `write.csv()`. Sus argumentos basicos son el objeto a ser guardado y `file`, donde indicamos el nombre del archivo. Por default, `write.csv()` crea una primera columna en la que ennumera las filas. Esto no suele ser muy util y podemos indicar que no lo haga usando el argumento `row.names=FALSE`.
+
+```{r echo=TRUE}
+write.csv(iris_dt,file="iris.csv",row.names=FALSE)
+```
+
+Para importar un archivo `.csv`, utilizamos la funcion `read.csv()`. Sus argumentos basicos son dos: `file`, la ruta donde se encuentra el archivo y, si se trata de una base de datos, `header = TRUE`, lo que indica a R que la primera fila contiene un encabezado (los nombres de las variables). Además, para cargar el archivo a nuestro espacio de trabajo debemos asignarle un nombre y crear el objeto. 
+
+Carguemos el archivo `iris.csv` en nuestro espacio de trabajo, asignandolo al objeto `iris_nuevo`
+
+```{r echo=TRUE}
+iris_nuevo <- read.csv(file="iris.csv", header=TRUE)
+```
+
+## Operadores basicos en R
+
+### Operadores aritmeticos
+
+En su forma mas basica, R puede ser usado como una calculadora. Los operadores aritmeticos basicos son los convencionales:
+
+   - __Suma__: `+`
+   - __Resta__: `-`
+   - __Multiplicacion__: `*`
+   - __Division__: `/`
+   - __Potencia__: `^`
+   - __Modulo__: `%%`. El modulo calcula el resto o diferencia de la division entre un dividendo y un divisor (ej. 5 mod 2 da 1, porque 2 * 2 es 4 y el resto o diferencia es 1) 
+   - __Division de intergers__: `%/%`. La division de intergers calcula la division entre un dividendo y un divisor ignorando la parte fraccional del resultado (ej. 5/2 es 2.5, pero la division de integers 5\2 es 2)
+
+Ejemplos: 
+
+```{r echo=TRUE}
+4 + 7
+```
+
+```{r echo=TRUE}
+9 - 5
+```
+
+```{r echo=TRUE}
+7 * 8
+```
+
+```{r echo=TRUE}
+(5 + 5) / 2
+```
+
+```{r echo=TRUE}
+9 ^ 3
+```
+
+```{r echo=TRUE}
+28 %% 6
+```
+
+```{r echo=TRUE}
+28 / 6
+28 %/% 6
+```
+
+### Operadores logicos
+
+Los operadores logicos en R son los siguientes:
+
+   - __<__ : menor que.
+   - __>__ : mayor que.
+   - __<=__: menor o igual que.
+   - __>=__: mayor o igual que.
+   - __==__: igual.
+   - __!=__: no igual.
+   - __!__ : no (ej. !a evalua si algo no es a)
+   - __|__ : o (ej. a|b evalua si algo es a O b)
+   - __&__ : y (ej. a&b evalua si algo es a Y b)
+   
+Veamos algunos ejemplos:
+
+```{r echo=TRUE}
+5<2
+```
+
+```{r echo=TRUE}
+5>2
+```
+
+```{r echo=TRUE}
+7==(3+4)
+```
+
+```{r echo=TRUE}
+7!=(4+4)
+```
+
+Usemos mas de un numero. En R el operador `:` crea una serie de numeros en secuencia entre el primer numero indicado y el segundo numero, incluyendolos.
+
+```{r echo=TRUE}
+1:10
+```
+
+Evaluemos que numeros en la secuencia del 1 al 10 son mayores o iguales a 8
+
+```{r echo=TRUE}
+1:10>=8
+```
+
+Ahora cuales numeros de dicha secuencias son mayores o iguales a 8 o menores a 5
+```{r echo=TRUE}
+(1:10>=8) | (1:10<4)
+```
+
+Finalmente, cuales numeros de dicha secuencias son mayores o iguales que 3 y son pares (aprovechemos de usar modulo, si un numero x es par, x es divisible por 2, por lo tanto, x mod 2 es 0)
+```{r echo=TRUE}
+(1:10>=3) & (1:10%%2==0)
+```
+
+## Asignacion de variables
+Un concepto basico en la programacion estadistica es el concepto de variable. Una variable permite guardar un valor o un objeto en R. Despues de guardarlo o asignarlo, podemos usar el nombre de la variable para acceder al valor o al objeto que esta almacenado en la variable.
+
+Asignemos el valor 7 a una variable llamada `mi_variable`. Para hacerlo, usamos el operador de asignacion `<-`. El shorcut para el operador de asignacion es Alt + - (Windows) o Option + - (Mac).
+
+```{r echo=TRUE}
+mi_variable <- 7
+```
+
+Podemos ver que la variable `mi_variable` aparece como valor en la ventana *environment* de RStudio. 
+
+Para imprimir el valor almacenado en `mi_variable` tenemos que escribir su nombre y ejecutar.
+
+```{r echo=TRUE}
+mi_variable
+```
+
+Practiquemos la asignacion de variables y operaciones basicas. Creamos dos variables: `manzanas`, a la que le asignamos el valor `54` y `peras`, a la que le asignamos el valor `22`.
+
+```{r echo=TRUE}
+manzanas <- 54
+peras <- 22
+```
+
+Sumemos las variables `manzanas` y `peras`, y asignamos el resultado a una variable llamada `frutas`. Imprimimos el resultado
+
+```{r echo=TRUE}
+frutas <- manzanas + peras
+frutas
+```
+
+## Tipos de datos
+Probemos asignando a una variable llamada `naranjas` que contenga el valor de caracteres `"nueve"`. En R los valores de caracteres son identificados poniendolos entre comillas. Si no se usaran comillas, las palabras son interpretadas como si fueran nombres de objetos en el *environment*...
+
+```{r eval=FALSE}
+naranjas <- nueve
+```
+
+Lo que arroja el siguiente error de evaluacion si el objeto no existe:
+
+```
+Error: object 'nueve' not found
+```
+
+Si el objeto existiera, se copia bajo el nombre asignado.
+
+```{r echo=TRUE}
+naranjas <- manzanas
+naranjas
+manzanas
+```
+
+Volvamos a crear la variable `naranjas`, esta vez como habiamos dicho, asignada al valor `"nueve"` y la mprimimos.
+
+```{r echo=TRUE}
+naranjas <- "nueve"
+naranjas
+```
+
+Veamos que pasa si quisieramos sumar `manzanas` y `naranjas`
+
+```{r eval=FALSE, include=FALSE}
+manzanas + naranjas
+```
+```
+Error in manzanas + naranjas : non-numeric argument to binary operator
+```
+
+Nos arroja error porque los datos almacenados en estas variables son de distinto tipo. R maneja distintos tipos de datos, los mas basicos son:
+
+   - __Numeric__: Valores con decimales (ej. 5.8)
+   - __Integer__: Valores enteros (ej. 4). Los *integers* tambien son *numerics*. Para especificarlos como *integer* debemos cerrar con una letra `L` (ej. 4L)
+   - __Logical__: Booleanos (TRUE o FALSE).
+   - __Character__ o __string__: Valores de texto (ej. "seis manzanas")
+
+Creemos variables de distintos tipos:
+
+```{r echo=TRUE}
+mi_numeric <- 6.666
+mi_integer <- 7L
+mi_logical <- TRUE
+mi_string <- "tres"
+```
+
+Para chequear el tipo de datos almacenados en las variables usamos la funcion `class()`.
+
+```{r echo=TRUE}
+class(mi_numeric)
+class(mi_integer)
+class(mi_logical)
+class(mi_string)
+```
+
+## Vectores
+Los __vectores__ son formaciones o *arrays* unidimensionales que contienen datos numericos, de caracteres o logicos, siendo todos Los elementos del mismo tipo. En R se crean vectores con la funcion de combinacion `c()`. Los elementos del vector se ponen dentro de `c()` separados por comas. 
+
+Veamos un ejemplo. Un estudiante quiere analizar los datos de sus calificaciones de matematicas y lenguaje, que aparecen en la siguiente tabla:
+
+|       | Matematicas | Lenguaje |
+| ----: | :---------: | :------: |
+| Marzo | 6.1         | 5.3      |
+| Abril | 5.5         | 3.6      |
+| Mayo  | 4.4         | 2.0      |
+| Junio | 3.8         | 5.5      |
+| Julio | 7.0         | 6.5      |
+
+Lo primero que hace tras recibir sus notas es generar con ellas dos vectores en R, a los que llama `mate` y `leng`, y despues los imprime.
+
+```{r echo=TRUE}
+mate <- c(6.1,5.5,4.4,3.8,7.0)
+leng <- c(5.3,3.6,2.0,5.5,6.5)
+mate
+leng
+```
+
+El estudiante no quiere confundirse. Sabe que tuvo una evaluacion al mes, pero asi como estan sus vectores, es dificil identificar a cual mes corresponden. El estudiante decide ponerle nombre a los datos almacenados en los vectores.
+
+Para nombrar elementos en R, utilizamos la funcion `names()`. La funcion names necesita otro vector que contenga los nombres que se quieren asignar al objeto. Siguiendo con el ejemplo:
+
+```{r echo=TRUE}
+names(leng) <- c("marzo","abril","mayo","junio","julio")
+leng
+```
+
+Para no tener que tipear el vector cada vez, podemos reutilizarlo si lo asignamos previamente a una variable.
+
+```{r echo=TRUE}
+meses <- c("marzo","abril","mayo","junio","julio")
+```
+
+Los datos de caracter de esta variable serviran como nombres a los vectores `mate` y `leng`. 
+
+```{r echo=TRUE}
+names(mate) <- meses
+names(leng) <- meses
+mate
+leng
+```
+
+### Aritmetica en vectores 
+Con ambos vectores con nombre, el estudiante quiere visualizar en que meses tuvo peores calificaciones. Se le ocurre sumar sus calificaciones por mes y dividirlas por dos para sacar un promedio mensual:
+
+```{r echo=TRUE}
+suma_mes  <- mate + leng
+media_mes <- suma_mes/2
+media_mes
+```
+
+Claramente mayo no fue un buen mes. El estudiante quiere saber si le fue mejor en lenguaje o en matematicas y decide calcular un promedio simple. Para lograrlo, usa la funcion `sum()` para sumar los elementos de cada vector y luego divide por `5` para promediar.
+
+```{r echo=TRUE}
+sum_leng <- sum(leng)
+sum_mate <- sum(mate)
+
+media_leng <- sum_leng/5
+media_mate <- sum_mate/5
+
+media_leng
+media_mate
+```
+
+Despues se da cuenta que podria haber usado la funcion `mean()` para hacer lo mismo:
+
+```{r echo=TRUE}
+mean_leng <- mean(leng)
+mean_mate <- mean(mate)
+mean_leng
+mean_mate
+```
+
+### Seleccion en vectores
+Para seleccionar elementos en un vector utilizamos los parentesis cuadrados `[]`, indicando entre ellos el elemento que queremos seleccionar.
+
+Por ejemplo, queremos elegir el primer elemento del vector `leng`.
+
+```{r echo=TRUE}
+leng[1]
+```
+
+Como `leng` es un vector con nombres, tambien podemos usar el nombre asignado a los elementos.
+
+```{r echo=TRUE}
+leng["marzo"]
+```
+
+Para seleccionar multiples elementos de un vector, indicamos un vector con sus indices entre parentesis. Seleccionemos el elemento 1 y el elemento 5 del vector `mate`.
+
+```{r echo=TRUE}
+mate[c(1,5)]
+```
+
+Especificar cada uno de los elementos puede ser inconveniente en algunas ocasiones. Supongamos que queremos seleccionar los tres elementos intermedios del vector `mate`, esto es los elementos 2, 3 y 4. Podemos usar el vector de seleccion `c(2,3,4)` o usar abreviadamente el vector `c(2:4)` que se refiere a todos los numeros naturales de 2 a 4. 
+
+```{r echo=TRUE}
+mate[c(2:4)]
+```
+
+Tambien podriamos usar sus nombres.
+
+```{r echo=TRUE}
+mate[c("abril","mayo","junio")]
+```
+
+Otra forma de seleccion es la seleccion por comparacion, usando operadores logicos. Los operadores logicos tambien pueden ser usados en vectores. Como anticipamos en los ejemplos de la primera seccion, estos operadores evaluan si la expresion que indicamos es verdadera o falsa para cada elemento en el vector. Revisemos en cuales de las evaluaciones de lenguaje el estudiante califico con una nota menor a 4.0.
+
+```{r echo=TRUE}
+leng<4.0
+```
+
+Creemos dos vectores de seleccion para las calificaciones en las que el estudiante obtuvo una nota mayor o igual a 4.0, asignandolas a las variables `aprueba_mate` y `aprueba_leng` y las imprimimos.
+
+```{r echo=TRUE}
+aprueba_mate <- mate >= 4.0
+aprueba_mate
+aprueba_leng <- leng >= 4.0
+aprueba_leng
+```
+
+Usamos estos vectores de seleccion usando los parentesis cerrados. R interpreta los vectores logicos seleccionando solo los elementos que se corresponden a un `TRUE` en el vector de seleccion. Seleccionemos e imprimamos en cada caso dichas calificaciones.
+
+```{r echo=TRUE}
+mate[aprueba_mate]
+leng[aprueba_leng]
+```
+
+Podemos ahorrarnos el paso intermedio de la asignacion del vector de seleccion.
+
+```{r echo=TRUE}
+mate[mate >= 4.0]
+leng[leng >= 4.0]
+```
+
+## Matrices
+En R una __matriz__ es un conjunto de elementos del mismo tipo (*numeric*, *character* o *logical*) ordenados en un numero fijo de filas y columnas. 
+
+Podemos construir una matriz usando la funcion `matrix()`. Como ejemplo, construyamos una matriz con los elementos de un vector numerico que contenga los numeros del 1 al 12 de manera tal que tenga 3 filas y 4 columnas:
+
+```{r echo=TRUE}
+matrix(1:12, byrow = TRUE, nrow = 3)
+```
+
+El primer argumento de la funcion se refiere a los datos o elementos que R va a ordenar en la matriz. El argumento `byrow = TRUE` le indica a R que llene la matriz siguiendo las filas. Si quisieramos que llene siguiendo las columnas, especificamos `byrow = FALSE`. Las funciones en R tienen argumentos que vienen definidos por defecto, es decir, si no los especificamos toman un valor establecido por el mismo programa. Se recomienda revisar los archivos de ayuda de las funciones antes de usarlas. 
+
+```{r eval=FALSE}
+?matrix
+```
+
+En el caso de la funcion `matrix()` el argumento `byrow` toma por default el valor `FALSE`. En otras palabras, si no indicamos `byrow = TRUE`, la matriz se llenara automaticamente siguiendo las columnas.
+
+```{r echo=TRUE}
+matrix(1:12, nrow = 3)
+```
+
+Finalmente tercer elemento, `nrow = 3`, indica cuantas filas deberia tener la matriz, en este caso 3. Tambien podemos especificar el numero de columnas, en este caso `ncol = 4`. Volvamos a nuestra matriz inicial.
+
+```{r echo=TRUE}
+matrix(1:12, byrow = TRUE, ncol = 4)
+```
+
+Si no establecemos cuantas columnas o filas queremos, R interpreta que necesitamos una matriz con una sola columna, independiente del argumento de `byrow`.
+
+```{r echo=TRUE}
+matrix(1:12, byrow = TRUE)
+matrix(1:12, byrow = FALSE)
+```
+
+Veamos un ejemplo de analisis de matrices. El Señor de los Anillos es la triologia filmica mas exitosa de la historia del cine en termino de recaudaciones a nivel mundial. La siguiente tabla muestra la recaudacion de cada una de las peliculas de la triologia, en Estados Unidos y Canada y en el resto del mundo.
+
+|                    | U.S. and Canada | Otros territorios |
+| -----------------: | :-------------: | :---------------: |
+| *[The Fellowship of the Ring](https://en.wikipedia.org/wiki/The_Lord_of_the_Rings:_The_Fellowship_of_the_Ring#Box_office)* | \$315,544,750	        | \$572,389,161         |
+| *[The Two Towers](https://en.wikipedia.org/wiki/The_Lord_of_the_Rings:_The_Two_Towers#Box_office)* | \$342,551,365        | \$608,676,051          |
+| *[The Return of the King](https://en.wikipedia.org/wiki/The_Lord_of_the_Rings:_The_Return_of_the_King#Box_office)* | \$377,845,905        | \$764,425,193          |
+
+
+Vamos a construir una matriz con esta informacion. Los siguientes tres vectores tienen la recaudacion de cada pelicula en millones:
+
+```{r echo=TRUE}
+the_fellowship_of_the_ring <- c(315.545,572.389)
+the_two_towers <- c(342.551,608.676)
+the_return_of_the_king <- c(377.846,764.425)
+```
+
+Combinemos estos vectores en uno llamado `recaudacion`.
+
+```{r echo=TRUE}
+recaudacion <- c(the_fellowship_of_the_ring, the_two_towers, the_return_of_the_king)
+recaudacion
+```
+
+Con este vector, construimos una matriz de 3 filas que llamaremos `lotr` y la imprimimos.
+
+```{r echo=TRUE}
+lotr <- matrix(recaudacion, byrow = TRUE, nrow = 3)
+lotr
+```
+
+Para identificar la informacion que la matriz contiene, le asignaremos nombres a las filas y las columnas de la matriz. Los siguientes vectores contienen dichos nombres:
+
+```{r echo=TRUE}
+region <- c("USA y Canada", "Otras regiones")
+titulo <- c("The Fellowship of the Ring", "The Two Towers", "The Return of the King")
+```
+
+Usamos las funciones `colnames()` y `rownames()` para asignar los nombres e imprimimos la matriz.
+
+```{r echo=TRUE}
+region -> colnames(lotr)
+titulo -> rownames(lotr)
+lotr
+```
+
+Calculemos la recaudacion mundial de cada una de las peliculas. Para hacerlo, tenemos que sumar la recaudacion de ambas regiones. En R, la funcion `rowSums()` calcula los totales por fila, creando un vector con esta informacion. Asignemos este nuevo vector a la variable `recaudacion_mundial` y lo imprimimos.
+
+```{r echo=TRUE}
+recaudacion_mundial <- rowSums(lotr)
+recaudacion_mundial
+```
+
+Agreguemos este vector a la matriz. Para hacerlo, usamos la funcion `cbind()`, que sirve para pegar matrices y/o vectores como columnas. Asignamos la matriz resultante a la variable `lotr_mundial`. Renombramos la nueva columna como `"Todo el mundo"` e imprimimos.
+
+```{r echo=TRUE}
+lotr_mundial <- cbind(lotr,"Todo el mundo"=recaudacion_mundial)
+lotr_mundial
+```
+
+La siguiente tabla contiene informacion de la recaudacion de la triologia de El Hobbit, que fue un exito comercial aunque tenga una recepcion critica mixta. 
+
+|                                                              | U.S. and Canada | Otros territorios | Todo el mundo  |
+| -----------------------------------------------------------: | :-------------: | :---------------: | :------------: |
+| *[An Unexpected Journey](https://en.wikipedia.org/wiki/The_Hobbit:_An_Unexpected_Journey)* | \$303,003,568    | \$718,100,000      | \$1,021,103,568 |
+| *[The Desolation of Smaug](https://en.wikipedia.org/wiki/The_Hobbit:_The_Desolation_of_Smaug)* | \$258,366,855    | \$700,000,000      | \$958,366,855   |
+| *[The Battle of the Five Armies](https://en.wikipedia.org/wiki/The_Hobbit:_The_Battle_of_the_Five_Armies)* | \$255,119,788    | \$700,900,000      | \$956,019,788   |
+
+A continuacion creamos una matriz de la recaudacion en millones. Nos saltamos algunos pasos, asi que revisemos argumento por argumento. El primero es un vector que tiene los millones recaudados. Con `nrow = 3` especificamos que la matriz tiene 3 filas y con `byrow = TRUE` que la matriz sera llenada fila a fila. Con `dimnames` indicamos los nombres que tendran las dimensiones de la matriz. El imput de `dimnames` es una lista (las revisaremos luego) que contiene dos vectores: el primer vector tiene los nombres de las filas y el segundo vector los nombres de las columnas. Imprimimos la nueva matriz para verificar que todo este en orden.
+
+```{r echo=TRUE}
+the_hobbit <- matrix(c(303.004,718.100,1021.104,
+                       258.367,700.000,958.367,
+                       255.120,700.900,956.020), 
+                     nrow = 3, byrow = TRUE,
+                     dimnames = list(c("An Unexpected Journey",
+                                       "The Desolation of Smaug",
+                                       "The Battle of the Five Armies"),
+                                     c("USA y Canada",
+                                       "Otras regiones",
+                                       "Todo el mundo")))
+the_hobbit
+```
+
+Creemos una matriz que contenga todas las peliculas de la franquicia de Tolkien. Para hacerlo, usamos la funcion `rbind()` que permite pegar matrices y/o vectores en la dimension de las filas. Usamos esta funcion para pegar las matrices `lotr_mundial` y `the_hobbit`, asignamos el resultado a la variable `tolkien` y lo imprimimos.
+
+```{r echo=TRUE}
+tolkien <- rbind(lotr_mundial,the_hobbit)
+tolkien
+```
+
+Calculemos el total de la recaudacion de las peliculas de Tolkien, por region y en todo el mundo. Usamos la funcion `colSums()` que calcula los totales por columna. Guardamos el resultado en `tolkien_total_rev`.
+
+```{r echo=TRUE}
+tolkien_total_rev <- rbind(tolkien,Total=colSums(tolkien))
+tolkien_total_rev
+```
+
+### Seleccion en matrices
+La seleccion en matrices tambien utiliza parentesis cuadrado `[]`. A diferencia de los vectores, las matrices son objetos en dos dimensiones, por lo que necesitamos especificar las filas y las columnas que queremos seleccionar.  
+
+Por ejemplo, tenemos una matriz que contiene los numeros del 1 al 12 ordenados en 3 filas. 
+
+```{r echo=TRUE}
+mi_matriz <- matrix(1:12, byrow = T,  nrow = 3)
+mi_matriz
+```
+
+El objeto a la izquierda de la coma se refiere a las filas y el objeto a la derecha de la coma se refiere a las columnas. `mi_matriz[2,3]` selecciona los elementos que estan en la segunda fila y en la tercera columna.
+
+```{r echo=TRUE}
+mi_matriz[2,3]
+```
+
+Tambien podemos seleccional varias filas o columnas a la vez. `mi_matriz[1:3,2:4]` selecciona los elementos que estan en las filas del 1 al 3 y en las columnas del 2 al 4.
+
+```{r echo=TRUE}
+mi_matriz[1:3,2:4]
+```
+
+Si tenemos que seleccionar todos los elementos de una fila o columna, no necesitamos especificar los objetos de las columnas o filas, respectivamente. `mi_matriz[,1]` selecciona todos los elementos que estan en la primera columna.
+
+```{r echo=TRUE}
+mi_matriz[,1]
+```
+`mi_matriz[1,]` selecciona todos los elementos que estan en la primera fila.
+```{r echo=TRUE}
+mi_matriz[1,]
+```
+
+Volvamos a nuestra matriz `tolkien`.
+
+```{r echo=TRUE}
+tolkien
+```
+
+Vamos a seleccionar la recaudacion de las peliculas de la triologia del Señor de los Anillos en las regiones fuera de USA y Canada y las vamos a asignar a la variable `lotr_otras_regiones`, e imprimimos.
+
+```{r echo=TRUE}
+lotr_otras_regiones <- tolkien[1:3,2]
+lotr_otras_regiones
+```
+
+### Aritmetica en matrices
+Calculemos el total de recaudacion y el promedio de recaudacion de estas peliculas fuera de Estados Unidos y Canada, usando las funciones `sum()` y `mean()`.
+
+```{r echo=TRUE}
+sum(lotr_otras_regiones)
+mean(lotr_otras_regiones)
+```
+
+Esto no es diferente a lo que realizamos en la seccion vectores, porque nuestra seleccion de elementos de la matriz `tolkien` es un vector. Si quisieramos mantenerlo en formato matriz, usamos la funcion `as.matrix()`. En este caso obtenemos una matriz de 3x1.
+
+```{r echo=TRUE}
+as.matrix(tolkien[1:3,2])
+```
+
+R permite que usemos los operadores matematicos elemento a elemento cuando los aplicamos a una matriz. Por ejemplo, `mi_matriz * 2` multiplica cada elemento en `mi_matriz` por 2.
+
+```{r echo=TRUE}
+mi_matriz
+mi_matriz*2
+```
+
+Supongamos que queremos calcular el numero de visitantes para las peliculas de Tolkien usando una estimacion del precio de la entrada al cine de $5. Dividimos la matriz `tolkien` por 5, para obtener el numero de visitantes en millones.
+
+```{r echo=TRUE}
+tolkien/5
+```
+
+Un amigo le indica que su calculo esta errado, porque los precios de los tickets para el Señor de los Anillos (2001 al 2003) fueron menores a los precios de los tickets para El Hobbit (2012 al 2014). Sugiere que usemos la informacion de la siguiente tabla, que contiene los precios promedio de la entrada al cine para la region de USA y Canada por año de lanzamiento para cada una de las entregas de ambas triologias.
+
+|      | LotR | The Hobbit |
+| ---: | :--: | :--------: |
+| I    | 5.66 | 7.96       |
+| II   | 5.81 | 8.13       |
+| III  | 6.03 | 8.17       |
+
+
+Pongamos en practica lo que hemos visto hasta ahora. Primero vamos a construir una matriz de 3 filas y 2 columnas que se asemeje a la tabla que nos han facilitado.
+
+```{r echo=TRUE}
+USC_tickets <- matrix(c(5.66,5.81,6.03,
+                        7.96,8.13,8.17),
+                        ncol = 2, byrow = FALSE)
+USC_tickets
+```
+
+Ahora construimos una matriz con la recaudacion para la region de USA y Canada que siga el formato de la tabla que nos entregaron. Lo haremos paso a paso. Primero, necesitamos seleccionar de la matriz `tolkien` los elementos que correspondan a la region para las peliculas de el Señor de los Anillos, que iran en la columna 1, y los elementos que correspondan a dicha region para las peliculas de El Hobbit, que iran en la columna 2. Asignamos nuestras selecciones a dos vectores `USC_lotr` y `USC_hobbit`
+
+```{r echo=TRUE}
+USC_lotr <- tolkien[1:3,1]
+USC_hobbit <- tolkien[4:6,1]
+```
+
+Luego usamos la funcion `cbind()` para pegar nuestros vectores en una matriz.
+
+```{r echo=TRUE}
+USC_tolkien <- cbind(USC_lotr,USC_hobbit)
+```
+
+Le damos nombres a las dimensiones de la matriz `USC_tolkien` y la imprimimos.
+
+```{r echo=TRUE}
+c("LotR","The Hobbit") -> colnames(USC_tolkien)
+c("I","II","III") -> rownames(USC_tolkien)
+USC_tolkien
+```
+
+Finalmente, calculamos la cantidad de visitantes en millones usando la informacion que recibimos. Al igual que lo hicimos antes, dividimos los datos de recaudacion por el precio de las entradas. Esta vez se trata de dos matrices `USC_tolkien` y `USC_tickets`. Asignamos el resultado a `visitantes` e imprimimos.
+
+```{r echo=TRUE}
+visitantes <- USC_tolkien/USC_tickets
+visitantes
+```
+
+Calculemos el promedio de visitantes para cada triologia.
+
+```{r echo=TRUE}
+mean(visitantes[,"LotR"])
+mean(visitantes[,"The Hobbit"])
+```
+
+## Factores
+Los __factores__ son un tipo de dato estadistico para almacenar variables categoricas, es decir, variables con un numero limitado de categorias. Esta diferencia es importante porque R reconoce automaticamente que los factores son variables categoricas, lo que determina el tipo de analisis estadistico que pueden realizarse con ellas. 
+
+Un ejemplo clasico de variable categorica es el sexo. Algunos limitan el numero de categorias de sexo a "hombre" y "mujer". Podemos discutir que existen mas variaciones genotipicas, fenotipicas, culturales, historicas... que compliquen la asignacion de estas categorias, pero convengamos que se trata de un numero x de categorias y no un numero infinito de valores numericos.  
+
+Creemos un factor que contenga el autorreporte de 5 personas a las que se les pregunto cual era su sexo. La informacion esta contenida en el vector `vector_sexo` a continuacion. Ejecutemos el codigo para crear `vector_sexo`.
+
+```{r echo=TRUE}
+vector_sexo <- c("M","H","M","H","M")
+vector_sexo
+```
+
+En este vector se observan dos valores: `"M"` que representa a la categoria "mujer" y `"H"` que representa a la categoria "hombre". En terminos de R, estas categorias son __factor levels__. La funcion `factor()` codifica los vectores como factores. Creemos un factor a partir de `vector_sexo`, asignemoslo a `factor_sexo` e imprimimos.
+
+```{r echo=TRUE}
+factor_sexo <- factor(vector_sexo)
+factor_sexo
+```
+
+Recordemos brevemente los tipos de variables categoricas: variables nominales y variables ordinales. Las variables nominales no tienen un orden implicito, no es posible ordenarlas en grado o valor. En contraste, las variables ordinales tienen un orden natural entre sus categorias, aunque la distancia entre estas no se conozca. No sabemos cual es la diferencia en magnitud entre "alto" y "medio" o entre "medio" y "bajo", pero sabemos que el orden de menor a mayor es "bajo", "medio" y "alto". 
+
+### Factores no ordenados
+Cuando recibimos datos, frecuentemente notamos que contienen variables categoricas con niveles especificos asociados. A veces vamos a querer cambiar el nombre de estos niveles para clarificar lo que significan. R permite hacerlo con la funcion `levels()`. 
+
+Volvamos a nuestro `factor_sexo`. Este factor fue creado a partir de datos de un vector crudo `vector_sexo` que provenia de una encuesta en la que se codificaron las categorias como "M" y "F" para simplificar el proceso. Revisemos los niveles del `factor_sexo`. 
+
+```{r echo=TRUE}
+levels(factor_sexo)
+```
+
+Cuando creamos un factor sin especificar el orden de los factores, como acabamos de hacer con `factor_sexo`, R conserva como __factor levels__ las categorias unicas presentes en el vector y les asigna un orden alfabetico. Por eso, pese a que en nuestro caso el primer elemento en el factor es "M", los __factor levels__ son "H" y "M".  Cambiemos los niveles del factor a `"Hombre"` y `"Mujer"`, teniendo en cuenta este orden alfabetico. Luego comprobamos volviendo a ejecutar `levels()`.
+
+```{r echo=TRUE}
+levels(factor_sexo) <- c("Hombre", "Mujer")
+levels(factor_sexo)
+```
+
+Exploremos nuestro `factor_sexo`. En R, la funcion `summary()` nos entrega una vista rapida de lo que contiene una variable. Los resultados de la funcion `summary()` dependen de la clase de su argumento. Veamos la diferencia al ejecutar `summary()` con `vector_sexo` y `factor_sexo`.
+
+```{r echo=TRUE}
+summary(vector_sexo)
+```
+
+Cuando corremos `summary()` con un vector, obtenemos la cantidad de elementos que almacena, la clase de datos que contiene y su modo de almacenamiento. En este caso tiene 5 elementos de clase y modo de almacenamiento __character__. 
+
+```{r echo=TRUE}
+summary(factor_sexo)
+```
+
+Cuando corremos `summary()` con un factor, obtenemos las frecuencias de cada nivel. En este caso, 2 hombres y 3 mujeres.
+
+Veamos que pasa cuando intentamos comparar los elementos de `factor_sexo`. Veamos los dos primeros elementos:
+
+```{r echo=TRUE}
+factor_sexo[1]
+factor_sexo[2]
+```
+
+Es `"Mujer"` mayor que `"Hombre"` ?
+
+```{r echo=TRUE}
+factor_sexo[1] > factor_sexo[2]
+```
+
+Por defecto, R devuelve `NA` (*not available*) porque la comparacion no tiene sentido, dado que se trata de una variable nominal y las categorias en `factor_sexo` no estan ordenadas. R le otorga un valor equivalente a los niveles de estos factores. Pero este no es siempre el caso. Como veremos a continuacion, a veces tenemos factores que poseen un orden natural entre sus categorias.
+
+### Factores ordenados
+Supongamos que nos piden crear un factor con informacion de una carrera de relevos. Basada en la velocidad de los corredores, la estrategia mas generalmente aceptada para un equipo de cuatro corredores es la siguiente: segundo mas rapido, tercero mas rapido, el mas lento, el mas rapido (ancla). Creemos un vector con esta estrategia.
+
+```{r echo=TRUE}
+vector_velocidad <- c("segundo mas rapido", "tercero mas rapido", "mas lento", "mas rapido")
+```
+
+Las categorias del `vector_velocidad` si tienen un orden y deberian ser convertidas a un factor ordenado. Como ya vimos, por defecto, la funcion `factor()` transforma los vectores en un factor no ordenado. Para crear un factor ordenado, debemos especificar dos argumentos adicionales: `ordered`, que acepta un argumento logico que debe ser `TRUE` para indicar que el factor es ordenado, y `levels` que acepta un vector con las categorias ordenadas. Creemos el `factor_velocidad` considerando las velocidades.
+
+```{r echo=TRUE}
+factor_velocidad <- factor(vector_velocidad, ordered = TRUE, 
+                           levels = c("mas lento", "tercero mas rapido", "segundo mas rapido", "mas rapido"))
+```
+
+Como podemos ver, R ahora muestra que los niveles tienen un orden y los imprime de menor a mayor. En este caso no es muy ilustrativo, porque tenemos un corredor por velocidad, pero si ejecutamos `summary()` obtenemos las frecuencias, tal y como vimos con anterioridad.
+
+```{r echo=TRUE}
+summary(factor_velocidad)
+```
+
+Veamos que pasa cuando comparamos las categorias de nuestros corredores.
+
+```{r echo=TRUE}
+factor_velocidad
+```
+
+Es el primer corredor mas rapido que el segundo corredor?
+
+```{r echo=TRUE}
+factor_velocidad[1] > factor_velocidad[2]
+```
+
+Es el tercer corredor mas rapido que el cuarto corredor?
+
+```{r echo=TRUE}
+factor_velocidad[3] > factor_velocidad[4]
+```
+
+## Dataframes
+
+Al igual que las matrices, los __data frames__ son objetos que tienen dos dimensiones. Sabemos que las matrices son configuraciones de datos del mismo tipo. Los datos que vimos en los ejemplos de las peliculas de Tolkien eran exclusivamente numericos. Esta limitacion no se apega a los datos que frecuente tendremos que analizar. Por ejemplo, las encuestas contienen preguntas como:
+
+   - Cual es su fecha de nacimiento? (variable de intervalo)
+   - Cual es su edad? (variable de razon)
+   - Cual es su estado civil? (variable nominal)
+       - Casado(a)
+       - Conviviente o pareja sin acuerdo de union civil
+       - Conviviente civil (con acuerdo de union civil)
+       - Anulado(a)
+       - Separado(a)
+       - Divorciado (a)
+       - Viudo(a)
+       - Soltero(a)
+   - Que tan de acuerdo esta con...? (variable ordinal)
+       - Muy en desacuerdo
+       - Algo en desacuerdo
+       - Ni de acuerdo ni en desacuerdo
+       - Algo de acuerdo
+       - Muy de acuerdo 
+   - Tiene contrato de trabajo? (variable nominal, dummy)
+      - Si
+      - No 
+
+Las bases de datos que reunen todo esto contienen distintos tipos de variables que, ademas, pueden ser codificadas de diferentes formas. En R, todo esto se traduce en distintos tipos de datos *numeric*, *character* o *logical*.
+
+Un __data frame__ es un objeto bidimensional en el que cada columnas puede contener un tipo de datos distinto, pero todos los datos dentro de una columna son del mismo tipo. En un data frame las columnas representan variables de un conjunto de datos y las filas representan observaciones.
+
+Como ejemplo, carguemos `mtcars` un data frame built-in en R.
+
+```{r echo=TRUE}
+mtcars
+```
+
+`mtcars` son datos extraidos de la revista Motor Trend US de 1974, y and contiene el consumo de combustible y otros aspectos de diseño y performance para 32 modelos de automoviles. Podemos ver que las variables (mpg, cyl, disp, hp, drat, wt, qsec, vs, am, gear y carb) estan en las columnas y que los automoviles (32) en las filas. 
+
+Por lo general trabajaremos con data frames mas grandes que `mtcars`, que no podremos mirar de un vistazo. En esos casos es necesario revisar su estructura y principales elementos antes de empezar a analizarlos. 
+
+Podemos empezar mirando una pequeña parte de los datos. En R, usamos la funcion `head()` para imprimir las primeras observaciones de un data frame. Similarmente, la funcion `tail()` imprime las ultimas observaciones en el data frame. Estas funciones imprimen, ademas, una primera fila llamada *header* que contiene los nombres de las variables. Por default, ambas funciones muestran 5 filas.
+
+```{r echo=TRUE}
+head(mtcars)
+tail(mtcars)
+```
+
+Otro metodo para conocer rapidamente los datos es usar la funcion `str()`, que muestra la estructura del data frame. 
+
+```{r echo=TRUE}
+str(mtcars)
+```
+
+Obtenemos:
+
+   - El numero total de observaciones (ej. 32 tipos de automoviles)
+   - El numero total de variables (ej. 11 caracteristicas de los automoviles)
+   - Una lista con todos los nombres de las variables (ej. mpg, cyl... )
+   - Los tipos de datos de cada variable (ej. num)
+   - Las primeras observaciones 
+
+Ejecutar `str()` es sumamente informativo y deberia ser la primera tarea a realizar al recibir un data set nuevo. Podemos obtener parte de esta informacion dependiendo de lo que requisieramos. Por ejemplo, si solo quisieramos conocer las dimensiones de un data frame, usamos la funcion `dim()`.
+
+```{r echo=TRUE}
+dim(mtcars)
+```
+
+Si solo queremos conocer los nombres de las variables de un data frame, usamos `names()`.
+
+```{r echo=TRUE}
+names(mtcars)
+```
+
+### Creacion de un data frame
+
+Para practicar, crearemos un pequeño data set que describa las principales caracteristicas de 8 planetas del sistema solar. Las caracteristicas son:
+
+   - El tipo de planeta (Terrestres o gigantes gaseosos).
+   - El diametro del planeta relativo al diametro de la Tierra.
+   - La rotacion del planeta en relacion con la rotacion de la Tierra.
+   - Si el planeta tiene anillos (TRUE o FALSE).
+
+Estas caracteristicas estan contenidas en los siguientes vectores. Ejecutemos el codigo para asignarlos.
+
+```{r echo=TRUE}
+planeta    <- c("Mercurio", "Venus", "Tierra", "Marte", "Jupiter", "Saturno", "Urano", "Neptuno")
+tipo      <- c("Terrestre","Terrestre","Terrestre","Terrestre","Gigante Gaseoso","Gigante Gaseoso","Gigante Gaseoso","Gigante Gaseoso")
+diametro <- c(0.382, 0.949, 1, 0.532, 11.209, 9.449, 4.007, 3.883)
+rotacion  <- c(58.64, -243.02, 1, 1.03, 0.41, 0.43, -0.72, 0.67)
+anillos   <- c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE)
+```
+
+Para formar nuestro data frame usamos la funcion `data.frame()`. Pasemos los vectores nombre, tipo, diametro, rotacion y anillos en ese orden. Asignemos el resultado a `planetas_df` e imprimimos.
+
+```{r echo=TRUE}
+planetas_df <- data.frame(planeta, tipo, diametro, rotacion, anillos)
+planetas_df
+```
+
+Usemos la funcion `str()` para chequear la estructura de `planetas_df`.
+
+```{r echo=TRUE}
+str(planetas_df)
+```
+
+### Seleccion en data frames
+Similar a la seleccion en matrices, podemos seleccionar elementos de un data frame usando los parentesis cuadrados. Recordemos que usando una coma, identificamos lo que esta a la derecha de esta como filas y lo que esta a la izquierda, como columnas.
+
+Por ejemplo, seleccionemos el diametro de Mercurio en `planetas_df`.
+
+```{r echo=TRUE}
+planetas_df[1,3]
+```
+
+Seleccionemos todos los datos que corresponden a Marte.
+
+```{r echo=TRUE}
+planetas_df[4,]
+```
+
+En vez de usar indices numericos, tambien podemos usar el nombre de las variables para seleccionar columnas de un data frame. Supongamos que queremos seleccionar los tres primeros elementos de la columna `tipo`. Podemos hacerlo asi:
+
+```{r echo=TRUE}
+planetas_df[1:3,2]
+```
+
+Pero una desventaja es que necesitamos saber el numero de la columna, lo que se complica si tenemos muchas variables o si en algun momento cambiamos el orden de las variables. Para solucionarlo, podemos especificar:
+
+```{r echo=TRUE}
+planetas_df[1:3,"tipo"]
+```
+
+A veces queremos seleccionar una columna completa. Por ejemplo, la variable `anillos`, a la que podemos acceder usando los parentesis cuadrados:
+
+```{r echo=TRUE}
+planetas_df[,"anillos"]
+```
+
+O tambien usando el signo `$`. A la izquierda de `$` especificamos el nombre del data frame y a la derecha el nombre de la variable. Asignemos el resultado a `vector_anillos` e imprimimos.
+
+```{r echo=TRUE}
+vector_anillos <- planetas_df$anillos
+vector_anillos
+```
+
+Podemos ver que las cuatro primeras observaciones no tienen anillos y las ultimas cuatro tienen anillos. Podemos usar este vector para seleccionar la informacion de los planetas que tienen anillos, porque es un vector logico. Insertamos `vector_anillos` a la izquierda de la coma, entre parentesis cuadrados.
+
+```{r echo=TRUE}
+planetas_df[vector_anillos,]
+```
+
+El resultado es el mismo si especificamos lo siguiente:
+
+```{r echo=TRUE}
+planetas_df[anillos==TRUE,]
+```
+
+Otra forma de seleccionar es utilizar la funcion `subset()`. Como su nombre lo indica, la funcion `subset()` selecciona un subset de datos de un data frame, el primer argumento, de acuerdo a una condicion, su segundo argumento. Seleccionemos un subset de datos que contenga aquellos planetas que tienen un diametro menor a 1 (aquellos que son mas pequeños que la Tierra).
+
+```{r echo=TRUE}
+subset(planetas_df, subset = diametro<1)
+```
+
+Tambien podemos seleccionar respecto a condiciones que involucren mas de una variable. Por ejemplo, seleccionemos aquellos planetas mas grandes que la Tierra que tienen una rotacion axial negativa respecto a la de Tierra.
+
+```{r echo=TRUE}
+subset(planetas_df, subset = (diametro>1)&(rotacion<0))
+```
+
+### Sorting
+Podemos ordenar las filas de un data frame de acuerdo a los valores de una variable. Para ello, usamos la funcion `order()` que entrega la posicion ranqueada de cada elemento en el objeto ingresado, en un orden ascendente o descendente. Veamos un ejemplo simple con un vector.
+
+```{r echo=TRUE}
+numeros_desordenados <- c(17,8,30)
+order(numeros_desordenados)
+```
+
+Al ingresar el vector `numeros_desordenados` en la funcion `order()` obtenemos que 17, el primer elemento en `numeros_desordenados`, es el segundo menor; 8 es el menor; 30 es el mayor. Podemos usar esta funcion para ordenar `numeros_desordenados` de manera ascendente (por default) o descendente.
+
+```{r echo=TRUE}
+numeros_desordenados[order(numeros_desordenados)]
+numeros_desordenados[order(numeros_desordenados, decreasing = TRUE)]
+```
+
+Ordenemos los planetas de nuestro data frame `planetas_df` del mas chico al mas grande. Usamos `order()` y, como input, especificamos la variable diametro con `$`. Imprimimos los resultados.
+
+```{r echo=TRUE}
+planetas_df[order(planetas_df$diametro),]
+```
+
+## Listas
+Una lista es un objeto que contiene otros objetos, sean matrices, vectores, data frames u otras listas. Las listas no requieren que los objetos sean de un mismo tipo, tamaño, ni que contengan el mismo tipo de datos o esten relacionados entre ellos de ninguna manera. Funcionan como una "carpeta" donde ponemos distintos objetos para organizarlos bajo un mismo nombre y pueden almacenar practicamente cualquier pieza de informacion en ellas. 
+Veamos un ejemplo. Los siguientes objetos contienen distintas piezas de informacion relacionada con la pelicula "2001: A Space Odyssey". Ejecutemos el codigo para crearlos.
+
+```{r echo=TRUE}
+nom <- c("2001: A Space Odyssey")
+dir <- c("Stanley Kubrick")
+escr <- c("Stanley Kubrick", "Arthur C. Clarke")
+cred <- matrix(c("Dr. Dave Bowman", "Keir Dullea",
+                     "Dr. Frank Poole", "Gary Lockwood",
+                     "Dr. Heywood R. Floyd", "William Sylvester",
+                     "Moon-Watcher", "Daniel Richter",
+                     "Dr. Andrei Smyslov", "Leonard Rossiter",
+                     "Elena", "Margaret Tyzack",
+                     "Dr. Ralph Halvorsen", "Robert Beatty",
+                     "Dr. Bill Michaels", "Sean Sullivan",
+                     "HAL 9000", "Douglas Rain",
+                     "Mission Controller","Frank Miller"),
+                 ncol = 2, byrow = TRUE,
+                 dimnames = list(c(1:10),
+                                     c("Personajes",
+                                       "Elenco")))
+IMDB <- data.frame(puntaje=c(10,10,7,10,10,1,9),
+                   usuario=c("Wesley-Wang","simon_booth",
+                             "suws1","Manthorpe",
+                             "mmt02","Nessy_Gliana",
+                             "Nazi_Fighter_David"),
+                   comentario=c("Legendary",
+                                "Unmatched accomplishment",
+                                "Ahead of its time but...",
+                                "A film of monolithic proportions",
+                                "Greatest Movie of All Time","Don't believe the hype-",
+                                "The final landing scene is the very hallmark of cinematic genius..."))
+```
+
+Creemos una lista que contenga todo estos objetos. Para no confundirnos, asignamos nombres a cada objeto. Imprimimos el resultado.
+
+```{r echo=TRUE}
+space_odyssey <- list(titulo=nom,
+                      director=dir,
+                      escritores=escr,
+                      creditos=cred,
+                      reviews=IMDB)
+space_odyssey
+```
+
+### Seleccion en listas
+Las listas estan compuestas de componentes y elementos. Los componentes son los objetos que ingresamos en la lista (vectores, matrices, data frames, otras listas...) y los elementos son valores u objetos que se encuentran dentro de dichos componentes. 
+
+Para seleccionar componentes usamos parentesis cuadrados dobles y dentro de ellos, el indice del componente o su nombre. Por ejemplo, seleccionamos el cuarto componente en `space_odyssey`.
+
+```{r echo=TRUE}
+space_odyssey[[4]]
+```
+
+Supongamos que queremos seleccionar las criticas de IMDB y no conocemos su indice, pero si sabemos el nombre del componente es `reviews`.
+
+```{r echo=TRUE}
+space_odyssey[["reviews"]]
+```
+
+Podemos hacer lo mismo usando el operador `$`. Seleccionemos el componente `escritores`.
+
+```{r echo=TRUE}
+space_odyssey$escritores
+```
+
+Tambien podemos seleccionar elementos dentro de los componentes. Lo hacemos agregando a la seleccion de componente una seleccion con parentesis cuadrados simples. Recordemos que el tipo de seleccion dependera de si se trata de un componente unidimensional o bidimensional. Por ejemplo, seleccionemos a los 5 primeros actores mencionados en los creditos y sus roles. Como `$creditos` es una matriz, la seleccion dentro de la matriz debe ser [1:5,].
+
+```{r echo=TRUE}
+space_odyssey[["creditos"]][1:5,]
+```
+
+Cuando el componente es un data frame, podemos usar el operador `$`. Esto no es valido para otros tipos de componentes porque este operador no funciona con vectores atomicos. 
+
+```{r echo=TRUE}
+space_odyssey$reviews$comentario
+```
+
+Finalmente, podemos seleccionar elementos y operar con ellos directamente. Calculemos el puntaje promedio entregado por la seleccion de usuarios de IMDB que estan en `reviews`.
+
+```{r echo=TRUE}
+mean(space_odyssey$reviews$puntaje)
+```
+

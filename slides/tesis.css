@@ -1,0 +1,275 @@
+body {
+  color: #000000;
+}
+
+h1, h2, h3 {
+  font-weight: normal;
+  color: #214559;
+}
+
+b {
+  color: #4C6879;
+}
+
+img.center {
+    display: block;
+    margin: 0 auto;
+}
+
+.remark-slide-content {
+  background-color: #FFFFFF;
+  font-size: 20px;
+  padding: 1em 4em 1em 4em;
+}
+
+.small {
+  font-size: 15px;
+}
+
+.remark-slide-content h1 {
+    font-size: 55px;
+}
+
+.remark-slide-content h2 {
+    font-size: 45px;
+}
+
+.remark-slide-content h3 {
+    font-size: 35px;
+}
+
+.remark-code {
+  font-size: 0.9em;
+}
+
+.remark-inline-code {
+  font-size: 1em;
+  color: #214559;
+}
+
+.hipotesis {
+  color: #214559;
+  text-align: justify;
+  letter-spacing: 2px;
+  line-height: 1.4;
+  float:left; 
+  background-color:#f8f8f8; 
+  width:96%; 
+  height:auto; 
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.remark-slide-number {
+  color: #214559;
+  opacity: 1;
+  font-size: 0.9em;
+}
+
+.remark-slide-number {
+  position: inherit;
+}
+
+.remark-slide-number .progress-bar-container {
+  position: absolute;
+  bottom: 0;
+  height: 4px;
+  display: block;
+  left: 0;
+  right: 0;
+}
+
+.remark-slide-number .progress-bar {
+  height: 100%;
+  background-color: #4D6A7A;
+}
+
+
+strong{
+color: #4C6879;
+}
+
+a, a > code {
+  color: #794C68;
+  text-decoration: none;
+}
+
+.footnote {
+  position: absolute;
+  bottom: 3em;
+  padding-right: 4em;
+  font-size: 80%;
+  background-color: #FFFFFF;
+}
+
+.remark-code-line-highlighted {
+  background-color: rgba(255,255,0,0.5);
+}
+
+.inverse {
+  background-color: #C7D0D5;
+  color: #000000;
+  text-shadow: none;
+}
+
+.inverse h1 {
+  color: #000000;
+  text-align: center;
+  font-size: 77px;
+  line-height: 100%;
+}
+
+.inverse h2 {
+  color: #000000;
+  text-align: center;
+  font-size: 30px;
+  line-height: 100%;
+}
+
+.inverse h3 {
+  color: #000000;
+  text-align: center;
+  font-size: 20px;
+}
+
+.title-slide {
+  background-image: url("logo-uc.png");
+  background-repeat: no-repeat;
+  background-position: 40px 40px;
+  background-size: 200px;
+  background-color: #214559;
+  color: #FFFFFF;
+}
+
+.title-slide .remark-slide-number {
+  display: none;
+}
+
+.title-slide, .title-slide h1, .title-slide h2, .title-slide h3{
+  color: #FFFFFF;
+}
+
+.title-slide h1{
+  text-align: center;
+  font-size: 77px;
+  line-height: 100%;
+  margin-top: 200px;
+}
+
+.title-slide h2{
+  text-align: center;
+  font-size: 30px;
+  line-height: 100%;
+  margin-top: -40px;
+  letter-spacing: 3px;
+}
+
+.title-slide h3:nth-of-type(1){
+  text-align: center;
+  font-size: 20px;
+  margin-top: 100px;
+}
+
+.title-slide h3:nth-of-type(2){
+  text-align: center;
+  font-size: 20px;
+}
+
+.inverse .remark-slide-number {
+  display: none;
+}
+
+/* Two-column layout */
+.left-column {
+  color: #000000;
+  width: 70%;
+  height: 92%;
+  float: left;
+}
+
+.right-column {
+  color: #f8f8f8;
+  width: 25%;
+  height: 100%;
+  float: right;
+  background-color: #214559;
+}
+
+.left-column h2:last-of-type, .left-column h3:last-child {
+  color: #21455999;
+}
+
+.remark-slide-content .left-column {
+  position: absolute;
+  top: 7.75em;
+  left: 4em;
+}
+
+.remark-slide-content .right-column {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: -1em -4em -4em 0;
+  padding: 1em 1em 1em 1em;
+}
+
+.remark-slide-content .right-column .footnote .remark-slide-number{
+  bottom: 0;
+  padding-right: -4em;
+  background-color: #214559;
+}
+
+
+.pull-left {
+  float: left;
+  width: 50%;
+}
+.pull-right {
+  float: right;
+  width: 45%;
+}
+
+.pull-right ~ * {
+  clear: both;
+}
+
+.justimg {
+  float: center;
+  width: 100%;
+}
+
+.remark-slide-content .left-column .right-column .justimg {
+  margin-bottom:-4em;
+  padding-bottom: 1em;
+}
+
+img, video, iframe {
+  max-width: 100%;
+}
+
+blockquote {
+  border-left: solid 5px #C7D0D580;
+  padding-left: 1em;
+}
+
+.remark-slide table {
+  margin: auto;
+  border-top: 1px solid #666;
+  border-bottom: 1px solid #666;
+}
+
+.remark-slide table thead th { border-bottom: 1px solid #ddd; }
+th, td { padding: 5px; }
+
+.remark-slide thead, .remark-slide tfoot, .remark-slide tr:nth-child(even) { background: #eee }
+
+@page { margin: 0; }
+@media print {
+  .remark-slide-scaler {
+    width: 100% !important;
+    height: 100% !important;
+    transform: scale(1) !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+}

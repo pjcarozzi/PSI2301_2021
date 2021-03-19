@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1 Introduccion a R | Apuntes PSI2301</title>
+  <meta name="description" content="1 Introduccion a R | Apuntes PSI2301" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1 Introduccion a R | Apuntes PSI2301" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1 Introduccion a R | Apuntes PSI2301" />
+  
+  
+  
+
+<meta name="author" content="Profesor: Roberto González (rgonzale@uc.cl). Ayudantes: Josefina Bao (josefina.bao@uc.cl); Javiera Maechtig (jmaechtig@uc.cl); Pia Carozzi (pjcarozzi@uc.cl); Samuel Casale (scasale@uc.cl)." />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Apuntes PSI2301</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentacion</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduccion a R</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#r-y-r-studio"><i class="fa fa-check"></i><b>1.1</b> R y R Studio</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="intro.html"><a href="intro.html#el-entorno-de-r"><i class="fa fa-check"></i><b>1.1.1</b> El entorno de R</a></li>
+<li class="chapter" data-level="1.1.2" data-path="intro.html"><a href="intro.html#rstudio"><i class="fa fa-check"></i><b>1.1.2</b> RStudio</a></li>
+<li class="chapter" data-level="1.1.3" data-path="intro.html"><a href="intro.html#instalando-r-y-r-studio"><i class="fa fa-check"></i><b>1.1.3</b> Instalando R y R Studio</a></li>
+<li class="chapter" data-level="1.1.4" data-path="intro.html"><a href="intro.html#la-interfaz-de-r-studio-y-algunos-conceptos-basicos"><i class="fa fa-check"></i><b>1.1.4</b> La interfaz de R Studio (y algunos conceptos basicos)</a></li>
+<li class="chapter" data-level="1.1.5" data-path="intro.html"><a href="intro.html#administrando-importando-y-guardando-archivos-y-datos."><i class="fa fa-check"></i><b>1.1.5</b> Administrando, importando y guardando archivos y datos.</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#operadores-basicos-en-r"><i class="fa fa-check"></i><b>1.2</b> Operadores basicos en R</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="intro.html"><a href="intro.html#operadores-aritmeticos"><i class="fa fa-check"></i><b>1.2.1</b> Operadores aritmeticos</a></li>
+<li class="chapter" data-level="1.2.2" data-path="intro.html"><a href="intro.html#operadores-logicos"><i class="fa fa-check"></i><b>1.2.2</b> Operadores logicos</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#asignacion-de-variables"><i class="fa fa-check"></i><b>1.3</b> Asignacion de variables</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#tipos-de-datos"><i class="fa fa-check"></i><b>1.4</b> Tipos de datos</a></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#vectores"><i class="fa fa-check"></i><b>1.5</b> Vectores</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="intro.html"><a href="intro.html#aritmetica-en-vectores"><i class="fa fa-check"></i><b>1.5.1</b> Aritmetica en vectores</a></li>
+<li class="chapter" data-level="1.5.2" data-path="intro.html"><a href="intro.html#seleccion-en-vectores"><i class="fa fa-check"></i><b>1.5.2</b> Seleccion en vectores</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#matrices"><i class="fa fa-check"></i><b>1.6</b> Matrices</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="intro.html"><a href="intro.html#seleccion-en-matrices"><i class="fa fa-check"></i><b>1.6.1</b> Seleccion en matrices</a></li>
+<li class="chapter" data-level="1.6.2" data-path="intro.html"><a href="intro.html#aritmetica-en-matrices"><i class="fa fa-check"></i><b>1.6.2</b> Aritmetica en matrices</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="intro.html"><a href="intro.html#factores"><i class="fa fa-check"></i><b>1.7</b> Factores</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="intro.html"><a href="intro.html#factores-no-ordenados"><i class="fa fa-check"></i><b>1.7.1</b> Factores no ordenados</a></li>
+<li class="chapter" data-level="1.7.2" data-path="intro.html"><a href="intro.html#factores-ordenados"><i class="fa fa-check"></i><b>1.7.2</b> Factores ordenados</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="intro.html"><a href="intro.html#dataframes"><i class="fa fa-check"></i><b>1.8</b> Dataframes</a>
+<ul>
+<li class="chapter" data-level="1.8.1" data-path="intro.html"><a href="intro.html#creacion-de-un-data-frame"><i class="fa fa-check"></i><b>1.8.1</b> Creacion de un data frame</a></li>
+<li class="chapter" data-level="1.8.2" data-path="intro.html"><a href="intro.html#seleccion-en-data-frames"><i class="fa fa-check"></i><b>1.8.2</b> Seleccion en data frames</a></li>
+<li class="chapter" data-level="1.8.3" data-path="intro.html"><a href="intro.html#sorting"><i class="fa fa-check"></i><b>1.8.3</b> Sorting</a></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path="intro.html"><a href="intro.html#listas"><i class="fa fa-check"></i><b>1.9</b> Listas</a>
+<ul>
+<li class="chapter" data-level="1.9.1" data-path="intro.html"><a href="intro.html#seleccion-en-listas"><i class="fa fa-check"></i><b>1.9.1</b> Seleccion en listas</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li style="text-align:center;" xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#"><a href="https://bookdown.org" target="_blank">Creado con bookdown</a> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0"><img style="height:22px!important;margin-left: 3px;vertical-align:text-bottom;" src="https://search.creativecommons.org/static/img/cc_icon.svg" /><img  style="height:22px!important;margin-left: 3px;vertical-align:text-bottom;" src="https://search.creativecommons.org/static/img/cc-by_icon.svg" /><img  style="height:22px!important;margin-left: 3px;vertical-align:text-bottom;" src="https://search.creativecommons.org/static/img/cc-nc_icon.svg" /><img  style="height:22px!important;margin-left: 3px;vertical-align:text-bottom;" src="https://search.creativecommons.org/static/img/cc-sa_icon.svg" /></a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Apuntes PSI2301</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="intro" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Introduccion a R</h1>
+<div id="r-y-r-studio" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> R y R Studio</h2>
+<div id="el-entorno-de-r" class="section level3" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> El entorno de R</h3>
+<p>R es un entorno para la computacion estadistica, una suite integrada de software para manipulacion, calculo y visualizacion grafica de datos, que reune una gran cantidad de funcionalidades en un sistema coherente. El entorno de R combina:</p>
+<ul>
+<li>Una manejo de datos y funcionalidades de almacenamiento.</li>
+<li>Una suite de operadores para el calculo con distintos tipos de formaciones (<em>arrays</em>).</li>
+<li>Una coleccion amplia, coherente e integrada de herramientas intermedias para el analisis de datos.</li>
+<li>Funcionalidades graficas para el analisis y visualizacion de datos.</li>
+<li>Un lenguaje de programacion bien desarrollado, simple y efectivo.</li>
+</ul>
+<p>R es ampliamente usado por las comunidad de estadistica y desarrollo de software estadistico y se ha convertido en la lengua franca en el mundo del data science y analytics. Como lenguaje de programacion, se basa en el lenguaje S, que se convirtio en S-Plus una implementacion comercial, pero a diferencia de este R es esta disponible como un software libre bajo los terminos de la <a href="http://www.gnu.org/">Free Software Foundation</a>’s <a href="https://www.r-project.org/COPYING">GNU General Public License</a> en su forma de codigo fuente. Gracias a esto, se ha desarrollado una comunidad de pares amplia y en crecimiento en torno al desarrollo de nuevas funcionalidades.</p>
+<p>R corre en los sistemas operativos Windows y Mac y tambien en una amplia variedad de plataformas UNIX (incluyendo Linux y FreeBSD).</p>
+</div>
+<div id="rstudio" class="section level3" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> RStudio</h3>
+<p>RStudio es un Entorno de Desarrollo Integrado (IDE) que entrega herramientas que facilitan el uso de R, mejorando la habilidad del usuario de interactuar con R y mantener un espacio de trabajo organizado. RStudio es una muy buena alternativa a trabajar con R directamente desde la terminal. RStudio:</p>
+<ul>
+<li>Incluye una interfaz de usuario grafica (GUI) que permite al usuario interactuar a traves de iconos, no solo una interfaz de linea de comandos.</li>
+<li>Tiene una amplia de funcionalidades adicionales a la GUI de R base: Ademas de una consola de comandos, un editor con subrayado de sintaxis que permite la ejecucion de codigo directa, herramientas para graficar, historial, debugging y administracion del espacio de trabajo, entre otros.</li>
+<li>Es open-source y gratis para su uso academico.</li>
+<li>Al igual que R, corre en multiples plataformas.</li>
+</ul>
+</div>
+<div id="instalando-r-y-r-studio" class="section level3" number="1.1.3">
+<h3><span class="header-section-number">1.1.3</span> Instalando R y R Studio</h3>
+<p>Para usar R, instalaremos dos paquetes de software distintos: R y R Studio. R es el software basico que contiene la programacion del entorno R. R Studio es la IDE que usaremos para interactuar con R. No es necesario contar con R Studio para usar R, pero es esencial que descarguemos e instalemos R antes de empezar a usar R Studio.</p>
+<p>Para instalar R, vamos a uno de los siguientes links y seguimos las instrucciones.</p>
+<ul>
+<li>Windows: <a href="http://cran.r-project.org/bin/windows/base/">http://cran.r-project.org/bin/windows/base/</a></li>
+<li>Mac: <a href="http://cran.r-project.org/bin/macosx/">http://cran.r-project.org/bin/macosx/</a></li>
+</ul>
+<p>Una vez que hemos instalado R en nuestro computador, podemos abrirlo. Veremos una pantalla como la siguiente.</p>
+<div class="figure">
+<img src="C:/Users/pjcar/Dropbox/PSI2301_2021/bd_apuntes/_bookdown_files/Apuntes-PSI2301_files/figuras-ext/Screenshot_R.png" alt="" />
+<p class="caption">Interfaz de R</p>
+</div>
+<p>Descarguemos R Studio, que sera el programa que utilizaremos en lo sucesivo en nuestra programacion de R. Para descargar e instalar R Studio, vamos a <a href="http://www.rstudio.com/products/rstudio/download/">http://www.rstudio.com/products/rstudio/download/</a> y seguimos las instrucciones.</p>
+<p>Abramos R Studio para explorar su interfaz.</p>
+</div>
+<div id="la-interfaz-de-r-studio-y-algunos-conceptos-basicos" class="section level3" number="1.1.4">
+<h3><span class="header-section-number">1.1.4</span> La interfaz de R Studio (y algunos conceptos basicos)</h3>
+<p>La interfaz de R Studio tiene cuatro paneles principales:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Console</strong>: Donde podemos tipear los comandos y donde aparecen los resultados u <em>output</em>. La consola es lo unico que veriamos si corrieramos R desde su GUI original.</li>
+<li><strong>Script editor</strong>: Donde podemos escribir nuestro codigo y guardarlos en un archivo. Tambien podemos correr nuestro codigo a ejecutar en la consola directamente desde aqui.</li>
+<li><strong>Environment/History</strong>: Son dos pestañas. Environment muestra todos los objetos activos e History va registrando todos los comandos que han sido ejecutados.</li>
+<li><strong>Files/Plots/Packages/Help</strong>: Estas pestañas muestran informacion util que veremos en detalle a continuacion.</li>
+</ol>
+<div class="figure">
+<img src="C:/Users/pjcar/Dropbox/PSI2301_2021/bd_apuntes/_bookdown_files/Apuntes-PSI2301_files/figuras-ext/Screenshot_RStudio.png" alt="" />
+<p class="caption">Interfaz de R Studio</p>
+</div>
+<div id="consola" class="section level4 unnumbered">
+<h4>Consola</h4>
+<p>La ventana <strong>console</strong> es el lugar donde R espera recibir las instrucciones que escribimos en el lenguaje R, o <strong>comandos</strong>, y muestra los resultados de dichas instrucciones. En esta guia, los comandos en R que utilicemos apareceran en una caja gris como la siguiente:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="intro.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>)</span></code></pre></div>
+<p>La <strong>command prompt</strong> o linea de comandos, ubicada en la parte baja de la consola, tiene diferentes estados:</p>
+<p>Cuando R esta listo para aceptar un comando, la linea de comandos muestra un <code>&gt;</code>. Si escribimos el codigo anterior en la linea de comandos y presionamos <strong>Enter</strong>, el codigo sera ejecutado y producira un <strong>output</strong> o resultado en la misma consola. En este caso el resultado sera:</p>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10 11 12</code></pre>
+<p>Tras su ejecucion, la consola muestra los resultados,limpia la linea y vuelve a mostrar un <code>&gt;</code>, avisando que ya puede recibir un nuevo comando.</p>
+<p>Cuando la consola esta esperando que se ingresen mas datos muestra un <code>+</code>. Esto indica que el comando entregado no esta completo y aun no puede ser ejecutado. Probemos escribiendo lo siguiente:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="intro.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span></span></code></pre></div>
+<p>La consola no nos devuelve un resultado sino un <code>+</code>. En este caso es porque no hemos cerrado el parentesis. Si lo tipeamos y presionamos <strong>Enter</strong> obtendremos el resultado anterior.</p>
+<p>Si no queremos continuar con la ejecucion de un comando incompleto, hacemos click situando el cursor en la linea de comandos y presionamos <code>esc</code> para salir del comando sin correrlo. R volvera a mostrar un un <code>&gt;</code>.</p>
+</div>
+<div id="script-editor" class="section level4 unnumbered">
+<h4>Script editor</h4>
+<p>Los comandos que escribimos directamente en la consola no quedan registrados y se eliminan una vez se cierra la sesion. Por eso es recomendable ingresar los comandos en el <strong>editor de scripts</strong>, lo que nos permite guardar el codigo en un archivo <code>.R</code> de texto plano. Otra ventaja de usar un script es que nos evita tener que ejecutar los comandos de forma inmediata y secuencial, lo que nos permite ir modificando el codigo a nuestro ritmo.</p>
+<p>El editor de scripts de R Studio nos permite “mandar” lineas de codigo a la consola para su ejecucion. Para hacerlo, destacamos el texto del codigo que queremos correr y hacemos click en el boton <code>Run</code>, situado en la parte superior derecha del editor de scripts. Alternativamente, podemos ejecutar el texto destacado presionando de manera simultanea <code>Ctrl</code>+<code>Enter</code> en Windows o <code>cmd</code> + <code>Enter</code> en Mac.</p>
+<p>R interpreta todo lo que es escrito en la consola o en el script como comandos. Para evitar que una linea de texto sea ejecutada como tal, usamos el signo <code>#</code> al comienzo de la linea o, dentro de una linea, desde la posicion en la que queremos que deje de ejecutar. Todo el texto que siga al signo <code>#</code> sera ignorado a la hora de ejecutar el codigo.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="intro.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Esta linea completa no se ejecutara.</span></span>
+<span id="cb5-2"><a href="intro.html#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="intro.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>) <span class="co"># Esta linea contiene un comando que sera ejecutado y una parte que no sera ejecutada</span></span></code></pre></div>
+<pre><code>## [1] 6.5</code></pre>
+<p>Esta funcionalidad es muy util, porque permite comentar y documentar el codigo que escribimos en el mismo script. De esta manera, no solo disponemos de un registro completo de los analisis que realizamos, que podremos volver a correr si lo necesitamos. Tambien podemos mostrarle a otros como lo hicimos, porque lo hicimos y que ellos puedan ejecutar nuestros analisis por su cuenta.</p>
+<p>En investigacion cuantitativa, esto se relaciona con uno de los mayores principios del metodo cientifico: la reproducibilidad o capacidad de obtener los mismos resultados de un estudio si este es replicado usando los mismos datos y metodologias. Cuando la investigacion se apoya en metodos computacionales, esto implica que los set de datos y procesos de analisis deben ser documentados rigurosamente tal que una tercera parte pueda ejecutar el codigo y, disponiendo de los datos, obtener identicos resultados. Hoy esto es considerado una buena practica y cada vez mas un estandar minimo en la publicacion cientifica.</p>
+</div>
+<div id="environment-e-history" class="section level4 unnumbered">
+<h4>Environment e History</h4>
+<p>La pestaña <strong>environment</strong> muestra los nombres de los objetos de datos que han sido definidos en la sesion actual de R. Un <strong>objeto</strong> es una “cosa,” un numero, un set de datos, estadisticos o tests. Los objetos tienen distintas formas, tamaños y atributos: Hay objetos simples que representan numeros, como los vectores; objetos un poco mas complejos que tienen mas de una dimension, como los dataframes o las matrices; y objetos mucho mas complejos, como los producidos a partir de test de hipotesis o regresiones, que contienen muchos tipos distintos de informacion estadistica. Mas adelante vamos a ahondar en la asignacion de objetos y los tipos de objetos en R y sus caracteristicas. Por ahora solo quedemonos con la idea de que en R hay distintos tipos de objetos.</p>
+<p>Veamos un ejemplo. Ejecutando el siguiente codigo crearemos distintos objetos:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="intro.html#cb7-1" aria-hidden="true" tabindex="-1"></a>mi_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>)</span>
+<span id="cb7-2"><a href="intro.html#cb7-2" aria-hidden="true" tabindex="-1"></a>mi_matriz <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">byrow =</span> T,  <span class="at">nrow =</span> <span class="dv">3</span>)</span>
+<span id="cb7-3"><a href="intro.html#cb7-3" aria-hidden="true" tabindex="-1"></a>mi_df <span class="ot">&lt;-</span> iris</span>
+<span id="cb7-4"><a href="intro.html#cb7-4" aria-hidden="true" tabindex="-1"></a>mi_lista <span class="ot">&lt;-</span> <span class="fu">list</span>(mi_vector,mi_matriz,mi_df)</span>
+<span id="cb7-5"><a href="intro.html#cb7-5" aria-hidden="true" tabindex="-1"></a>tu_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">120</span>)</span>
+<span id="cb7-6"><a href="intro.html#cb7-6" aria-hidden="true" tabindex="-1"></a>tu_matriz <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">21</span>, <span class="at">byrow =</span> T,  <span class="at">nrow =</span> <span class="dv">3</span>)</span>
+<span id="cb7-7"><a href="intro.html#cb7-7" aria-hidden="true" tabindex="-1"></a>tu_df <span class="ot">&lt;-</span> mtcars</span></code></pre></div>
+<p>Una vez definidos, los objetos aparecen en la pestaña environment en secciones dependiendo del tipo de objeto en cuestion. En este ejemplo, encontramos nuestros objetos en <strong>Data</strong> y <strong>Values</strong>. Tambien se muestra informacion basica de cada uno, sus dimensiones (ej. la cantidad de elementos que contienen, el numero de filas y columnas, observaciones y variables) y el tipo de dato que contienen.</p>
+<p>Veamos brevemente algunas utiles para explorar nuestro espacio de trabajo. Supongamos hemos cargado o creado muchos objetos y queremos revisarlos rapidamente. La funcion <code>ls()</code> muestra los nombres de todos los objetos que tenemos actualmente en el espacio de trabajo.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="intro.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;mi_df&quot;     &quot;mi_lista&quot;  &quot;mi_matriz&quot; &quot;mi_vector&quot; &quot;tu_df&quot;     &quot;tu_matriz&quot;
+## [7] &quot;tu_vector&quot;</code></pre>
+<p>Para eliminar objetos del espacio de trabajo tenemos varias opciones. Podriamos usar el boton en la parte superior de la pestaña environment que muestra el icono de una escoba y eliminar todos los objetos. Si lo presionamos aparece una ventana emergente que pide confirmacion.</p>
+<p>Otra alternativa, que nos permite mayor control, es eliminar objetos utilizando la funcion <code>rm()</code>.</p>
+<p>Podemos indicar los nombres de los objetos a eliminar uno a uno:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="intro.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(mi_vector,tu_vector)</span></code></pre></div>
+<p>O eliminarlos siguiento un patron de busqueda. En este ejemplo, eliminamos todos los objetos que terminan en "_df"</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="intro.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>(<span class="at">pattern =</span> <span class="st">&quot;_df$&quot;</span>))</span></code></pre></div>
+<p>Tambien podemos eliminar todos los elementos usando el siguiente codigo.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="intro.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>(<span class="at">all=</span><span class="cn">TRUE</span>))</span></code></pre></div>
+<p>La pestaña <strong>History</strong> en este panel simplemente muestra un historial de todos los codigos que han sido ejecutados previamente.</p>
+</div>
+<div id="funciones-y-librerias" class="section level4 unnumbered">
+<h4>Funciones y librerias</h4>
+<p>Antes de seguir revisando la interfaz de R Studio, clarifiquemos un par de cosas basicas. En la medida en que trabajemos mas con R, vamos a notar que casi todo en R es un objeto o una funcion. Ya hemos hablado introductoriamente de los objetos y mencionado algunas funciones, pero ¿que es una funcion?</p>
+<p>Las <strong>funciones</strong> son modulos de codigo autocontenidos que cumplen con una tarea especifica. En terminos practicos, una funcion es un procedimiento que toma uno o mas objetos como inputs, hace algo con esos objetos y luego devuelve otro objeto como resultado. Una funcion basica tiene tres partes: nombre, parentesis y argumentos. Se veria de la siguiente manera:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="intro.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nombre_de_la_funcion</span>(argumento)</span></code></pre></div>
+<p>No todas las funciones incluyen argumentos (como vimos con la funcion <code>ls()</code>), no obstante, la mayoria de las funciones si los toman. Los argumentos de una funcion pueden incluir:</p>
+<ul>
+<li>El objeto fisico que sera procesado.</li>
+<li>Opciones, especificaciones que alteran como opera la funcion.</li>
+</ul>
+<p>Si no especificamos un argumento requerido al llamar una funcion, recibiremos un error o la funcion va a operar con los valores que trae por defecto. Los default de una funcion representan valores estandar que el o la autora de la funcion ha especificado como “lo suficientemente buenos en casos estandar.” Siempre es bueno tener claridad de cuales son los defaults de las funciones que usamos y cuales son las opciones que estas permiten, de manera de que, si necesitamos un procesamiento especifico, podamos indicarlo.</p>
+<p>Veamos un ejemplo basico. La funcion <code>mean()</code> toma datos numericos como argumento (esto va entre parentesis), calcula la media aritmetica de esos datos y luego devuelve un numero unico como resultado.</p>
+<p>Primero intentemos correr la funcion <code>mean()</code> sin argumentos.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="intro.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="intro.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">mean</span>()</span>
+<span id="cb15-2"><a href="intro.html#cb15-2" aria-hidden="true" tabindex="-1"></a>Error <span class="cf">in</span> <span class="fu">mean.default</span>() <span class="sc">:</span> argument <span class="st">&quot;x&quot;</span> is missing, with no default</span></code></pre></div>
+<p>Esto resulta en error, porque la funcion <code>mean()</code> requiere que especifiquemos un objeto (un vector) numerico para operar. En el codigo siguiente, creamos un objeto con numeros y lo ingresamos al interior de los parentesis de la funcion <code>mean()</code>.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="intro.html#cb16-1" aria-hidden="true" tabindex="-1"></a>mi_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">500</span>,<span class="dv">1</span>,<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">10</span>,<span class="dv">9</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">8</span>,<span class="dv">3</span>,<span class="dv">10000</span>)</span>
+<span id="cb16-2"><a href="intro.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(mi_vector)</span></code></pre></div>
+<pre><code>## [1] 796.25</code></pre>
+<p>Esta vez si obtenemos un resultado, el promedio de los numeros que especificamos. Modifiquemos nuestro argumento <code>mi_vector</code> para que incluya casos perdidos (indicados con <code>NA</code>, <em>not available</em>). Los casos perdidos son algo con lo que de seguro nos vamos a enfrentar al analizar datos en el futuro. Corremos el codigo para hacer efectivos nuestros cambios.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="intro.html#cb18-1" aria-hidden="true" tabindex="-1"></a>mi_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">500</span>,<span class="dv">1</span>,<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="cn">NA</span>,<span class="dv">10</span>,<span class="dv">9</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">8</span>,<span class="cn">NA</span>,<span class="dv">3</span>,<span class="dv">10000</span>)</span></code></pre></div>
+<p>Ahora intentemos correr la funcion <code>mean()</code> usando <code>mi_vector</code> como argumento.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="intro.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(mi_vector)</span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<p>Esta vez obtenemos <code>NA</code> como resultado, porque, bajo las opciones <em>default</em>, <code>mean()</code> no nos puede entregar un promedio. Le faltan datos.</p>
+<p>Aprovechemos de introducir los archivos de ayuda de R. El operador de ayuda <code>?</code> nos da acceso a la documentacion de R para funciones, datasets y otros objetos. Para leer la documentacion de la funcion <code>mean()</code>, tipeamos <code>?mean</code> en la consola o en el script y ejecutamos.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="intro.html#cb21-1" aria-hidden="true" tabindex="-1"></a>?mean</span></code></pre></div>
+<p>La documentacion aparecera automaticamente en la pestaña <strong>Help</strong>. Si nos fijamos en el subtitulo <em>Usage</em>, leemos:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="intro.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Default S3 method:</span></span>
+<span id="cb22-2"><a href="intro.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x, <span class="at">trim =</span> <span class="dv">0</span>, <span class="at">na.rm =</span> <span class="cn">FALSE</span>, ...)</span></code></pre></div>
+<p>Lo que indica que que <code>mean()</code> usa tres argumentos. Uno de ellos es <code>x</code>, nuestro objeto numerico, pero posee dos defaults <code>trim = 0</code> y <code>na.rm = FALSE</code>. Mas abajo indica que la opcion <code>na.rm</code> acepta un argumento logico que indica si los valores <code>NA</code> deben ser excluidos de los calculos. Veamos que sucede si corremos <code>mean()</code> indicando <code>na.rm = TRUE</code>.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="intro.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(mi_vector, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] 796.25</code></pre>
+<p>Esta vez si nos entrega un resultado. Probemos cambiando el otro argumento que viene por default. <code>trim</code> sirve para calcular medias truncadas, un procedimiento especifico que excluye parte de los valores ingresados del calculo de la media. Por lo general, usamos todos los numeros para calcular la media, por lo que se entiende que la opcion por default sea <code>trim = 0</code>. <code>trim</code> acepta argumentos numericos que representan la fraccion de las observaciones que deben ser excluidas del calculo de la media a cada extremo de <code>x</code>. Supongamos que queremos una media truncada de nuestra secuencia de numeros, que excluya los valores outliers <code>-500</code> y <code>10000</code>. Nos quedariamos solo con una secuencia de numeros del 1 al 10 (sabemos que el promedio de los numeros del 1 al 10 es 5.5). Usemos <code>mean()</code> y especificamos que se trunque el 0.1 de los valores y recalculamos.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="intro.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(mi_vector, <span class="at">na.rm=</span>T, <span class="at">trim=</span><span class="fl">0.1</span>)</span></code></pre></div>
+<pre><code>## [1] 5.5</code></pre>
+<p>Otra opcion. Cuando no necesitamos leer toda la documentacion asociada a una funcion porque ya sabemos como trabaja, pero conocemos exactamente cuales son sus argumentos, podemos usar la funcion <code>args()</code>. Veamos otro ejemplo. La funcion <code>round()</code> nos permite redondear valores que tienen decimales. Sabemos que <span class="math inline">\(\pi \approx 3.1415926535\)</span>.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="intro.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">3.1415926535</span>)</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p>Por default, <code>round()</code> trunco <span class="math inline">\(\pi\)</span>, nos devuelve solo la parte entera, lo que puede no ser tan util. Revisemos los argumentos de <code>round()</code> con la funcion <code>args()</code>.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="intro.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">args</span>(round)</span></code></pre></div>
+<pre><code>## function (x, digits = 0) 
+## NULL</code></pre>
+<p>El output nos muestra el argumento <code>digits</code> y que por default <code>digits = 0</code>. Especifiquemos que queremos redondear a cuatro digitos:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="intro.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">3.1415926535</span>, <span class="at">digits=</span><span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## [1] 3.1416</code></pre>
+<p>A veces solo necesitamos ejemplos del funcionamiento de una funcion. Por ejemplo, la funcion <code>sum()</code> devuelve la suma de los valores presentes en sus argumentos. Veamos algunos ejemplos de <code>sum()</code>.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="intro.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">example</span>(sum)</span></code></pre></div>
+<pre><code>## 
+## sum&gt; ## Pass a vector to sum, and it will add the elements together.
+## sum&gt; sum(1:5)
+## [1] 15
+## 
+## sum&gt; ## Pass several numbers to sum, and it also adds the elements.
+## sum&gt; sum(1, 2, 3, 4, 5)
+## [1] 15
+## 
+## sum&gt; ## In fact, you can pass vectors into several arguments, and everything gets added.
+## sum&gt; sum(1:2, 3:5)
+## [1] 15
+## 
+## sum&gt; ## If there are missing values, the sum is unknown, i.e., also missing, ....
+## sum&gt; sum(1:5, NA)
+## [1] NA
+## 
+## sum&gt; ## ... unless  we exclude missing values explicitly:
+## sum&gt; sum(1:5, NA, na.rm = TRUE)
+## [1] 15</code></pre>
+<p>El entorno base de R trae implementadas internamente funciones basicas como <code>mean()</code>, <code>round()</code> o <code>sum()</code>, pero muchas otras han sido desarrolladas y forman parte de <strong>packages</strong> o <strong>libraries</strong>.</p>
+<p>Los <strong>packages</strong> o paquetes son colecciones de funciones de R, datos y codigos compilados en un formato bien definido, creado para agregar una funcionalidad especifica. Existe un set de paquetes standard o recomendados de R que son considerados parte del codigo fuente de R y estan automaticamente disponibles como parte de la instalacion de R. Estos paquetes base contienen funciones basicas que permiten que R trabaje y el desarrollo de analisis estadisticos y graficos (como las que hemos visto hasta ahora). Los directorios en R donde los paquetes son almacenados se llaman <strong>libraries</strong> o librerias. A veces, los terminos paquete y libreria se usan como sinonimos.</p>
+<p>En la medida en que usemos R para realizar tareas mas especificas, nos vamos a dar cuenta de que existen muchisimos paquetes y que estos ofrecen una gran variedad de funcionalidades. Para usar paquetes adicionales a los standard necesitamos instalarlos desde <a href="http://cran.r-project.org/">CRAN</a>.</p>
+<p>En <a href="http://cran.r-project.org/">CRAN</a> encontraremos, ademas las ultimas versiones de R, un repositorio con miles de paquetes de R contribuidos por los usuarios. Para instalarlos utilizamos la funcion <code>install.packages()</code>, que va a descargar el codigo fuente del paquete desde los mirrors de CRAN, e instalara el paquete y sus dependencias localmente en nuestros computadores.</p>
+<p>Como ejemplo, instalemos el paquete de visualizacion de datos <code>ggplot2</code>. Corremos el siguiente codigo. En la consola indicara el tamaño del paquete, el avance de la instalacion y la ruta donde quedo instalado.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="intro.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span></code></pre></div>
+<p>Una vez hemos instalado el paquete localmente, necesitamos cargar la libreria en la sesion actual de R. Las funciones especificas del paquete estaran disponibles para ser usadas tal y como hemos estado llamando las funciones que revisamos hasta ahora, pero solo una vez la libreria sea cargada. Para cargar una libreria usamos la funcion <code>library()</code>.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="intro.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
+<p>Algo importante a mencionar es que solo necesitamos instalar los paquetes una vez en nuestros computadores. No obstante, para usar el paquete, necesitamos cargar su libreria cada vez que iniciamos una nueva sesion en R. Una analogia util es pensar en una ampolleta y encender la luz. Instalamos la ampolleta una vez, <code>install.packages("luz")</code>, pero tenemos que apretar el interruptor cada vez que queremos encender la luz, <code>library(luz)</code> (sin comillas!).</p>
+<p>Podemos chequear que librerias estan cargadas en el entorno usando la funcion <code>sessionInfo()</code>.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="intro.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
+<pre><code>## R version 4.0.4 (2021-02-15)
+## Platform: x86_64-w64-mingw32/x64 (64-bit)
+## Running under: Windows 10 x64 (build 19043)
+## 
+## Matrix products: default
+## 
+## locale:
+## [1] LC_COLLATE=English_United States.1252 
+## [2] LC_CTYPE=English_United States.1252   
+## [3] LC_MONETARY=English_United States.1252
+## [4] LC_NUMERIC=C                          
+## [5] LC_TIME=English_United States.1252    
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+## [1] ggplot2_3.3.3
+## 
+## loaded via a namespace (and not attached):
+##  [1] rstudioapi_0.13   knitr_1.31        magrittr_2.0.1    tidyselect_1.1.0 
+##  [5] munsell_0.5.0     colorspace_2.0-0  R6_2.5.0          rlang_0.4.10     
+##  [9] fansi_0.4.2       dplyr_1.0.5       stringr_1.4.0     tools_4.0.4      
+## [13] grid_4.0.4        gtable_0.3.0      xfun_0.22         utf8_1.1.4       
+## [17] withr_2.4.1       htmltools_0.5.1.1 ellipsis_0.3.1    yaml_2.2.1       
+## [21] digest_0.6.27     tibble_3.1.0      lifecycle_1.0.0   crayon_1.4.1     
+## [25] bookdown_0.21     purrr_0.3.4       vctrs_0.3.6       glue_1.4.2       
+## [29] evaluate_0.14     rmarkdown_2.7     stringi_1.5.3     compiler_4.0.4   
+## [33] pillar_1.5.1      generics_0.1.0    scales_1.1.1      pkgconfig_2.0.3</code></pre>
+<p>En este caso, varios paquetes se cargaron necesarios para usar las funciones de <code>ggplot2</code> se cargaron automaticamente junto a <code>ggplot2</code>.</p>
+</div>
+<div id="files-plots-packages-help" class="section level4 unnumbered">
+<h4>Files / Plots / Packages / Help</h4>
+<p>Ahora podemos volver a nuestra revision de la interfaz de R Studio. La pestaña <strong>Packages</strong>, como su nombre lo indica, nos muestra listados todos los paquetes que estan instalados localmente. Las librerias que estan cargadas en la sesion actual aparecen marcadas con un “check.”</p>
+<p>Si hacemos click en el nombre del paquete accedemos a la documentacion: su descripcion, guias de usuario y las paginas de ayuda para cada una de sus funciones. Esto nos lleva a la pestaña <strong>Help</strong>, el menu de ayuda de R. Podemos acceder a la misma informacion que cuando usamos el operador <code>?</code> si tipeamos el nombre de una funcion en la caja de busqueda que esta en la parte superior de la pestaña.</p>
+<p>El panel <strong>Files</strong> da acceso a los directorios en el disco duro. Una de las caracteristicas utiles del panel archivos es que se puede usar para declarar el directorio de trabajo, de lo que hablaremos en la proxima seccion.</p>
+<p>Finalmente la pestaña <strong>Plots</strong> muestra los graficos que hemos generado en la sesion. Los botones permiten abrir los graficos en una ventana separada, exportarlos y guardarlos (aunque esto tambien se puede hacer usando codigo). Veamos brevemente como funciona, tendremos una sesion dedicada a la visualizacion de datos mas adelante.</p>
+<p>Cargamos en nuestro espacio de trabajo la base de datos <code>iris</code>, que viene incluida como ejemplo con los paquetes standard de R. Se trata de una base de datos que contiene medidas en centimetros de petalos y sepalos de 50 flores de cada una de las tres especies de iris.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="intro.html#cb39-1" aria-hidden="true" tabindex="-1"></a>iris_dt <span class="ot">&lt;-</span> iris</span></code></pre></div>
+<p>Con el codigo a continuacion, generamos un histograma del largo de los petalos.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="intro.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="at">x =</span> iris_dt<span class="sc">$</span>Petal.Length,</span>
+<span id="cb40-2"><a href="intro.html#cb40-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">50</span>),</span>
+<span id="cb40-3"><a href="intro.html#cb40-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Largo del Petalo&quot;</span>,</span>
+<span id="cb40-4"><a href="intro.html#cb40-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Largo (cm)&quot;</span>,</span>
+<span id="cb40-5"><a href="intro.html#cb40-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Frecuencia&quot;</span>,</span>
+<span id="cb40-6"><a href="intro.html#cb40-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;skyblue&quot;</span>,</span>
+<span id="cb40-7"><a href="intro.html#cb40-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">border =</span> <span class="st">&quot;white&quot;</span>)</span></code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-29"></span>
+<img src="Apuntes-PSI2301_files/figure-html/unnamed-chunk-29-1.png" alt="El panel Plot contiene los graficos, como este histograma de la distribucion del largo del sepalo para la muestra de flores de la base de datos Iris." width="672" />
+<p class="caption">
+Figura 1.1: El panel Plot contiene los graficos, como este histograma de la distribucion del largo del sepalo para la muestra de flores de la base de datos Iris.
+</p>
+</div>
+</div>
+</div>
+<div id="administrando-importando-y-guardando-archivos-y-datos." class="section level3" number="1.1.5">
+<h3><span class="header-section-number">1.1.5</span> Administrando, importando y guardando archivos y datos.</h3>
+<div id="working-directory" class="section level4 unnumbered">
+<h4>Working directory</h4>
+<p>Para ayudarnos a mantener nuestros archivos ordenados, R usa <strong>working directories</strong> o directorios de trabajo. Un directorio de trabajo es una ruta local que indica la localizacion por defecto de los archivos que cargaremos o guardaremos en una sesion de R. La carpeta a la que refiere dicha ruta puede estar en cualquier lado, pero es recomendable asociar una carpeta para cada proyecto de analisis especifico de manera de mantener en un solo lugar sus archivos.</p>
+<p>Si, por ejemplo, pedimos a R que cargue determinado archivo, R supone en primera instancia que este se encuentra en el directorio de trabajo, lo que nos ahorra tener que especificar la ruta completa.</p>
+<p>Solo podemos tener un directorio de trabajo activo por sesion. Para ver cual es el directorio de trabajo actual, usamos la funcion <code>getwd()</code></p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="intro.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;C:/Users/pjcar/Dropbox/PSI2301_2021/bd_apuntes&quot;</code></pre>
+<p>Como podemos ver, cuando ejecuto la funcion, R me indica que el directorio de trabajo actual es una carpeta llamada <code>bd_apuntes</code>. Esto implica que cuando leo nuevos archivos en R, R asume que se encuentran en esta carpeta.</p>
+<p>Si queremos cambiar el directorio de trabajo, usamos la funcion <code>setwd()</code>. Por ejemplo, me gustaria cambiar mi directorio de trabajo a una carpeta en mi Escritorio llamada <code>ayud_1</code>.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="intro.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/Users/pjcar/Desktop/ayud_1&quot;</span>)</span></code></pre></div>
+<p>Comprobemos si realizo el cambio</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="intro.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="intro.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] &quot;C:/Users/pjcar/Desktop/ayud_1&quot;</span></span></code></pre></div>
+</div>
+<div id="rdata" class="section level4 unnumbered">
+<h4>.RData</h4>
+<p>La mejor manera de almacenar objetos de R son los archivos <code>.RData</code>, especificos de R. Los archivos <code>.RData</code> pueden guardar muchos objetos en un unico archivo.</p>
+<p>Para guardar un archivo <code>.RData</code>, usamos la funcion <code>save()</code>. Sus argumentos son los objetos que queremos almacenar en el archivo y la opcion <code>file</code>, donde indicamos el nombre del archivo.</p>
+<p>Guardemos uno de los objetos que tenemos en nuestro espacio de trabajo.</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="intro.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(iris_dt, <span class="at">file=</span><span class="st">&quot;mi_objeto.RData&quot;</span>)</span></code></pre></div>
+<p>Una vez que ejecutamos la funcion, podremos ver <code>mi_objeto.RData</code> en el directorio de trabajo.</p>
+<p>Si tuvieramos muchos objetos y no queremos tipear cada uno de sus nombres, podemos usar la funcion <code>save.image()</code>, que guardara todos los objetos que estan actualmente en el espacio de trabajo.</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="intro.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save.image</span>(<span class="at">file=</span><span class="st">&quot;mis_objetos.RData&quot;</span>)</span></code></pre></div>
+<p>Borremos nuestos objetos con la funcion <code>rm()</code> que ya revisamos.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="intro.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>(<span class="at">all=</span><span class="cn">TRUE</span>))</span></code></pre></div>
+<p>Para cargar un archivo <code>.RData</code>, importando los objetos que contiene, usamos la funcion <code>load()</code>.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="intro.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file=</span><span class="st">&quot;mis_objetos.RData&quot;</span>)</span></code></pre></div>
+</div>
+<div id="exportando-e-importando-.csv" class="section level4 unnumbered">
+<h4>Exportando e importando .csv</h4>
+<p>R permite exportar datos a archivos que pueden ser leidos por otros programas. <code>CSV</code> es un formato de archivo simple y mas o menos universal usado para guardar datos en dos dimensiones (ej. bases de datos). Para guardar un objeto de estas caracteristicas, usamos la funcion <code>write.csv()</code>. Sus argumentos basicos son el objeto a ser guardado y <code>file</code>, donde indicamos el nombre del archivo. Por default, <code>write.csv()</code> crea una primera columna en la que ennumera las filas. Esto no suele ser muy util y podemos indicar que no lo haga usando el argumento <code>row.names=FALSE</code>.</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="intro.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(iris_dt,<span class="at">file=</span><span class="st">&quot;iris.csv&quot;</span>,<span class="at">row.names=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<p>Para importar un archivo <code>.csv</code>, utilizamos la funcion <code>read.csv()</code>. Sus argumentos basicos son dos: <code>file</code>, la ruta donde se encuentra el archivo y, si se trata de una base de datos, <code>header = TRUE</code>, lo que indica a R que la primera fila contiene un encabezado (los nombres de las variables). Además, para cargar el archivo a nuestro espacio de trabajo debemos asignarle un nombre y crear el objeto.</p>
+<p>Carguemos el archivo <code>iris.csv</code> en nuestro espacio de trabajo, asignandolo al objeto <code>iris_nuevo</code></p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="intro.html#cb51-1" aria-hidden="true" tabindex="-1"></a>iris_nuevo <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file=</span><span class="st">&quot;iris.csv&quot;</span>, <span class="at">header=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="operadores-basicos-en-r" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Operadores basicos en R</h2>
+<div id="operadores-aritmeticos" class="section level3" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Operadores aritmeticos</h3>
+<p>En su forma mas basica, R puede ser usado como una calculadora. Los operadores aritmeticos basicos son los convencionales:</p>
+<ul>
+<li><strong>Suma</strong>: <code>+</code></li>
+<li><strong>Resta</strong>: <code>-</code></li>
+<li><strong>Multiplicacion</strong>: <code>*</code></li>
+<li><strong>Division</strong>: <code>/</code></li>
+<li><strong>Potencia</strong>: <code>^</code></li>
+<li><strong>Modulo</strong>: <code>%%</code>. El modulo calcula el resto o diferencia de la division entre un dividendo y un divisor (ej. 5 mod 2 da 1, porque 2 * 2 es 4 y el resto o diferencia es 1)</li>
+<li><strong>Division de intergers</strong>: <code>%/%</code>. La division de intergers calcula la division entre un dividendo y un divisor ignorando la parte fraccional del resultado (ej. 5/2 es 2.5, pero la division de integers 5\2 es 2)</li>
+</ul>
+<p>Ejemplos:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="intro.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="sc">+</span> <span class="dv">7</span></span></code></pre></div>
+<pre><code>## [1] 11</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="intro.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="dv">9</span> <span class="sc">-</span> <span class="dv">5</span></span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="intro.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span> <span class="sc">*</span> <span class="dv">8</span></span></code></pre></div>
+<pre><code>## [1] 56</code></pre>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="intro.html#cb58-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">5</span> <span class="sc">+</span> <span class="dv">5</span>) <span class="sc">/</span> <span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="intro.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="dv">9</span> <span class="sc">^</span> <span class="dv">3</span></span></code></pre></div>
+<pre><code>## [1] 729</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="intro.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="dv">28</span> <span class="sc">%%</span> <span class="dv">6</span></span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="intro.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="dv">28</span> <span class="sc">/</span> <span class="dv">6</span></span></code></pre></div>
+<pre><code>## [1] 4.666667</code></pre>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="intro.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="dv">28</span> <span class="sc">%/%</span> <span class="dv">6</span></span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+</div>
+<div id="operadores-logicos" class="section level3" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> Operadores logicos</h3>
+<p>Los operadores logicos en R son los siguientes:</p>
+<ul>
+<li><strong>&lt;</strong> : menor que.</li>
+<li><strong>&gt;</strong> : mayor que.</li>
+<li><strong>&lt;=</strong>: menor o igual que.</li>
+<li><strong>&gt;=</strong>: mayor o igual que.</li>
+<li><strong>==</strong>: igual.</li>
+<li><strong>!=</strong>: no igual.</li>
+<li><strong>!</strong> : no (ej. !a evalua si algo no es a)</li>
+<li><strong>|</strong> : o (ej. a|b evalua si algo es a O b)</li>
+<li><strong>&amp;</strong> : y (ej. a&amp;b evalua si algo es a Y b)</li>
+</ul>
+<p>Veamos algunos ejemplos:</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="intro.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="sc">&lt;</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="intro.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="sc">&gt;</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="intro.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span><span class="sc">==</span>(<span class="dv">3</span><span class="sc">+</span><span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="intro.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span><span class="sc">!=</span>(<span class="dv">4</span><span class="sc">+</span><span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Usemos mas de un numero. En R el operador <code>:</code> crea una serie de numeros en secuencia entre el primer numero indicado y el segundo numero, incluyendolos.</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="intro.html#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<p>Evaluemos que numeros en la secuencia del 1 al 10 son mayores o iguales a 8</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="intro.html#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span><span class="sc">&gt;=</span><span class="dv">8</span></span></code></pre></div>
+<pre><code>##  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE</code></pre>
+<p>Ahora cuales numeros de dicha secuencias son mayores o iguales a 8 o menores a 5</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="intro.html#cb80-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span><span class="sc">&gt;=</span><span class="dv">8</span>) <span class="sc">|</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span><span class="sc">&lt;</span><span class="dv">4</span>)</span></code></pre></div>
+<pre><code>##  [1]  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE</code></pre>
+<p>Finalmente, cuales numeros de dicha secuencias son mayores o iguales que 3 y son pares (aprovechemos de usar modulo, si un numero x es par, x es divisible por 2, por lo tanto, x mod 2 es 0)</p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="intro.html#cb82-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span><span class="sc">&gt;=</span><span class="dv">3</span>) <span class="sc">&amp;</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span><span class="sc">%%</span><span class="dv">2</span><span class="sc">==</span><span class="dv">0</span>)</span></code></pre></div>
+<pre><code>##  [1] FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE</code></pre>
+</div>
+</div>
+<div id="asignacion-de-variables" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Asignacion de variables</h2>
+<p>Un concepto basico en la programacion estadistica es el concepto de variable. Una variable permite guardar un valor o un objeto en R. Despues de guardarlo o asignarlo, podemos usar el nombre de la variable para acceder al valor o al objeto que esta almacenado en la variable.</p>
+<p>Asignemos el valor 7 a una variable llamada <code>mi_variable</code>. Para hacerlo, usamos el operador de asignacion <code>&lt;-</code>. El shorcut para el operador de asignacion es Alt + - (Windows) o Option + - (Mac).</p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="intro.html#cb84-1" aria-hidden="true" tabindex="-1"></a>mi_variable <span class="ot">&lt;-</span> <span class="dv">7</span></span></code></pre></div>
+<p>Podemos ver que la variable <code>mi_variable</code> aparece como valor en la ventana <em>environment</em> de RStudio.</p>
+<p>Para imprimir el valor almacenado en <code>mi_variable</code> tenemos que escribir su nombre y ejecutar.</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="intro.html#cb85-1" aria-hidden="true" tabindex="-1"></a>mi_variable</span></code></pre></div>
+<pre><code>## [1] 7</code></pre>
+<p>Practiquemos la asignacion de variables y operaciones basicas. Creamos dos variables: <code>manzanas</code>, a la que le asignamos el valor <code>54</code> y <code>peras</code>, a la que le asignamos el valor <code>22</code>.</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="intro.html#cb87-1" aria-hidden="true" tabindex="-1"></a>manzanas <span class="ot">&lt;-</span> <span class="dv">54</span></span>
+<span id="cb87-2"><a href="intro.html#cb87-2" aria-hidden="true" tabindex="-1"></a>peras <span class="ot">&lt;-</span> <span class="dv">22</span></span></code></pre></div>
+<p>Sumemos las variables <code>manzanas</code> y <code>peras</code>, y asignamos el resultado a una variable llamada <code>frutas</code>. Imprimimos el resultado</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="intro.html#cb88-1" aria-hidden="true" tabindex="-1"></a>frutas <span class="ot">&lt;-</span> manzanas <span class="sc">+</span> peras</span>
+<span id="cb88-2"><a href="intro.html#cb88-2" aria-hidden="true" tabindex="-1"></a>frutas</span></code></pre></div>
+<pre><code>## [1] 76</code></pre>
+</div>
+<div id="tipos-de-datos" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> Tipos de datos</h2>
+<p>Probemos asignando a una variable llamada <code>naranjas</code> que contenga el valor de caracteres <code>"nueve"</code>. En R los valores de caracteres son identificados poniendolos entre comillas. Si no se usaran comillas, las palabras son interpretadas como si fueran nombres de objetos en el <em>environment</em>…</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="intro.html#cb90-1" aria-hidden="true" tabindex="-1"></a>naranjas <span class="ot">&lt;-</span> nueve</span></code></pre></div>
+<p>Lo que arroja el siguiente error de evaluacion si el objeto no existe:</p>
+<pre><code>Error: object &#39;nueve&#39; not found</code></pre>
+<p>Si el objeto existiera, se copia bajo el nombre asignado.</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="intro.html#cb92-1" aria-hidden="true" tabindex="-1"></a>naranjas <span class="ot">&lt;-</span> manzanas</span>
+<span id="cb92-2"><a href="intro.html#cb92-2" aria-hidden="true" tabindex="-1"></a>naranjas</span></code></pre></div>
+<pre><code>## [1] 54</code></pre>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="intro.html#cb94-1" aria-hidden="true" tabindex="-1"></a>manzanas</span></code></pre></div>
+<pre><code>## [1] 54</code></pre>
+<p>Volvamos a crear la variable <code>naranjas</code>, esta vez como habiamos dicho, asignada al valor <code>"nueve"</code> y la mprimimos.</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="intro.html#cb96-1" aria-hidden="true" tabindex="-1"></a>naranjas <span class="ot">&lt;-</span> <span class="st">&quot;nueve&quot;</span></span>
+<span id="cb96-2"><a href="intro.html#cb96-2" aria-hidden="true" tabindex="-1"></a>naranjas</span></code></pre></div>
+<pre><code>## [1] &quot;nueve&quot;</code></pre>
+<p>Veamos que pasa si quisieramos sumar <code>manzanas</code> y <code>naranjas</code></p>
+<pre><code>Error in manzanas + naranjas : non-numeric argument to binary operator</code></pre>
+<p>Nos arroja error porque los datos almacenados en estas variables son de distinto tipo. R maneja distintos tipos de datos, los mas basicos son:</p>
+<ul>
+<li><strong>Numeric</strong>: Valores con decimales (ej. 5.8)</li>
+<li><strong>Integer</strong>: Valores enteros (ej. 4). Los <em>integers</em> tambien son <em>numerics</em>. Para especificarlos como <em>integer</em> debemos cerrar con una letra <code>L</code> (ej. 4L)</li>
+<li><strong>Logical</strong>: Booleanos (TRUE o FALSE).</li>
+<li><strong>Character</strong> o <strong>string</strong>: Valores de texto (ej. “seis manzanas”)</li>
+</ul>
+<p>Creemos variables de distintos tipos:</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="intro.html#cb99-1" aria-hidden="true" tabindex="-1"></a>mi_numeric <span class="ot">&lt;-</span> <span class="fl">6.666</span></span>
+<span id="cb99-2"><a href="intro.html#cb99-2" aria-hidden="true" tabindex="-1"></a>mi_integer <span class="ot">&lt;-</span> 7L</span>
+<span id="cb99-3"><a href="intro.html#cb99-3" aria-hidden="true" tabindex="-1"></a>mi_logical <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb99-4"><a href="intro.html#cb99-4" aria-hidden="true" tabindex="-1"></a>mi_string <span class="ot">&lt;-</span> <span class="st">&quot;tres&quot;</span></span></code></pre></div>
+<p>Para chequear el tipo de datos almacenados en las variables usamos la funcion <code>class()</code>.</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="intro.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(mi_numeric)</span></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="intro.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(mi_integer)</span></code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="intro.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(mi_logical)</span></code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="intro.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(mi_string)</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+</div>
+<div id="vectores" class="section level2" number="1.5">
+<h2><span class="header-section-number">1.5</span> Vectores</h2>
+<p>Los <strong>vectores</strong> son formaciones o <em>arrays</em> unidimensionales que contienen datos numericos, de caracteres o logicos, siendo todos Los elementos del mismo tipo. En R se crean vectores con la funcion de combinacion <code>c()</code>. Los elementos del vector se ponen dentro de <code>c()</code> separados por comas.</p>
+<p>Veamos un ejemplo. Un estudiante quiere analizar los datos de sus calificaciones de matematicas y lenguaje, que aparecen en la siguiente tabla:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right"></th>
+<th align="center">Matematicas</th>
+<th align="center">Lenguaje</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">Marzo</td>
+<td align="center">6.1</td>
+<td align="center">5.3</td>
+</tr>
+<tr class="even">
+<td align="right">Abril</td>
+<td align="center">5.5</td>
+<td align="center">3.6</td>
+</tr>
+<tr class="odd">
+<td align="right">Mayo</td>
+<td align="center">4.4</td>
+<td align="center">2.0</td>
+</tr>
+<tr class="even">
+<td align="right">Junio</td>
+<td align="center">3.8</td>
+<td align="center">5.5</td>
+</tr>
+<tr class="odd">
+<td align="right">Julio</td>
+<td align="center">7.0</td>
+<td align="center">6.5</td>
+</tr>
+</tbody>
+</table>
+<p>Lo primero que hace tras recibir sus notas es generar con ellas dos vectores en R, a los que llama <code>mate</code> y <code>leng</code>, y despues los imprime.</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="intro.html#cb108-1" aria-hidden="true" tabindex="-1"></a>mate <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">6.1</span>,<span class="fl">5.5</span>,<span class="fl">4.4</span>,<span class="fl">3.8</span>,<span class="fl">7.0</span>)</span>
+<span id="cb108-2"><a href="intro.html#cb108-2" aria-hidden="true" tabindex="-1"></a>leng <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">5.3</span>,<span class="fl">3.6</span>,<span class="fl">2.0</span>,<span class="fl">5.5</span>,<span class="fl">6.5</span>)</span>
+<span id="cb108-3"><a href="intro.html#cb108-3" aria-hidden="true" tabindex="-1"></a>mate</span></code></pre></div>
+<pre><code>## [1] 6.1 5.5 4.4 3.8 7.0</code></pre>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="intro.html#cb110-1" aria-hidden="true" tabindex="-1"></a>leng</span></code></pre></div>
+<pre><code>## [1] 5.3 3.6 2.0 5.5 6.5</code></pre>
+<p>El estudiante no quiere confundirse. Sabe que tuvo una evaluacion al mes, pero asi como estan sus vectores, es dificil identificar a cual mes corresponden. El estudiante decide ponerle nombre a los datos almacenados en los vectores.</p>
+<p>Para nombrar elementos en R, utilizamos la funcion <code>names()</code>. La funcion names necesita otro vector que contenga los nombres que se quieren asignar al objeto. Siguiendo con el ejemplo:</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="intro.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(leng) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;marzo&quot;</span>,<span class="st">&quot;abril&quot;</span>,<span class="st">&quot;mayo&quot;</span>,<span class="st">&quot;junio&quot;</span>,<span class="st">&quot;julio&quot;</span>)</span>
+<span id="cb112-2"><a href="intro.html#cb112-2" aria-hidden="true" tabindex="-1"></a>leng</span></code></pre></div>
+<pre><code>## marzo abril  mayo junio julio 
+##   5.3   3.6   2.0   5.5   6.5</code></pre>
+<p>Para no tener que tipear el vector cada vez, podemos reutilizarlo si lo asignamos previamente a una variable.</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="intro.html#cb114-1" aria-hidden="true" tabindex="-1"></a>meses <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;marzo&quot;</span>,<span class="st">&quot;abril&quot;</span>,<span class="st">&quot;mayo&quot;</span>,<span class="st">&quot;junio&quot;</span>,<span class="st">&quot;julio&quot;</span>)</span></code></pre></div>
+<p>Los datos de caracter de esta variable serviran como nombres a los vectores <code>mate</code> y <code>leng</code>.</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="intro.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(mate) <span class="ot">&lt;-</span> meses</span>
+<span id="cb115-2"><a href="intro.html#cb115-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(leng) <span class="ot">&lt;-</span> meses</span>
+<span id="cb115-3"><a href="intro.html#cb115-3" aria-hidden="true" tabindex="-1"></a>mate</span></code></pre></div>
+<pre><code>## marzo abril  mayo junio julio 
+##   6.1   5.5   4.4   3.8   7.0</code></pre>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="intro.html#cb117-1" aria-hidden="true" tabindex="-1"></a>leng</span></code></pre></div>
+<pre><code>## marzo abril  mayo junio julio 
+##   5.3   3.6   2.0   5.5   6.5</code></pre>
+<div id="aritmetica-en-vectores" class="section level3" number="1.5.1">
+<h3><span class="header-section-number">1.5.1</span> Aritmetica en vectores</h3>
+<p>Con ambos vectores con nombre, el estudiante quiere visualizar en que meses tuvo peores calificaciones. Se le ocurre sumar sus calificaciones por mes y dividirlas por dos para sacar un promedio mensual:</p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="intro.html#cb119-1" aria-hidden="true" tabindex="-1"></a>suma_mes  <span class="ot">&lt;-</span> mate <span class="sc">+</span> leng</span>
+<span id="cb119-2"><a href="intro.html#cb119-2" aria-hidden="true" tabindex="-1"></a>media_mes <span class="ot">&lt;-</span> suma_mes<span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb119-3"><a href="intro.html#cb119-3" aria-hidden="true" tabindex="-1"></a>media_mes</span></code></pre></div>
+<pre><code>## marzo abril  mayo junio julio 
+##  5.70  4.55  3.20  4.65  6.75</code></pre>
+<p>Claramente mayo no fue un buen mes. El estudiante quiere saber si le fue mejor en lenguaje o en matematicas y decide calcular un promedio simple. Para lograrlo, usa la funcion <code>sum()</code> para sumar los elementos de cada vector y luego divide por <code>5</code> para promediar.</p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="intro.html#cb121-1" aria-hidden="true" tabindex="-1"></a>sum_leng <span class="ot">&lt;-</span> <span class="fu">sum</span>(leng)</span>
+<span id="cb121-2"><a href="intro.html#cb121-2" aria-hidden="true" tabindex="-1"></a>sum_mate <span class="ot">&lt;-</span> <span class="fu">sum</span>(mate)</span>
+<span id="cb121-3"><a href="intro.html#cb121-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-4"><a href="intro.html#cb121-4" aria-hidden="true" tabindex="-1"></a>media_leng <span class="ot">&lt;-</span> sum_leng<span class="sc">/</span><span class="dv">5</span></span>
+<span id="cb121-5"><a href="intro.html#cb121-5" aria-hidden="true" tabindex="-1"></a>media_mate <span class="ot">&lt;-</span> sum_mate<span class="sc">/</span><span class="dv">5</span></span>
+<span id="cb121-6"><a href="intro.html#cb121-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-7"><a href="intro.html#cb121-7" aria-hidden="true" tabindex="-1"></a>media_leng</span></code></pre></div>
+<pre><code>## [1] 4.58</code></pre>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="intro.html#cb123-1" aria-hidden="true" tabindex="-1"></a>media_mate</span></code></pre></div>
+<pre><code>## [1] 5.36</code></pre>
+<p>Despues se da cuenta que podria haber usado la funcion <code>mean()</code> para hacer lo mismo:</p>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="intro.html#cb125-1" aria-hidden="true" tabindex="-1"></a>mean_leng <span class="ot">&lt;-</span> <span class="fu">mean</span>(leng)</span>
+<span id="cb125-2"><a href="intro.html#cb125-2" aria-hidden="true" tabindex="-1"></a>mean_mate <span class="ot">&lt;-</span> <span class="fu">mean</span>(mate)</span>
+<span id="cb125-3"><a href="intro.html#cb125-3" aria-hidden="true" tabindex="-1"></a>mean_leng</span></code></pre></div>
+<pre><code>## [1] 4.58</code></pre>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="intro.html#cb127-1" aria-hidden="true" tabindex="-1"></a>mean_mate</span></code></pre></div>
+<pre><code>## [1] 5.36</code></pre>
+</div>
+<div id="seleccion-en-vectores" class="section level3" number="1.5.2">
+<h3><span class="header-section-number">1.5.2</span> Seleccion en vectores</h3>
+<p>Para seleccionar elementos en un vector utilizamos los parentesis cuadrados <code>[]</code>, indicando entre ellos el elemento que queremos seleccionar.</p>
+<p>Por ejemplo, queremos elegir el primer elemento del vector <code>leng</code>.</p>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="intro.html#cb129-1" aria-hidden="true" tabindex="-1"></a>leng[<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## marzo 
+##   5.3</code></pre>
+<p>Como <code>leng</code> es un vector con nombres, tambien podemos usar el nombre asignado a los elementos.</p>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="intro.html#cb131-1" aria-hidden="true" tabindex="-1"></a>leng[<span class="st">&quot;marzo&quot;</span>]</span></code></pre></div>
+<pre><code>## marzo 
+##   5.3</code></pre>
+<p>Para seleccionar multiples elementos de un vector, indicamos un vector con sus indices entre parentesis. Seleccionemos el elemento 1 y el elemento 5 del vector <code>mate</code>.</p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="intro.html#cb133-1" aria-hidden="true" tabindex="-1"></a>mate[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">5</span>)]</span></code></pre></div>
+<pre><code>## marzo julio 
+##   6.1   7.0</code></pre>
+<p>Especificar cada uno de los elementos puede ser inconveniente en algunas ocasiones. Supongamos que queremos seleccionar los tres elementos intermedios del vector <code>mate</code>, esto es los elementos 2, 3 y 4. Podemos usar el vector de seleccion <code>c(2,3,4)</code> o usar abreviadamente el vector <code>c(2:4)</code> que se refiere a todos los numeros naturales de 2 a 4.</p>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="intro.html#cb135-1" aria-hidden="true" tabindex="-1"></a>mate[<span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>)]</span></code></pre></div>
+<pre><code>## abril  mayo junio 
+##   5.5   4.4   3.8</code></pre>
+<p>Tambien podriamos usar sus nombres.</p>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="intro.html#cb137-1" aria-hidden="true" tabindex="-1"></a>mate[<span class="fu">c</span>(<span class="st">&quot;abril&quot;</span>,<span class="st">&quot;mayo&quot;</span>,<span class="st">&quot;junio&quot;</span>)]</span></code></pre></div>
+<pre><code>## abril  mayo junio 
+##   5.5   4.4   3.8</code></pre>
+<p>Otra forma de seleccion es la seleccion por comparacion, usando operadores logicos. Los operadores logicos tambien pueden ser usados en vectores. Como anticipamos en los ejemplos de la primera seccion, estos operadores evaluan si la expresion que indicamos es verdadera o falsa para cada elemento en el vector. Revisemos en cuales de las evaluaciones de lenguaje el estudiante califico con una nota menor a 4.0.</p>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="intro.html#cb139-1" aria-hidden="true" tabindex="-1"></a>leng<span class="sc">&lt;</span><span class="fl">4.0</span></span></code></pre></div>
+<pre><code>## marzo abril  mayo junio julio 
+## FALSE  TRUE  TRUE FALSE FALSE</code></pre>
+<p>Creemos dos vectores de seleccion para las calificaciones en las que el estudiante obtuvo una nota mayor o igual a 4.0, asignandolas a las variables <code>aprueba_mate</code> y <code>aprueba_leng</code> y las imprimimos.</p>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="intro.html#cb141-1" aria-hidden="true" tabindex="-1"></a>aprueba_mate <span class="ot">&lt;-</span> mate <span class="sc">&gt;=</span> <span class="fl">4.0</span></span>
+<span id="cb141-2"><a href="intro.html#cb141-2" aria-hidden="true" tabindex="-1"></a>aprueba_mate</span></code></pre></div>
+<pre><code>## marzo abril  mayo junio julio 
+##  TRUE  TRUE  TRUE FALSE  TRUE</code></pre>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="intro.html#cb143-1" aria-hidden="true" tabindex="-1"></a>aprueba_leng <span class="ot">&lt;-</span> leng <span class="sc">&gt;=</span> <span class="fl">4.0</span></span>
+<span id="cb143-2"><a href="intro.html#cb143-2" aria-hidden="true" tabindex="-1"></a>aprueba_leng</span></code></pre></div>
+<pre><code>## marzo abril  mayo junio julio 
+##  TRUE FALSE FALSE  TRUE  TRUE</code></pre>
+<p>Usamos estos vectores de seleccion usando los parentesis cerrados. R interpreta los vectores logicos seleccionando solo los elementos que se corresponden a un <code>TRUE</code> en el vector de seleccion. Seleccionemos e imprimamos en cada caso dichas calificaciones.</p>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="intro.html#cb145-1" aria-hidden="true" tabindex="-1"></a>mate[aprueba_mate]</span></code></pre></div>
+<pre><code>## marzo abril  mayo julio 
+##   6.1   5.5   4.4   7.0</code></pre>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="intro.html#cb147-1" aria-hidden="true" tabindex="-1"></a>leng[aprueba_leng]</span></code></pre></div>
+<pre><code>## marzo junio julio 
+##   5.3   5.5   6.5</code></pre>
+<p>Podemos ahorrarnos el paso intermedio de la asignacion del vector de seleccion.</p>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="intro.html#cb149-1" aria-hidden="true" tabindex="-1"></a>mate[mate <span class="sc">&gt;=</span> <span class="fl">4.0</span>]</span></code></pre></div>
+<pre><code>## marzo abril  mayo julio 
+##   6.1   5.5   4.4   7.0</code></pre>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="intro.html#cb151-1" aria-hidden="true" tabindex="-1"></a>leng[leng <span class="sc">&gt;=</span> <span class="fl">4.0</span>]</span></code></pre></div>
+<pre><code>## marzo junio julio 
+##   5.3   5.5   6.5</code></pre>
+</div>
+</div>
+<div id="matrices" class="section level2" number="1.6">
+<h2><span class="header-section-number">1.6</span> Matrices</h2>
+<p>En R una <strong>matriz</strong> es un conjunto de elementos del mismo tipo (<em>numeric</em>, <em>character</em> o <em>logical</em>) ordenados en un numero fijo de filas y columnas.</p>
+<p>Podemos construir una matriz usando la funcion <code>matrix()</code>. Como ejemplo, construyamos una matriz con los elementos de un vector numerico que contenga los numeros del 1 al 12 de manera tal que tenga 3 filas y 4 columnas:</p>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="intro.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">nrow =</span> <span class="dv">3</span>)</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]    1    2    3    4
+## [2,]    5    6    7    8
+## [3,]    9   10   11   12</code></pre>
+<p>El primer argumento de la funcion se refiere a los datos o elementos que R va a ordenar en la matriz. El argumento <code>byrow = TRUE</code> le indica a R que llene la matriz siguiendo las filas. Si quisieramos que llene siguiendo las columnas, especificamos <code>byrow = FALSE</code>. Las funciones en R tienen argumentos que vienen definidos por defecto, es decir, si no los especificamos toman un valor establecido por el mismo programa. Se recomienda revisar los archivos de ayuda de las funciones antes de usarlas.</p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="intro.html#cb155-1" aria-hidden="true" tabindex="-1"></a>?matrix</span></code></pre></div>
+<p>En el caso de la funcion <code>matrix()</code> el argumento <code>byrow</code> toma por default el valor <code>FALSE</code>. En otras palabras, si no indicamos <code>byrow = TRUE</code>, la matriz se llenara automaticamente siguiendo las columnas.</p>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="intro.html#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow =</span> <span class="dv">3</span>)</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]    1    4    7   10
+## [2,]    2    5    8   11
+## [3,]    3    6    9   12</code></pre>
+<p>Finalmente tercer elemento, <code>nrow = 3</code>, indica cuantas filas deberia tener la matriz, en este caso 3. Tambien podemos especificar el numero de columnas, en este caso <code>ncol = 4</code>. Volvamos a nuestra matriz inicial.</p>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="intro.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]    1    2    3    4
+## [2,]    5    6    7    8
+## [3,]    9   10   11   12</code></pre>
+<p>Si no establecemos cuantas columnas o filas queremos, R interpreta que necesitamos una matriz con una sola columna, independiente del argumento de <code>byrow</code>.</p>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="intro.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>##       [,1]
+##  [1,]    1
+##  [2,]    2
+##  [3,]    3
+##  [4,]    4
+##  [5,]    5
+##  [6,]    6
+##  [7,]    7
+##  [8,]    8
+##  [9,]    9
+## [10,]   10
+## [11,]   11
+## [12,]   12</code></pre>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="intro.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">byrow =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>##       [,1]
+##  [1,]    1
+##  [2,]    2
+##  [3,]    3
+##  [4,]    4
+##  [5,]    5
+##  [6,]    6
+##  [7,]    7
+##  [8,]    8
+##  [9,]    9
+## [10,]   10
+## [11,]   11
+## [12,]   12</code></pre>
+<p>Veamos un ejemplo de analisis de matrices. El Señor de los Anillos es la triologia filmica mas exitosa de la historia del cine en termino de recaudaciones a nivel mundial. La siguiente tabla muestra la recaudacion de cada una de las peliculas de la triologia, en Estados Unidos y Canada y en el resto del mundo.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right"></th>
+<th align="center">U.S. and Canada</th>
+<th align="center">Otros territorios</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right"><em><a href="https://en.wikipedia.org/wiki/The_Lord_of_the_Rings:_The_Fellowship_of_the_Ring#Box_office">The Fellowship of the Ring</a></em></td>
+<td align="center">$315,544,750</td>
+<td align="center">$572,389,161</td>
+</tr>
+<tr class="even">
+<td align="right"><em><a href="https://en.wikipedia.org/wiki/The_Lord_of_the_Rings:_The_Two_Towers#Box_office">The Two Towers</a></em></td>
+<td align="center">$342,551,365</td>
+<td align="center">$608,676,051</td>
+</tr>
+<tr class="odd">
+<td align="right"><em><a href="https://en.wikipedia.org/wiki/The_Lord_of_the_Rings:_The_Return_of_the_King#Box_office">The Return of the King</a></em></td>
+<td align="center">$377,845,905</td>
+<td align="center">$764,425,193</td>
+</tr>
+</tbody>
+</table>
+<p>Vamos a construir una matriz con esta informacion. Los siguientes tres vectores tienen la recaudacion de cada pelicula en millones:</p>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="intro.html#cb164-1" aria-hidden="true" tabindex="-1"></a>the_fellowship_of_the_ring <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">315.545</span>,<span class="fl">572.389</span>)</span>
+<span id="cb164-2"><a href="intro.html#cb164-2" aria-hidden="true" tabindex="-1"></a>the_two_towers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">342.551</span>,<span class="fl">608.676</span>)</span>
+<span id="cb164-3"><a href="intro.html#cb164-3" aria-hidden="true" tabindex="-1"></a>the_return_of_the_king <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">377.846</span>,<span class="fl">764.425</span>)</span></code></pre></div>
+<p>Combinemos estos vectores en uno llamado <code>recaudacion</code>.</p>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="intro.html#cb165-1" aria-hidden="true" tabindex="-1"></a>recaudacion <span class="ot">&lt;-</span> <span class="fu">c</span>(the_fellowship_of_the_ring, the_two_towers, the_return_of_the_king)</span>
+<span id="cb165-2"><a href="intro.html#cb165-2" aria-hidden="true" tabindex="-1"></a>recaudacion</span></code></pre></div>
+<pre><code>## [1] 315.545 572.389 342.551 608.676 377.846 764.425</code></pre>
+<p>Con este vector, construimos una matriz de 3 filas que llamaremos <code>lotr</code> y la imprimimos.</p>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="intro.html#cb167-1" aria-hidden="true" tabindex="-1"></a>lotr <span class="ot">&lt;-</span> <span class="fu">matrix</span>(recaudacion, <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">nrow =</span> <span class="dv">3</span>)</span>
+<span id="cb167-2"><a href="intro.html#cb167-2" aria-hidden="true" tabindex="-1"></a>lotr</span></code></pre></div>
+<pre><code>##         [,1]    [,2]
+## [1,] 315.545 572.389
+## [2,] 342.551 608.676
+## [3,] 377.846 764.425</code></pre>
+<p>Para identificar la informacion que la matriz contiene, le asignaremos nombres a las filas y las columnas de la matriz. Los siguientes vectores contienen dichos nombres:</p>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="intro.html#cb169-1" aria-hidden="true" tabindex="-1"></a>region <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;USA y Canada&quot;</span>, <span class="st">&quot;Otras regiones&quot;</span>)</span>
+<span id="cb169-2"><a href="intro.html#cb169-2" aria-hidden="true" tabindex="-1"></a>titulo <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;The Fellowship of the Ring&quot;</span>, <span class="st">&quot;The Two Towers&quot;</span>, <span class="st">&quot;The Return of the King&quot;</span>)</span></code></pre></div>
+<p>Usamos las funciones <code>colnames()</code> y <code>rownames()</code> para asignar los nombres e imprimimos la matriz.</p>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="intro.html#cb170-1" aria-hidden="true" tabindex="-1"></a>region <span class="ot">-&gt;</span> <span class="fu">colnames</span>(lotr)</span>
+<span id="cb170-2"><a href="intro.html#cb170-2" aria-hidden="true" tabindex="-1"></a>titulo <span class="ot">-&gt;</span> <span class="fu">rownames</span>(lotr)</span>
+<span id="cb170-3"><a href="intro.html#cb170-3" aria-hidden="true" tabindex="-1"></a>lotr</span></code></pre></div>
+<pre><code>##                            USA y Canada Otras regiones
+## The Fellowship of the Ring      315.545        572.389
+## The Two Towers                  342.551        608.676
+## The Return of the King          377.846        764.425</code></pre>
+<p>Calculemos la recaudacion mundial de cada una de las peliculas. Para hacerlo, tenemos que sumar la recaudacion de ambas regiones. En R, la funcion <code>rowSums()</code> calcula los totales por fila, creando un vector con esta informacion. Asignemos este nuevo vector a la variable <code>recaudacion_mundial</code> y lo imprimimos.</p>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="intro.html#cb172-1" aria-hidden="true" tabindex="-1"></a>recaudacion_mundial <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(lotr)</span>
+<span id="cb172-2"><a href="intro.html#cb172-2" aria-hidden="true" tabindex="-1"></a>recaudacion_mundial</span></code></pre></div>
+<pre><code>## The Fellowship of the Ring             The Two Towers 
+##                    887.934                    951.227 
+##     The Return of the King 
+##                   1142.271</code></pre>
+<p>Agreguemos este vector a la matriz. Para hacerlo, usamos la funcion <code>cbind()</code>, que sirve para pegar matrices y/o vectores como columnas. Asignamos la matriz resultante a la variable <code>lotr_mundial</code>. Renombramos la nueva columna como <code>"Todo el mundo"</code> e imprimimos.</p>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="intro.html#cb174-1" aria-hidden="true" tabindex="-1"></a>lotr_mundial <span class="ot">&lt;-</span> <span class="fu">cbind</span>(lotr,<span class="st">&quot;Todo el mundo&quot;</span><span class="ot">=</span>recaudacion_mundial)</span>
+<span id="cb174-2"><a href="intro.html#cb174-2" aria-hidden="true" tabindex="-1"></a>lotr_mundial</span></code></pre></div>
+<pre><code>##                            USA y Canada Otras regiones Todo el mundo
+## The Fellowship of the Ring      315.545        572.389       887.934
+## The Two Towers                  342.551        608.676       951.227
+## The Return of the King          377.846        764.425      1142.271</code></pre>
+<p>La siguiente tabla contiene informacion de la recaudacion de la triologia de El Hobbit, que fue un exito comercial aunque tenga una recepcion critica mixta.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right"></th>
+<th align="center">U.S. and Canada</th>
+<th align="center">Otros territorios</th>
+<th align="center">Todo el mundo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right"><em><a href="https://en.wikipedia.org/wiki/The_Hobbit:_An_Unexpected_Journey">An Unexpected Journey</a></em></td>
+<td align="center">$303,003,568</td>
+<td align="center">$718,100,000</td>
+<td align="center">$1,021,103,568</td>
+</tr>
+<tr class="even">
+<td align="right"><em><a href="https://en.wikipedia.org/wiki/The_Hobbit:_The_Desolation_of_Smaug">The Desolation of Smaug</a></em></td>
+<td align="center">$258,366,855</td>
+<td align="center">$700,000,000</td>
+<td align="center">$958,366,855</td>
+</tr>
+<tr class="odd">
+<td align="right"><em><a href="https://en.wikipedia.org/wiki/The_Hobbit:_The_Battle_of_the_Five_Armies">The Battle of the Five Armies</a></em></td>
+<td align="center">$255,119,788</td>
+<td align="center">$700,900,000</td>
+<td align="center">$956,019,788</td>
+</tr>
+</tbody>
+</table>
+<p>A continuacion creamos una matriz de la recaudacion en millones. Nos saltamos algunos pasos, asi que revisemos argumento por argumento. El primero es un vector que tiene los millones recaudados. Con <code>nrow = 3</code> especificamos que la matriz tiene 3 filas y con <code>byrow = TRUE</code> que la matriz sera llenada fila a fila. Con <code>dimnames</code> indicamos los nombres que tendran las dimensiones de la matriz. El imput de <code>dimnames</code> es una lista (las revisaremos luego) que contiene dos vectores: el primer vector tiene los nombres de las filas y el segundo vector los nombres de las columnas. Imprimimos la nueva matriz para verificar que todo este en orden.</p>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="intro.html#cb176-1" aria-hidden="true" tabindex="-1"></a>the_hobbit <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fl">303.004</span>,<span class="fl">718.100</span>,<span class="fl">1021.104</span>,</span>
+<span id="cb176-2"><a href="intro.html#cb176-2" aria-hidden="true" tabindex="-1"></a>                       <span class="fl">258.367</span>,<span class="fl">700.000</span>,<span class="fl">958.367</span>,</span>
+<span id="cb176-3"><a href="intro.html#cb176-3" aria-hidden="true" tabindex="-1"></a>                       <span class="fl">255.120</span>,<span class="fl">700.900</span>,<span class="fl">956.020</span>), </span>
+<span id="cb176-4"><a href="intro.html#cb176-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb176-5"><a href="intro.html#cb176-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">dimnames =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;An Unexpected Journey&quot;</span>,</span>
+<span id="cb176-6"><a href="intro.html#cb176-6" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">&quot;The Desolation of Smaug&quot;</span>,</span>
+<span id="cb176-7"><a href="intro.html#cb176-7" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">&quot;The Battle of the Five Armies&quot;</span>),</span>
+<span id="cb176-8"><a href="intro.html#cb176-8" aria-hidden="true" tabindex="-1"></a>                                     <span class="fu">c</span>(<span class="st">&quot;USA y Canada&quot;</span>,</span>
+<span id="cb176-9"><a href="intro.html#cb176-9" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">&quot;Otras regiones&quot;</span>,</span>
+<span id="cb176-10"><a href="intro.html#cb176-10" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">&quot;Todo el mundo&quot;</span>)))</span>
+<span id="cb176-11"><a href="intro.html#cb176-11" aria-hidden="true" tabindex="-1"></a>the_hobbit</span></code></pre></div>
+<pre><code>##                               USA y Canada Otras regiones Todo el mundo
+## An Unexpected Journey              303.004          718.1      1021.104
+## The Desolation of Smaug            258.367          700.0       958.367
+## The Battle of the Five Armies      255.120          700.9       956.020</code></pre>
+<p>Creemos una matriz que contenga todas las peliculas de la franquicia de Tolkien. Para hacerlo, usamos la funcion <code>rbind()</code> que permite pegar matrices y/o vectores en la dimension de las filas. Usamos esta funcion para pegar las matrices <code>lotr_mundial</code> y <code>the_hobbit</code>, asignamos el resultado a la variable <code>tolkien</code> y lo imprimimos.</p>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="intro.html#cb178-1" aria-hidden="true" tabindex="-1"></a>tolkien <span class="ot">&lt;-</span> <span class="fu">rbind</span>(lotr_mundial,the_hobbit)</span>
+<span id="cb178-2"><a href="intro.html#cb178-2" aria-hidden="true" tabindex="-1"></a>tolkien</span></code></pre></div>
+<pre><code>##                               USA y Canada Otras regiones Todo el mundo
+## The Fellowship of the Ring         315.545        572.389       887.934
+## The Two Towers                     342.551        608.676       951.227
+## The Return of the King             377.846        764.425      1142.271
+## An Unexpected Journey              303.004        718.100      1021.104
+## The Desolation of Smaug            258.367        700.000       958.367
+## The Battle of the Five Armies      255.120        700.900       956.020</code></pre>
+<p>Calculemos el total de la recaudacion de las peliculas de Tolkien, por region y en todo el mundo. Usamos la funcion <code>colSums()</code> que calcula los totales por columna. Guardamos el resultado en <code>tolkien_total_rev</code>.</p>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="intro.html#cb180-1" aria-hidden="true" tabindex="-1"></a>tolkien_total_rev <span class="ot">&lt;-</span> <span class="fu">rbind</span>(tolkien,<span class="at">Total=</span><span class="fu">colSums</span>(tolkien))</span>
+<span id="cb180-2"><a href="intro.html#cb180-2" aria-hidden="true" tabindex="-1"></a>tolkien_total_rev</span></code></pre></div>
+<pre><code>##                               USA y Canada Otras regiones Todo el mundo
+## The Fellowship of the Ring         315.545        572.389       887.934
+## The Two Towers                     342.551        608.676       951.227
+## The Return of the King             377.846        764.425      1142.271
+## An Unexpected Journey              303.004        718.100      1021.104
+## The Desolation of Smaug            258.367        700.000       958.367
+## The Battle of the Five Armies      255.120        700.900       956.020
+## Total                             1852.433       4064.490      5916.923</code></pre>
+<div id="seleccion-en-matrices" class="section level3" number="1.6.1">
+<h3><span class="header-section-number">1.6.1</span> Seleccion en matrices</h3>
+<p>La seleccion en matrices tambien utiliza parentesis cuadrado <code>[]</code>. A diferencia de los vectores, las matrices son objetos en dos dimensiones, por lo que necesitamos especificar las filas y las columnas que queremos seleccionar.</p>
+<p>Por ejemplo, tenemos una matriz que contiene los numeros del 1 al 12 ordenados en 3 filas.</p>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="intro.html#cb182-1" aria-hidden="true" tabindex="-1"></a>mi_matriz <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">byrow =</span> T,  <span class="at">nrow =</span> <span class="dv">3</span>)</span>
+<span id="cb182-2"><a href="intro.html#cb182-2" aria-hidden="true" tabindex="-1"></a>mi_matriz</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]    1    2    3    4
+## [2,]    5    6    7    8
+## [3,]    9   10   11   12</code></pre>
+<p>El objeto a la izquierda de la coma se refiere a las filas y el objeto a la derecha de la coma se refiere a las columnas. <code>mi_matriz[2,3]</code> selecciona los elementos que estan en la segunda fila y en la tercera columna.</p>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="intro.html#cb184-1" aria-hidden="true" tabindex="-1"></a>mi_matriz[<span class="dv">2</span>,<span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## [1] 7</code></pre>
+<p>Tambien podemos seleccional varias filas o columnas a la vez. <code>mi_matriz[1:3,2:4]</code> selecciona los elementos que estan en las filas del 1 al 3 y en las columnas del 2 al 4.</p>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="intro.html#cb186-1" aria-hidden="true" tabindex="-1"></a>mi_matriz[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    2    3    4
+## [2,]    6    7    8
+## [3,]   10   11   12</code></pre>
+<p>Si tenemos que seleccionar todos los elementos de una fila o columna, no necesitamos especificar los objetos de las columnas o filas, respectivamente. <code>mi_matriz[,1]</code> selecciona todos los elementos que estan en la primera columna.</p>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="intro.html#cb188-1" aria-hidden="true" tabindex="-1"></a>mi_matriz[,<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] 1 5 9</code></pre>
+<p><code>mi_matriz[1,]</code> selecciona todos los elementos que estan en la primera fila.</p>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="intro.html#cb190-1" aria-hidden="true" tabindex="-1"></a>mi_matriz[<span class="dv">1</span>,]</span></code></pre></div>
+<pre><code>## [1] 1 2 3 4</code></pre>
+<p>Volvamos a nuestra matriz <code>tolkien</code>.</p>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="intro.html#cb192-1" aria-hidden="true" tabindex="-1"></a>tolkien</span></code></pre></div>
+<pre><code>##                               USA y Canada Otras regiones Todo el mundo
+## The Fellowship of the Ring         315.545        572.389       887.934
+## The Two Towers                     342.551        608.676       951.227
+## The Return of the King             377.846        764.425      1142.271
+## An Unexpected Journey              303.004        718.100      1021.104
+## The Desolation of Smaug            258.367        700.000       958.367
+## The Battle of the Five Armies      255.120        700.900       956.020</code></pre>
+<p>Vamos a seleccionar la recaudacion de las peliculas de la triologia del Señor de los Anillos en las regiones fuera de USA y Canada y las vamos a asignar a la variable <code>lotr_otras_regiones</code>, e imprimimos.</p>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="intro.html#cb194-1" aria-hidden="true" tabindex="-1"></a>lotr_otras_regiones <span class="ot">&lt;-</span> tolkien[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,<span class="dv">2</span>]</span>
+<span id="cb194-2"><a href="intro.html#cb194-2" aria-hidden="true" tabindex="-1"></a>lotr_otras_regiones</span></code></pre></div>
+<pre><code>## The Fellowship of the Ring             The Two Towers 
+##                    572.389                    608.676 
+##     The Return of the King 
+##                    764.425</code></pre>
+</div>
+<div id="aritmetica-en-matrices" class="section level3" number="1.6.2">
+<h3><span class="header-section-number">1.6.2</span> Aritmetica en matrices</h3>
+<p>Calculemos el total de recaudacion y el promedio de recaudacion de estas peliculas fuera de Estados Unidos y Canada, usando las funciones <code>sum()</code> y <code>mean()</code>.</p>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="intro.html#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(lotr_otras_regiones)</span></code></pre></div>
+<pre><code>## [1] 1945.49</code></pre>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="intro.html#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(lotr_otras_regiones)</span></code></pre></div>
+<pre><code>## [1] 648.4967</code></pre>
+<p>Esto no es diferente a lo que realizamos en la seccion vectores, porque nuestra seleccion de elementos de la matriz <code>tolkien</code> es un vector. Si quisieramos mantenerlo en formato matriz, usamos la funcion <code>as.matrix()</code>. En este caso obtenemos una matriz de 3x1.</p>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="intro.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.matrix</span>(tolkien[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,<span class="dv">2</span>])</span></code></pre></div>
+<pre><code>##                               [,1]
+## The Fellowship of the Ring 572.389
+## The Two Towers             608.676
+## The Return of the King     764.425</code></pre>
+<p>R permite que usemos los operadores matematicos elemento a elemento cuando los aplicamos a una matriz. Por ejemplo, <code>mi_matriz * 2</code> multiplica cada elemento en <code>mi_matriz</code> por 2.</p>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="intro.html#cb202-1" aria-hidden="true" tabindex="-1"></a>mi_matriz</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]    1    2    3    4
+## [2,]    5    6    7    8
+## [3,]    9   10   11   12</code></pre>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="intro.html#cb204-1" aria-hidden="true" tabindex="-1"></a>mi_matriz<span class="sc">*</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]    2    4    6    8
+## [2,]   10   12   14   16
+## [3,]   18   20   22   24</code></pre>
+<p>Supongamos que queremos calcular el numero de visitantes para las peliculas de Tolkien usando una estimacion del precio de la entrada al cine de $5. Dividimos la matriz <code>tolkien</code> por 5, para obtener el numero de visitantes en millones.</p>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="intro.html#cb206-1" aria-hidden="true" tabindex="-1"></a>tolkien<span class="sc">/</span><span class="dv">5</span></span></code></pre></div>
+<pre><code>##                               USA y Canada Otras regiones Todo el mundo
+## The Fellowship of the Ring         63.1090       114.4778      177.5868
+## The Two Towers                     68.5102       121.7352      190.2454
+## The Return of the King             75.5692       152.8850      228.4542
+## An Unexpected Journey              60.6008       143.6200      204.2208
+## The Desolation of Smaug            51.6734       140.0000      191.6734
+## The Battle of the Five Armies      51.0240       140.1800      191.2040</code></pre>
+<p>Un amigo le indica que su calculo esta errado, porque los precios de los tickets para el Señor de los Anillos (2001 al 2003) fueron menores a los precios de los tickets para El Hobbit (2012 al 2014). Sugiere que usemos la informacion de la siguiente tabla, que contiene los precios promedio de la entrada al cine para la region de USA y Canada por año de lanzamiento para cada una de las entregas de ambas triologias.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right"></th>
+<th align="center">LotR</th>
+<th align="center">The Hobbit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">I</td>
+<td align="center">5.66</td>
+<td align="center">7.96</td>
+</tr>
+<tr class="even">
+<td align="right">II</td>
+<td align="center">5.81</td>
+<td align="center">8.13</td>
+</tr>
+<tr class="odd">
+<td align="right">III</td>
+<td align="center">6.03</td>
+<td align="center">8.17</td>
+</tr>
+</tbody>
+</table>
+<p>Pongamos en practica lo que hemos visto hasta ahora. Primero vamos a construir una matriz de 3 filas y 2 columnas que se asemeje a la tabla que nos han facilitado.</p>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="intro.html#cb208-1" aria-hidden="true" tabindex="-1"></a>USC_tickets <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fl">5.66</span>,<span class="fl">5.81</span>,<span class="fl">6.03</span>,</span>
+<span id="cb208-2"><a href="intro.html#cb208-2" aria-hidden="true" tabindex="-1"></a>                        <span class="fl">7.96</span>,<span class="fl">8.13</span>,<span class="fl">8.17</span>),</span>
+<span id="cb208-3"><a href="intro.html#cb208-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb208-4"><a href="intro.html#cb208-4" aria-hidden="true" tabindex="-1"></a>USC_tickets</span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,] 5.66 7.96
+## [2,] 5.81 8.13
+## [3,] 6.03 8.17</code></pre>
+<p>Ahora construimos una matriz con la recaudacion para la region de USA y Canada que siga el formato de la tabla que nos entregaron. Lo haremos paso a paso. Primero, necesitamos seleccionar de la matriz <code>tolkien</code> los elementos que correspondan a la region para las peliculas de el Señor de los Anillos, que iran en la columna 1, y los elementos que correspondan a dicha region para las peliculas de El Hobbit, que iran en la columna 2. Asignamos nuestras selecciones a dos vectores <code>USC_lotr</code> y <code>USC_hobbit</code></p>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="intro.html#cb210-1" aria-hidden="true" tabindex="-1"></a>USC_lotr <span class="ot">&lt;-</span> tolkien[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,<span class="dv">1</span>]</span>
+<span id="cb210-2"><a href="intro.html#cb210-2" aria-hidden="true" tabindex="-1"></a>USC_hobbit <span class="ot">&lt;-</span> tolkien[<span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>,<span class="dv">1</span>]</span></code></pre></div>
+<p>Luego usamos la funcion <code>cbind()</code> para pegar nuestros vectores en una matriz.</p>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="intro.html#cb211-1" aria-hidden="true" tabindex="-1"></a>USC_tolkien <span class="ot">&lt;-</span> <span class="fu">cbind</span>(USC_lotr,USC_hobbit)</span></code></pre></div>
+<p>Le damos nombres a las dimensiones de la matriz <code>USC_tolkien</code> y la imprimimos.</p>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="intro.html#cb212-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">&quot;LotR&quot;</span>,<span class="st">&quot;The Hobbit&quot;</span>) <span class="ot">-&gt;</span> <span class="fu">colnames</span>(USC_tolkien)</span>
+<span id="cb212-2"><a href="intro.html#cb212-2" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">&quot;I&quot;</span>,<span class="st">&quot;II&quot;</span>,<span class="st">&quot;III&quot;</span>) <span class="ot">-&gt;</span> <span class="fu">rownames</span>(USC_tolkien)</span>
+<span id="cb212-3"><a href="intro.html#cb212-3" aria-hidden="true" tabindex="-1"></a>USC_tolkien</span></code></pre></div>
+<pre><code>##        LotR The Hobbit
+## I   315.545    303.004
+## II  342.551    258.367
+## III 377.846    255.120</code></pre>
+<p>Finalmente, calculamos la cantidad de visitantes en millones usando la informacion que recibimos. Al igual que lo hicimos antes, dividimos los datos de recaudacion por el precio de las entradas. Esta vez se trata de dos matrices <code>USC_tolkien</code> y <code>USC_tickets</code>. Asignamos el resultado a <code>visitantes</code> e imprimimos.</p>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="intro.html#cb214-1" aria-hidden="true" tabindex="-1"></a>visitantes <span class="ot">&lt;-</span> USC_tolkien<span class="sc">/</span>USC_tickets</span>
+<span id="cb214-2"><a href="intro.html#cb214-2" aria-hidden="true" tabindex="-1"></a>visitantes</span></code></pre></div>
+<pre><code>##         LotR The Hobbit
+## I   55.75000   38.06583
+## II  58.95886   31.77946
+## III 62.66103   31.22644</code></pre>
+<p>Calculemos el promedio de visitantes para cada triologia.</p>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="intro.html#cb216-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(visitantes[,<span class="st">&quot;LotR&quot;</span>])</span></code></pre></div>
+<pre><code>## [1] 59.1233</code></pre>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="intro.html#cb218-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(visitantes[,<span class="st">&quot;The Hobbit&quot;</span>])</span></code></pre></div>
+<pre><code>## [1] 33.69058</code></pre>
+</div>
+</div>
+<div id="factores" class="section level2" number="1.7">
+<h2><span class="header-section-number">1.7</span> Factores</h2>
+<p>Los <strong>factores</strong> son un tipo de dato estadistico para almacenar variables categoricas, es decir, variables con un numero limitado de categorias. Esta diferencia es importante porque R reconoce automaticamente que los factores son variables categoricas, lo que determina el tipo de analisis estadistico que pueden realizarse con ellas.</p>
+<p>Un ejemplo clasico de variable categorica es el sexo. Algunos limitan el numero de categorias de sexo a “hombre” y “mujer.” Podemos discutir que existen mas variaciones genotipicas, fenotipicas, culturales, historicas… que compliquen la asignacion de estas categorias, pero convengamos que se trata de un numero x de categorias y no un numero infinito de valores numericos.</p>
+<p>Creemos un factor que contenga el autorreporte de 5 personas a las que se les pregunto cual era su sexo. La informacion esta contenida en el vector <code>vector_sexo</code> a continuacion. Ejecutemos el codigo para crear <code>vector_sexo</code>.</p>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="intro.html#cb220-1" aria-hidden="true" tabindex="-1"></a>vector_sexo <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;M&quot;</span>,<span class="st">&quot;H&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;H&quot;</span>,<span class="st">&quot;M&quot;</span>)</span>
+<span id="cb220-2"><a href="intro.html#cb220-2" aria-hidden="true" tabindex="-1"></a>vector_sexo</span></code></pre></div>
+<pre><code>## [1] &quot;M&quot; &quot;H&quot; &quot;M&quot; &quot;H&quot; &quot;M&quot;</code></pre>
+<p>En este vector se observan dos valores: <code>"M"</code> que representa a la categoria “mujer” y <code>"H"</code> que representa a la categoria “hombre.” En terminos de R, estas categorias son <strong>factor levels</strong>. La funcion <code>factor()</code> codifica los vectores como factores. Creemos un factor a partir de <code>vector_sexo</code>, asignemoslo a <code>factor_sexo</code> e imprimimos.</p>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="intro.html#cb222-1" aria-hidden="true" tabindex="-1"></a>factor_sexo <span class="ot">&lt;-</span> <span class="fu">factor</span>(vector_sexo)</span>
+<span id="cb222-2"><a href="intro.html#cb222-2" aria-hidden="true" tabindex="-1"></a>factor_sexo</span></code></pre></div>
+<pre><code>## [1] M H M H M
+## Levels: H M</code></pre>
+<p>Recordemos brevemente los tipos de variables categoricas: variables nominales y variables ordinales. Las variables nominales no tienen un orden implicito, no es posible ordenarlas en grado o valor. En contraste, las variables ordinales tienen un orden natural entre sus categorias, aunque la distancia entre estas no se conozca. No sabemos cual es la diferencia en magnitud entre “alto” y “medio” o entre “medio” y “bajo,” pero sabemos que el orden de menor a mayor es “bajo,” “medio” y “alto.”</p>
+<div id="factores-no-ordenados" class="section level3" number="1.7.1">
+<h3><span class="header-section-number">1.7.1</span> Factores no ordenados</h3>
+<p>Cuando recibimos datos, frecuentemente notamos que contienen variables categoricas con niveles especificos asociados. A veces vamos a querer cambiar el nombre de estos niveles para clarificar lo que significan. R permite hacerlo con la funcion <code>levels()</code>.</p>
+<p>Volvamos a nuestro <code>factor_sexo</code>. Este factor fue creado a partir de datos de un vector crudo <code>vector_sexo</code> que provenia de una encuesta en la que se codificaron las categorias como “M” y “F” para simplificar el proceso. Revisemos los niveles del <code>factor_sexo</code>.</p>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="intro.html#cb224-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(factor_sexo)</span></code></pre></div>
+<pre><code>## [1] &quot;H&quot; &quot;M&quot;</code></pre>
+<p>Cuando creamos un factor sin especificar el orden de los factores, como acabamos de hacer con <code>factor_sexo</code>, R conserva como <strong>factor levels</strong> las categorias unicas presentes en el vector y les asigna un orden alfabetico. Por eso, pese a que en nuestro caso el primer elemento en el factor es “M,” los <strong>factor levels</strong> son “H” y “M.” Cambiemos los niveles del factor a <code>"Hombre"</code> y <code>"Mujer"</code>, teniendo en cuenta este orden alfabetico. Luego comprobamos volviendo a ejecutar <code>levels()</code>.</p>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="intro.html#cb226-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(factor_sexo) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Hombre&quot;</span>, <span class="st">&quot;Mujer&quot;</span>)</span>
+<span id="cb226-2"><a href="intro.html#cb226-2" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(factor_sexo)</span></code></pre></div>
+<pre><code>## [1] &quot;Hombre&quot; &quot;Mujer&quot;</code></pre>
+<p>Exploremos nuestro <code>factor_sexo</code>. En R, la funcion <code>summary()</code> nos entrega una vista rapida de lo que contiene una variable. Los resultados de la funcion <code>summary()</code> dependen de la clase de su argumento. Veamos la diferencia al ejecutar <code>summary()</code> con <code>vector_sexo</code> y <code>factor_sexo</code>.</p>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="intro.html#cb228-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(vector_sexo)</span></code></pre></div>
+<pre><code>##    Length     Class      Mode 
+##         5 character character</code></pre>
+<p>Cuando corremos <code>summary()</code> con un vector, obtenemos la cantidad de elementos que almacena, la clase de datos que contiene y su modo de almacenamiento. En este caso tiene 5 elementos de clase y modo de almacenamiento <strong>character</strong>.</p>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="intro.html#cb230-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(factor_sexo)</span></code></pre></div>
+<pre><code>## Hombre  Mujer 
+##      2      3</code></pre>
+<p>Cuando corremos <code>summary()</code> con un factor, obtenemos las frecuencias de cada nivel. En este caso, 2 hombres y 3 mujeres.</p>
+<p>Veamos que pasa cuando intentamos comparar los elementos de <code>factor_sexo</code>. Veamos los dos primeros elementos:</p>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="intro.html#cb232-1" aria-hidden="true" tabindex="-1"></a>factor_sexo[<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] Mujer
+## Levels: Hombre Mujer</code></pre>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="intro.html#cb234-1" aria-hidden="true" tabindex="-1"></a>factor_sexo[<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] Hombre
+## Levels: Hombre Mujer</code></pre>
+<p>Es <code>"Mujer"</code> mayor que <code>"Hombre"</code> ?</p>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="intro.html#cb236-1" aria-hidden="true" tabindex="-1"></a>factor_sexo[<span class="dv">1</span>] <span class="sc">&gt;</span> factor_sexo[<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## Warning in Ops.factor(factor_sexo[1], factor_sexo[2]): &#39;&gt;&#39; not meaningful for
+## factors</code></pre>
+<pre><code>## [1] NA</code></pre>
+<p>Por defecto, R devuelve <code>NA</code> (<em>not available</em>) porque la comparacion no tiene sentido, dado que se trata de una variable nominal y las categorias en <code>factor_sexo</code> no estan ordenadas. R le otorga un valor equivalente a los niveles de estos factores. Pero este no es siempre el caso. Como veremos a continuacion, a veces tenemos factores que poseen un orden natural entre sus categorias.</p>
+</div>
+<div id="factores-ordenados" class="section level3" number="1.7.2">
+<h3><span class="header-section-number">1.7.2</span> Factores ordenados</h3>
+<p>Supongamos que nos piden crear un factor con informacion de una carrera de relevos. Basada en la velocidad de los corredores, la estrategia mas generalmente aceptada para un equipo de cuatro corredores es la siguiente: segundo mas rapido, tercero mas rapido, el mas lento, el mas rapido (ancla). Creemos un vector con esta estrategia.</p>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="intro.html#cb239-1" aria-hidden="true" tabindex="-1"></a>vector_velocidad <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;segundo mas rapido&quot;</span>, <span class="st">&quot;tercero mas rapido&quot;</span>, <span class="st">&quot;mas lento&quot;</span>, <span class="st">&quot;mas rapido&quot;</span>)</span></code></pre></div>
+<p>Las categorias del <code>vector_velocidad</code> si tienen un orden y deberian ser convertidas a un factor ordenado. Como ya vimos, por defecto, la funcion <code>factor()</code> transforma los vectores en un factor no ordenado. Para crear un factor ordenado, debemos especificar dos argumentos adicionales: <code>ordered</code>, que acepta un argumento logico que debe ser <code>TRUE</code> para indicar que el factor es ordenado, y <code>levels</code> que acepta un vector con las categorias ordenadas. Creemos el <code>factor_velocidad</code> considerando las velocidades.</p>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="intro.html#cb240-1" aria-hidden="true" tabindex="-1"></a>factor_velocidad <span class="ot">&lt;-</span> <span class="fu">factor</span>(vector_velocidad, <span class="at">ordered =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb240-2"><a href="intro.html#cb240-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;mas lento&quot;</span>, <span class="st">&quot;tercero mas rapido&quot;</span>, <span class="st">&quot;segundo mas rapido&quot;</span>, <span class="st">&quot;mas rapido&quot;</span>))</span></code></pre></div>
+<p>Como podemos ver, R ahora muestra que los niveles tienen un orden y los imprime de menor a mayor. En este caso no es muy ilustrativo, porque tenemos un corredor por velocidad, pero si ejecutamos <code>summary()</code> obtenemos las frecuencias, tal y como vimos con anterioridad.</p>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="intro.html#cb241-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(factor_velocidad)</span></code></pre></div>
+<pre><code>##          mas lento tercero mas rapido segundo mas rapido         mas rapido 
+##                  1                  1                  1                  1</code></pre>
+<p>Veamos que pasa cuando comparamos las categorias de nuestros corredores.</p>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="intro.html#cb243-1" aria-hidden="true" tabindex="-1"></a>factor_velocidad</span></code></pre></div>
+<pre><code>## [1] segundo mas rapido tercero mas rapido mas lento          mas rapido        
+## 4 Levels: mas lento &lt; tercero mas rapido &lt; ... &lt; mas rapido</code></pre>
+<p>Es el primer corredor mas rapido que el segundo corredor?</p>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="intro.html#cb245-1" aria-hidden="true" tabindex="-1"></a>factor_velocidad[<span class="dv">1</span>] <span class="sc">&gt;</span> factor_velocidad[<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Es el tercer corredor mas rapido que el cuarto corredor?</p>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="intro.html#cb247-1" aria-hidden="true" tabindex="-1"></a>factor_velocidad[<span class="dv">3</span>] <span class="sc">&gt;</span> factor_velocidad[<span class="dv">4</span>]</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+</div>
+</div>
+<div id="dataframes" class="section level2" number="1.8">
+<h2><span class="header-section-number">1.8</span> Dataframes</h2>
+<p>Al igual que las matrices, los <strong>data frames</strong> son objetos que tienen dos dimensiones. Sabemos que las matrices son configuraciones de datos del mismo tipo. Los datos que vimos en los ejemplos de las peliculas de Tolkien eran exclusivamente numericos. Esta limitacion no se apega a los datos que frecuente tendremos que analizar. Por ejemplo, las encuestas contienen preguntas como:</p>
+<ul>
+<li>Cual es su fecha de nacimiento? (variable de intervalo)</li>
+<li>Cual es su edad? (variable de razon)</li>
+<li>Cual es su estado civil? (variable nominal)
+<ul>
+<li>Casado(a)</li>
+<li>Conviviente o pareja sin acuerdo de union civil</li>
+<li>Conviviente civil (con acuerdo de union civil)</li>
+<li>Anulado(a)</li>
+<li>Separado(a)</li>
+<li>Divorciado (a)</li>
+<li>Viudo(a)</li>
+<li>Soltero(a)</li>
+</ul></li>
+<li>Que tan de acuerdo esta con…? (variable ordinal)
+<ul>
+<li>Muy en desacuerdo</li>
+<li>Algo en desacuerdo</li>
+<li>Ni de acuerdo ni en desacuerdo</li>
+<li>Algo de acuerdo</li>
+<li>Muy de acuerdo</li>
+</ul></li>
+<li>Tiene contrato de trabajo? (variable nominal, dummy)
+<ul>
+<li>Si</li>
+<li>No</li>
+</ul></li>
+</ul>
+<p>Las bases de datos que reunen todo esto contienen distintos tipos de variables que, ademas, pueden ser codificadas de diferentes formas. En R, todo esto se traduce en distintos tipos de datos <em>numeric</em>, <em>character</em> o <em>logical</em>.</p>
+<p>Un <strong>data frame</strong> es un objeto bidimensional en el que cada columnas puede contener un tipo de datos distinto, pero todos los datos dentro de una columna son del mismo tipo. En un data frame las columnas representan variables de un conjunto de datos y las filas representan observaciones.</p>
+<p>Como ejemplo, carguemos <code>mtcars</code> un data frame built-in en R.</p>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="intro.html#cb249-1" aria-hidden="true" tabindex="-1"></a>mtcars</span></code></pre></div>
+<pre><code>##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+## Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+## Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+## Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+## Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+## Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+## Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+## AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+## Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+## Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+## Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></pre>
+<p><code>mtcars</code> son datos extraidos de la revista Motor Trend US de 1974, y and contiene el consumo de combustible y otros aspectos de diseño y performance para 32 modelos de automoviles. Podemos ver que las variables (mpg, cyl, disp, hp, drat, wt, qsec, vs, am, gear y carb) estan en las columnas y que los automoviles (32) en las filas.</p>
+<p>Por lo general trabajaremos con data frames mas grandes que <code>mtcars</code>, que no podremos mirar de un vistazo. En esos casos es necesario revisar su estructura y principales elementos antes de empezar a analizarlos.</p>
+<p>Podemos empezar mirando una pequeña parte de los datos. En R, usamos la funcion <code>head()</code> para imprimir las primeras observaciones de un data frame. Similarmente, la funcion <code>tail()</code> imprime las ultimas observaciones en el data frame. Estas funciones imprimen, ademas, una primera fila llamada <em>header</em> que contiene los nombres de las variables. Por default, ambas funciones muestran 5 filas.</p>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="intro.html#cb251-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span></code></pre></div>
+<pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="intro.html#cb253-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(mtcars)</span></code></pre></div>
+<pre><code>##                 mpg cyl  disp  hp drat    wt qsec vs am gear carb
+## Porsche 914-2  26.0   4 120.3  91 4.43 2.140 16.7  0  1    5    2
+## Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.9  1  1    5    2
+## Ford Pantera L 15.8   8 351.0 264 4.22 3.170 14.5  0  1    5    4
+## Ferrari Dino   19.7   6 145.0 175 3.62 2.770 15.5  0  1    5    6
+## Maserati Bora  15.0   8 301.0 335 3.54 3.570 14.6  0  1    5    8
+## Volvo 142E     21.4   4 121.0 109 4.11 2.780 18.6  1  1    4    2</code></pre>
+<p>Otro metodo para conocer rapidamente los datos es usar la funcion <code>str()</code>, que muestra la estructura del data frame.</p>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="intro.html#cb255-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(mtcars)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    32 obs. of  11 variables:
+##  $ mpg : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
+##  $ cyl : num  6 6 4 6 8 6 8 4 4 6 ...
+##  $ disp: num  160 160 108 258 360 ...
+##  $ hp  : num  110 110 93 110 175 105 245 62 95 123 ...
+##  $ drat: num  3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...
+##  $ wt  : num  2.62 2.88 2.32 3.21 3.44 ...
+##  $ qsec: num  16.5 17 18.6 19.4 17 ...
+##  $ vs  : num  0 0 1 1 0 1 0 1 1 1 ...
+##  $ am  : num  1 1 1 0 0 0 0 0 0 0 ...
+##  $ gear: num  4 4 4 3 3 3 3 4 4 4 ...
+##  $ carb: num  4 4 1 1 2 1 4 2 2 4 ...</code></pre>
+<p>Obtenemos:</p>
+<ul>
+<li>El numero total de observaciones (ej. 32 tipos de automoviles)</li>
+<li>El numero total de variables (ej. 11 caracteristicas de los automoviles)</li>
+<li>Una lista con todos los nombres de las variables (ej. mpg, cyl… )</li>
+<li>Los tipos de datos de cada variable (ej. num)</li>
+<li>Las primeras observaciones</li>
+</ul>
+<p>Ejecutar <code>str()</code> es sumamente informativo y deberia ser la primera tarea a realizar al recibir un data set nuevo. Podemos obtener parte de esta informacion dependiendo de lo que requisieramos. Por ejemplo, si solo quisieramos conocer las dimensiones de un data frame, usamos la funcion <code>dim()</code>.</p>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="intro.html#cb257-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(mtcars)</span></code></pre></div>
+<pre><code>## [1] 32 11</code></pre>
+<p>Si solo queremos conocer los nombres de las variables de un data frame, usamos <code>names()</code>.</p>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="intro.html#cb259-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(mtcars)</span></code></pre></div>
+<pre><code>##  [1] &quot;mpg&quot;  &quot;cyl&quot;  &quot;disp&quot; &quot;hp&quot;   &quot;drat&quot; &quot;wt&quot;   &quot;qsec&quot; &quot;vs&quot;   &quot;am&quot;   &quot;gear&quot;
+## [11] &quot;carb&quot;</code></pre>
+<div id="creacion-de-un-data-frame" class="section level3" number="1.8.1">
+<h3><span class="header-section-number">1.8.1</span> Creacion de un data frame</h3>
+<p>Para practicar, crearemos un pequeño data set que describa las principales caracteristicas de 8 planetas del sistema solar. Las caracteristicas son:</p>
+<ul>
+<li>El tipo de planeta (Terrestres o gigantes gaseosos).</li>
+<li>El diametro del planeta relativo al diametro de la Tierra.</li>
+<li>La rotacion del planeta en relacion con la rotacion de la Tierra.</li>
+<li>Si el planeta tiene anillos (TRUE o FALSE).</li>
+</ul>
+<p>Estas caracteristicas estan contenidas en los siguientes vectores. Ejecutemos el codigo para asignarlos.</p>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="intro.html#cb261-1" aria-hidden="true" tabindex="-1"></a>planeta    <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Mercurio&quot;</span>, <span class="st">&quot;Venus&quot;</span>, <span class="st">&quot;Tierra&quot;</span>, <span class="st">&quot;Marte&quot;</span>, <span class="st">&quot;Jupiter&quot;</span>, <span class="st">&quot;Saturno&quot;</span>, <span class="st">&quot;Urano&quot;</span>, <span class="st">&quot;Neptuno&quot;</span>)</span>
+<span id="cb261-2"><a href="intro.html#cb261-2" aria-hidden="true" tabindex="-1"></a>tipo      <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Terrestre&quot;</span>,<span class="st">&quot;Terrestre&quot;</span>,<span class="st">&quot;Terrestre&quot;</span>,<span class="st">&quot;Terrestre&quot;</span>,<span class="st">&quot;Gigante Gaseoso&quot;</span>,<span class="st">&quot;Gigante Gaseoso&quot;</span>,<span class="st">&quot;Gigante Gaseoso&quot;</span>,<span class="st">&quot;Gigante Gaseoso&quot;</span>)</span>
+<span id="cb261-3"><a href="intro.html#cb261-3" aria-hidden="true" tabindex="-1"></a>diametro <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.382</span>, <span class="fl">0.949</span>, <span class="dv">1</span>, <span class="fl">0.532</span>, <span class="fl">11.209</span>, <span class="fl">9.449</span>, <span class="fl">4.007</span>, <span class="fl">3.883</span>)</span>
+<span id="cb261-4"><a href="intro.html#cb261-4" aria-hidden="true" tabindex="-1"></a>rotacion  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">58.64</span>, <span class="sc">-</span><span class="fl">243.02</span>, <span class="dv">1</span>, <span class="fl">1.03</span>, <span class="fl">0.41</span>, <span class="fl">0.43</span>, <span class="sc">-</span><span class="fl">0.72</span>, <span class="fl">0.67</span>)</span>
+<span id="cb261-5"><a href="intro.html#cb261-5" aria-hidden="true" tabindex="-1"></a>anillos   <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Para formar nuestro data frame usamos la funcion <code>data.frame()</code>. Pasemos los vectores nombre, tipo, diametro, rotacion y anillos en ese orden. Asignemos el resultado a <code>planetas_df</code> e imprimimos.</p>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="intro.html#cb262-1" aria-hidden="true" tabindex="-1"></a>planetas_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(planeta, tipo, diametro, rotacion, anillos)</span>
+<span id="cb262-2"><a href="intro.html#cb262-2" aria-hidden="true" tabindex="-1"></a>planetas_df</span></code></pre></div>
+<pre><code>##    planeta            tipo diametro rotacion anillos
+## 1 Mercurio       Terrestre    0.382    58.64   FALSE
+## 2    Venus       Terrestre    0.949  -243.02   FALSE
+## 3   Tierra       Terrestre    1.000     1.00   FALSE
+## 4    Marte       Terrestre    0.532     1.03   FALSE
+## 5  Jupiter Gigante Gaseoso   11.209     0.41    TRUE
+## 6  Saturno Gigante Gaseoso    9.449     0.43    TRUE
+## 7    Urano Gigante Gaseoso    4.007    -0.72    TRUE
+## 8  Neptuno Gigante Gaseoso    3.883     0.67    TRUE</code></pre>
+<p>Usemos la funcion <code>str()</code> para chequear la estructura de <code>planetas_df</code>.</p>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="intro.html#cb264-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(planetas_df)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    8 obs. of  5 variables:
+##  $ planeta : chr  &quot;Mercurio&quot; &quot;Venus&quot; &quot;Tierra&quot; &quot;Marte&quot; ...
+##  $ tipo    : chr  &quot;Terrestre&quot; &quot;Terrestre&quot; &quot;Terrestre&quot; &quot;Terrestre&quot; ...
+##  $ diametro: num  0.382 0.949 1 0.532 11.209 ...
+##  $ rotacion: num  58.64 -243.02 1 1.03 0.41 ...
+##  $ anillos : logi  FALSE FALSE FALSE FALSE TRUE TRUE ...</code></pre>
+</div>
+<div id="seleccion-en-data-frames" class="section level3" number="1.8.2">
+<h3><span class="header-section-number">1.8.2</span> Seleccion en data frames</h3>
+<p>Similar a la seleccion en matrices, podemos seleccionar elementos de un data frame usando los parentesis cuadrados. Recordemos que usando una coma, identificamos lo que esta a la derecha de esta como filas y lo que esta a la izquierda, como columnas.</p>
+<p>Por ejemplo, seleccionemos el diametro de Mercurio en <code>planetas_df</code>.</p>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="intro.html#cb266-1" aria-hidden="true" tabindex="-1"></a>planetas_df[<span class="dv">1</span>,<span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## [1] 0.382</code></pre>
+<p>Seleccionemos todos los datos que corresponden a Marte.</p>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="intro.html#cb268-1" aria-hidden="true" tabindex="-1"></a>planetas_df[<span class="dv">4</span>,]</span></code></pre></div>
+<pre><code>##   planeta      tipo diametro rotacion anillos
+## 4   Marte Terrestre    0.532     1.03   FALSE</code></pre>
+<p>En vez de usar indices numericos, tambien podemos usar el nombre de las variables para seleccionar columnas de un data frame. Supongamos que queremos seleccionar los tres primeros elementos de la columna <code>tipo</code>. Podemos hacerlo asi:</p>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="intro.html#cb270-1" aria-hidden="true" tabindex="-1"></a>planetas_df[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] &quot;Terrestre&quot; &quot;Terrestre&quot; &quot;Terrestre&quot;</code></pre>
+<p>Pero una desventaja es que necesitamos saber el numero de la columna, lo que se complica si tenemos muchas variables o si en algun momento cambiamos el orden de las variables. Para solucionarlo, podemos especificar:</p>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="intro.html#cb272-1" aria-hidden="true" tabindex="-1"></a>planetas_df[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,<span class="st">&quot;tipo&quot;</span>]</span></code></pre></div>
+<pre><code>## [1] &quot;Terrestre&quot; &quot;Terrestre&quot; &quot;Terrestre&quot;</code></pre>
+<p>A veces queremos seleccionar una columna completa. Por ejemplo, la variable <code>anillos</code>, a la que podemos acceder usando los parentesis cuadrados:</p>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="intro.html#cb274-1" aria-hidden="true" tabindex="-1"></a>planetas_df[,<span class="st">&quot;anillos&quot;</span>]</span></code></pre></div>
+<pre><code>## [1] FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE</code></pre>
+<p>O tambien usando el signo <code>$</code>. A la izquierda de <code>$</code> especificamos el nombre del data frame y a la derecha el nombre de la variable. Asignemos el resultado a <code>vector_anillos</code> e imprimimos.</p>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="intro.html#cb276-1" aria-hidden="true" tabindex="-1"></a>vector_anillos <span class="ot">&lt;-</span> planetas_df<span class="sc">$</span>anillos</span>
+<span id="cb276-2"><a href="intro.html#cb276-2" aria-hidden="true" tabindex="-1"></a>vector_anillos</span></code></pre></div>
+<pre><code>## [1] FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE</code></pre>
+<p>Podemos ver que las cuatro primeras observaciones no tienen anillos y las ultimas cuatro tienen anillos. Podemos usar este vector para seleccionar la informacion de los planetas que tienen anillos, porque es un vector logico. Insertamos <code>vector_anillos</code> a la izquierda de la coma, entre parentesis cuadrados.</p>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="intro.html#cb278-1" aria-hidden="true" tabindex="-1"></a>planetas_df[vector_anillos,]</span></code></pre></div>
+<pre><code>##   planeta            tipo diametro rotacion anillos
+## 5 Jupiter Gigante Gaseoso   11.209     0.41    TRUE
+## 6 Saturno Gigante Gaseoso    9.449     0.43    TRUE
+## 7   Urano Gigante Gaseoso    4.007    -0.72    TRUE
+## 8 Neptuno Gigante Gaseoso    3.883     0.67    TRUE</code></pre>
+<p>El resultado es el mismo si especificamos lo siguiente:</p>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="intro.html#cb280-1" aria-hidden="true" tabindex="-1"></a>planetas_df[anillos<span class="sc">==</span><span class="cn">TRUE</span>,]</span></code></pre></div>
+<pre><code>##   planeta            tipo diametro rotacion anillos
+## 5 Jupiter Gigante Gaseoso   11.209     0.41    TRUE
+## 6 Saturno Gigante Gaseoso    9.449     0.43    TRUE
+## 7   Urano Gigante Gaseoso    4.007    -0.72    TRUE
+## 8 Neptuno Gigante Gaseoso    3.883     0.67    TRUE</code></pre>
+<p>Otra forma de seleccionar es utilizar la funcion <code>subset()</code>. Como su nombre lo indica, la funcion <code>subset()</code> selecciona un subset de datos de un data frame, el primer argumento, de acuerdo a una condicion, su segundo argumento. Seleccionemos un subset de datos que contenga aquellos planetas que tienen un diametro menor a 1 (aquellos que son mas pequeños que la Tierra).</p>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="intro.html#cb282-1" aria-hidden="true" tabindex="-1"></a><span class="fu">subset</span>(planetas_df, <span class="at">subset =</span> diametro<span class="sc">&lt;</span><span class="dv">1</span>)</span></code></pre></div>
+<pre><code>##    planeta      tipo diametro rotacion anillos
+## 1 Mercurio Terrestre    0.382    58.64   FALSE
+## 2    Venus Terrestre    0.949  -243.02   FALSE
+## 4    Marte Terrestre    0.532     1.03   FALSE</code></pre>
+<p>Tambien podemos seleccionar respecto a condiciones que involucren mas de una variable. Por ejemplo, seleccionemos aquellos planetas mas grandes que la Tierra que tienen una rotacion axial negativa respecto a la de Tierra.</p>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="intro.html#cb284-1" aria-hidden="true" tabindex="-1"></a><span class="fu">subset</span>(planetas_df, <span class="at">subset =</span> (diametro<span class="sc">&gt;</span><span class="dv">1</span>)<span class="sc">&amp;</span>(rotacion<span class="sc">&lt;</span><span class="dv">0</span>))</span></code></pre></div>
+<pre><code>##   planeta            tipo diametro rotacion anillos
+## 7   Urano Gigante Gaseoso    4.007    -0.72    TRUE</code></pre>
+</div>
+<div id="sorting" class="section level3" number="1.8.3">
+<h3><span class="header-section-number">1.8.3</span> Sorting</h3>
+<p>Podemos ordenar las filas de un data frame de acuerdo a los valores de una variable. Para ello, usamos la funcion <code>order()</code> que entrega la posicion ranqueada de cada elemento en el objeto ingresado, en un orden ascendente o descendente. Veamos un ejemplo simple con un vector.</p>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="intro.html#cb286-1" aria-hidden="true" tabindex="-1"></a>numeros_desordenados <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">17</span>,<span class="dv">8</span>,<span class="dv">30</span>)</span>
+<span id="cb286-2"><a href="intro.html#cb286-2" aria-hidden="true" tabindex="-1"></a><span class="fu">order</span>(numeros_desordenados)</span></code></pre></div>
+<pre><code>## [1] 2 1 3</code></pre>
+<p>Al ingresar el vector <code>numeros_desordenados</code> en la funcion <code>order()</code> obtenemos que 17, el primer elemento en <code>numeros_desordenados</code>, es el segundo menor; 8 es el menor; 30 es el mayor. Podemos usar esta funcion para ordenar <code>numeros_desordenados</code> de manera ascendente (por default) o descendente.</p>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="intro.html#cb288-1" aria-hidden="true" tabindex="-1"></a>numeros_desordenados[<span class="fu">order</span>(numeros_desordenados)]</span></code></pre></div>
+<pre><code>## [1]  8 17 30</code></pre>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="intro.html#cb290-1" aria-hidden="true" tabindex="-1"></a>numeros_desordenados[<span class="fu">order</span>(numeros_desordenados, <span class="at">decreasing =</span> <span class="cn">TRUE</span>)]</span></code></pre></div>
+<pre><code>## [1] 30 17  8</code></pre>
+<p>Ordenemos los planetas de nuestro data frame <code>planetas_df</code> del mas chico al mas grande. Usamos <code>order()</code> y, como input, especificamos la variable diametro con <code>$</code>. Imprimimos los resultados.</p>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="intro.html#cb292-1" aria-hidden="true" tabindex="-1"></a>planetas_df[<span class="fu">order</span>(planetas_df<span class="sc">$</span>diametro),]</span></code></pre></div>
+<pre><code>##    planeta            tipo diametro rotacion anillos
+## 1 Mercurio       Terrestre    0.382    58.64   FALSE
+## 4    Marte       Terrestre    0.532     1.03   FALSE
+## 2    Venus       Terrestre    0.949  -243.02   FALSE
+## 3   Tierra       Terrestre    1.000     1.00   FALSE
+## 8  Neptuno Gigante Gaseoso    3.883     0.67    TRUE
+## 7    Urano Gigante Gaseoso    4.007    -0.72    TRUE
+## 6  Saturno Gigante Gaseoso    9.449     0.43    TRUE
+## 5  Jupiter Gigante Gaseoso   11.209     0.41    TRUE</code></pre>
+</div>
+</div>
+<div id="listas" class="section level2" number="1.9">
+<h2><span class="header-section-number">1.9</span> Listas</h2>
+<p>Una lista es un objeto que contiene otros objetos, sean matrices, vectores, data frames u otras listas. Las listas no requieren que los objetos sean de un mismo tipo, tamaño, ni que contengan el mismo tipo de datos o esten relacionados entre ellos de ninguna manera. Funcionan como una “carpeta” donde ponemos distintos objetos para organizarlos bajo un mismo nombre y pueden almacenar practicamente cualquier pieza de informacion en ellas.
+Veamos un ejemplo. Los siguientes objetos contienen distintas piezas de informacion relacionada con la pelicula “2001: A Space Odyssey.” Ejecutemos el codigo para crearlos.</p>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="intro.html#cb294-1" aria-hidden="true" tabindex="-1"></a>nom <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;2001: A Space Odyssey&quot;</span>)</span>
+<span id="cb294-2"><a href="intro.html#cb294-2" aria-hidden="true" tabindex="-1"></a>dir <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Stanley Kubrick&quot;</span>)</span>
+<span id="cb294-3"><a href="intro.html#cb294-3" aria-hidden="true" tabindex="-1"></a>escr <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Stanley Kubrick&quot;</span>, <span class="st">&quot;Arthur C. Clarke&quot;</span>)</span>
+<span id="cb294-4"><a href="intro.html#cb294-4" aria-hidden="true" tabindex="-1"></a>cred <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="st">&quot;Dr. Dave Bowman&quot;</span>, <span class="st">&quot;Keir Dullea&quot;</span>,</span>
+<span id="cb294-5"><a href="intro.html#cb294-5" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&quot;Dr. Frank Poole&quot;</span>, <span class="st">&quot;Gary Lockwood&quot;</span>,</span>
+<span id="cb294-6"><a href="intro.html#cb294-6" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&quot;Dr. Heywood R. Floyd&quot;</span>, <span class="st">&quot;William Sylvester&quot;</span>,</span>
+<span id="cb294-7"><a href="intro.html#cb294-7" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&quot;Moon-Watcher&quot;</span>, <span class="st">&quot;Daniel Richter&quot;</span>,</span>
+<span id="cb294-8"><a href="intro.html#cb294-8" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&quot;Dr. Andrei Smyslov&quot;</span>, <span class="st">&quot;Leonard Rossiter&quot;</span>,</span>
+<span id="cb294-9"><a href="intro.html#cb294-9" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&quot;Elena&quot;</span>, <span class="st">&quot;Margaret Tyzack&quot;</span>,</span>
+<span id="cb294-10"><a href="intro.html#cb294-10" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&quot;Dr. Ralph Halvorsen&quot;</span>, <span class="st">&quot;Robert Beatty&quot;</span>,</span>
+<span id="cb294-11"><a href="intro.html#cb294-11" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&quot;Dr. Bill Michaels&quot;</span>, <span class="st">&quot;Sean Sullivan&quot;</span>,</span>
+<span id="cb294-12"><a href="intro.html#cb294-12" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&quot;HAL 9000&quot;</span>, <span class="st">&quot;Douglas Rain&quot;</span>,</span>
+<span id="cb294-13"><a href="intro.html#cb294-13" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&quot;Mission Controller&quot;</span>,<span class="st">&quot;Frank Miller&quot;</span>),</span>
+<span id="cb294-14"><a href="intro.html#cb294-14" aria-hidden="true" tabindex="-1"></a>                 <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb294-15"><a href="intro.html#cb294-15" aria-hidden="true" tabindex="-1"></a>                 <span class="at">dimnames =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>),</span>
+<span id="cb294-16"><a href="intro.html#cb294-16" aria-hidden="true" tabindex="-1"></a>                                     <span class="fu">c</span>(<span class="st">&quot;Personajes&quot;</span>,</span>
+<span id="cb294-17"><a href="intro.html#cb294-17" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">&quot;Elenco&quot;</span>)))</span>
+<span id="cb294-18"><a href="intro.html#cb294-18" aria-hidden="true" tabindex="-1"></a>IMDB <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">puntaje=</span><span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">7</span>,<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">1</span>,<span class="dv">9</span>),</span>
+<span id="cb294-19"><a href="intro.html#cb294-19" aria-hidden="true" tabindex="-1"></a>                   <span class="at">usuario=</span><span class="fu">c</span>(<span class="st">&quot;Wesley-Wang&quot;</span>,<span class="st">&quot;simon_booth&quot;</span>,</span>
+<span id="cb294-20"><a href="intro.html#cb294-20" aria-hidden="true" tabindex="-1"></a>                             <span class="st">&quot;suws1&quot;</span>,<span class="st">&quot;Manthorpe&quot;</span>,</span>
+<span id="cb294-21"><a href="intro.html#cb294-21" aria-hidden="true" tabindex="-1"></a>                             <span class="st">&quot;mmt02&quot;</span>,<span class="st">&quot;Nessy_Gliana&quot;</span>,</span>
+<span id="cb294-22"><a href="intro.html#cb294-22" aria-hidden="true" tabindex="-1"></a>                             <span class="st">&quot;Nazi_Fighter_David&quot;</span>),</span>
+<span id="cb294-23"><a href="intro.html#cb294-23" aria-hidden="true" tabindex="-1"></a>                   <span class="at">comentario=</span><span class="fu">c</span>(<span class="st">&quot;Legendary&quot;</span>,</span>
+<span id="cb294-24"><a href="intro.html#cb294-24" aria-hidden="true" tabindex="-1"></a>                                <span class="st">&quot;Unmatched accomplishment&quot;</span>,</span>
+<span id="cb294-25"><a href="intro.html#cb294-25" aria-hidden="true" tabindex="-1"></a>                                <span class="st">&quot;Ahead of its time but...&quot;</span>,</span>
+<span id="cb294-26"><a href="intro.html#cb294-26" aria-hidden="true" tabindex="-1"></a>                                <span class="st">&quot;A film of monolithic proportions&quot;</span>,</span>
+<span id="cb294-27"><a href="intro.html#cb294-27" aria-hidden="true" tabindex="-1"></a>                                <span class="st">&quot;Greatest Movie of All Time&quot;</span>,<span class="st">&quot;Don&#39;t believe the hype-&quot;</span>,</span>
+<span id="cb294-28"><a href="intro.html#cb294-28" aria-hidden="true" tabindex="-1"></a>                                <span class="st">&quot;The final landing scene is the very hallmark of cinematic genius...&quot;</span>))</span></code></pre></div>
+<p>Creemos una lista que contenga todo estos objetos. Para no confundirnos, asignamos nombres a cada objeto. Imprimimos el resultado.</p>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="intro.html#cb295-1" aria-hidden="true" tabindex="-1"></a>space_odyssey <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">titulo=</span>nom,</span>
+<span id="cb295-2"><a href="intro.html#cb295-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">director=</span>dir,</span>
+<span id="cb295-3"><a href="intro.html#cb295-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">escritores=</span>escr,</span>
+<span id="cb295-4"><a href="intro.html#cb295-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">creditos=</span>cred,</span>
+<span id="cb295-5"><a href="intro.html#cb295-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">reviews=</span>IMDB)</span>
+<span id="cb295-6"><a href="intro.html#cb295-6" aria-hidden="true" tabindex="-1"></a>space_odyssey</span></code></pre></div>
+<pre><code>## $titulo
+## [1] &quot;2001: A Space Odyssey&quot;
+## 
+## $director
+## [1] &quot;Stanley Kubrick&quot;
+## 
+## $escritores
+## [1] &quot;Stanley Kubrick&quot;  &quot;Arthur C. Clarke&quot;
+## 
+## $creditos
+##    Personajes             Elenco             
+## 1  &quot;Dr. Dave Bowman&quot;      &quot;Keir Dullea&quot;      
+## 2  &quot;Dr. Frank Poole&quot;      &quot;Gary Lockwood&quot;    
+## 3  &quot;Dr. Heywood R. Floyd&quot; &quot;William Sylvester&quot;
+## 4  &quot;Moon-Watcher&quot;         &quot;Daniel Richter&quot;   
+## 5  &quot;Dr. Andrei Smyslov&quot;   &quot;Leonard Rossiter&quot; 
+## 6  &quot;Elena&quot;                &quot;Margaret Tyzack&quot;  
+## 7  &quot;Dr. Ralph Halvorsen&quot;  &quot;Robert Beatty&quot;    
+## 8  &quot;Dr. Bill Michaels&quot;    &quot;Sean Sullivan&quot;    
+## 9  &quot;HAL 9000&quot;             &quot;Douglas Rain&quot;     
+## 10 &quot;Mission Controller&quot;   &quot;Frank Miller&quot;     
+## 
+## $reviews
+##   puntaje            usuario
+## 1      10        Wesley-Wang
+## 2      10        simon_booth
+## 3       7              suws1
+## 4      10          Manthorpe
+## 5      10              mmt02
+## 6       1       Nessy_Gliana
+## 7       9 Nazi_Fighter_David
+##                                                            comentario
+## 1                                                           Legendary
+## 2                                            Unmatched accomplishment
+## 3                                            Ahead of its time but...
+## 4                                    A film of monolithic proportions
+## 5                                          Greatest Movie of All Time
+## 6                                             Don&#39;t believe the hype-
+## 7 The final landing scene is the very hallmark of cinematic genius...</code></pre>
+<div id="seleccion-en-listas" class="section level3" number="1.9.1">
+<h3><span class="header-section-number">1.9.1</span> Seleccion en listas</h3>
+<p>Las listas estan compuestas de componentes y elementos. Los componentes son los objetos que ingresamos en la lista (vectores, matrices, data frames, otras listas…) y los elementos son valores u objetos que se encuentran dentro de dichos componentes.</p>
+<p>Para seleccionar componentes usamos parentesis cuadrados dobles y dentro de ellos, el indice del componente o su nombre. Por ejemplo, seleccionamos el cuarto componente en <code>space_odyssey</code>.</p>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="intro.html#cb297-1" aria-hidden="true" tabindex="-1"></a>space_odyssey[[<span class="dv">4</span>]]</span></code></pre></div>
+<pre><code>##    Personajes             Elenco             
+## 1  &quot;Dr. Dave Bowman&quot;      &quot;Keir Dullea&quot;      
+## 2  &quot;Dr. Frank Poole&quot;      &quot;Gary Lockwood&quot;    
+## 3  &quot;Dr. Heywood R. Floyd&quot; &quot;William Sylvester&quot;
+## 4  &quot;Moon-Watcher&quot;         &quot;Daniel Richter&quot;   
+## 5  &quot;Dr. Andrei Smyslov&quot;   &quot;Leonard Rossiter&quot; 
+## 6  &quot;Elena&quot;                &quot;Margaret Tyzack&quot;  
+## 7  &quot;Dr. Ralph Halvorsen&quot;  &quot;Robert Beatty&quot;    
+## 8  &quot;Dr. Bill Michaels&quot;    &quot;Sean Sullivan&quot;    
+## 9  &quot;HAL 9000&quot;             &quot;Douglas Rain&quot;     
+## 10 &quot;Mission Controller&quot;   &quot;Frank Miller&quot;</code></pre>
+<p>Supongamos que queremos seleccionar las criticas de IMDB y no conocemos su indice, pero si sabemos el nombre del componente es <code>reviews</code>.</p>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="intro.html#cb299-1" aria-hidden="true" tabindex="-1"></a>space_odyssey[[<span class="st">&quot;reviews&quot;</span>]]</span></code></pre></div>
+<pre><code>##   puntaje            usuario
+## 1      10        Wesley-Wang
+## 2      10        simon_booth
+## 3       7              suws1
+## 4      10          Manthorpe
+## 5      10              mmt02
+## 6       1       Nessy_Gliana
+## 7       9 Nazi_Fighter_David
+##                                                            comentario
+## 1                                                           Legendary
+## 2                                            Unmatched accomplishment
+## 3                                            Ahead of its time but...
+## 4                                    A film of monolithic proportions
+## 5                                          Greatest Movie of All Time
+## 6                                             Don&#39;t believe the hype-
+## 7 The final landing scene is the very hallmark of cinematic genius...</code></pre>
+<p>Podemos hacer lo mismo usando el operador <code>$</code>. Seleccionemos el componente <code>escritores</code>.</p>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="intro.html#cb301-1" aria-hidden="true" tabindex="-1"></a>space_odyssey<span class="sc">$</span>escritores</span></code></pre></div>
+<pre><code>## [1] &quot;Stanley Kubrick&quot;  &quot;Arthur C. Clarke&quot;</code></pre>
+<p>Tambien podemos seleccionar elementos dentro de los componentes. Lo hacemos agregando a la seleccion de componente una seleccion con parentesis cuadrados simples. Recordemos que el tipo de seleccion dependera de si se trata de un componente unidimensional o bidimensional. Por ejemplo, seleccionemos a los 5 primeros actores mencionados en los creditos y sus roles. Como <code>$creditos</code> es una matriz, la seleccion dentro de la matriz debe ser [1:5,].</p>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="intro.html#cb303-1" aria-hidden="true" tabindex="-1"></a>space_odyssey[[<span class="st">&quot;creditos&quot;</span>]][<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,]</span></code></pre></div>
+<pre><code>##   Personajes             Elenco             
+## 1 &quot;Dr. Dave Bowman&quot;      &quot;Keir Dullea&quot;      
+## 2 &quot;Dr. Frank Poole&quot;      &quot;Gary Lockwood&quot;    
+## 3 &quot;Dr. Heywood R. Floyd&quot; &quot;William Sylvester&quot;
+## 4 &quot;Moon-Watcher&quot;         &quot;Daniel Richter&quot;   
+## 5 &quot;Dr. Andrei Smyslov&quot;   &quot;Leonard Rossiter&quot;</code></pre>
+<p>Cuando el componente es un data frame, podemos usar el operador <code>$</code>. Esto no es valido para otros tipos de componentes porque este operador no funciona con vectores atomicos.</p>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="intro.html#cb305-1" aria-hidden="true" tabindex="-1"></a>space_odyssey<span class="sc">$</span>reviews<span class="sc">$</span>comentario</span></code></pre></div>
+<pre><code>## [1] &quot;Legendary&quot;                                                          
+## [2] &quot;Unmatched accomplishment&quot;                                           
+## [3] &quot;Ahead of its time but...&quot;                                           
+## [4] &quot;A film of monolithic proportions&quot;                                   
+## [5] &quot;Greatest Movie of All Time&quot;                                         
+## [6] &quot;Don&#39;t believe the hype-&quot;                                            
+## [7] &quot;The final landing scene is the very hallmark of cinematic genius...&quot;</code></pre>
+<p>Finalmente, podemos seleccionar elementos y operar con ellos directamente. Calculemos el puntaje promedio entregado por la seleccion de usuarios de IMDB que estan en <code>reviews</code>.</p>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="intro.html#cb307-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(space_odyssey<span class="sc">$</span>reviews<span class="sc">$</span>puntaje)</span></code></pre></div>
+<pre><code>## [1] 8.142857</code></pre>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Apuntes PSI2301.pdf", "Apuntes PSI2301.epub"],
+"toc": {
+"collapse": "subsection"
+},
+"search": true,
+"info": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

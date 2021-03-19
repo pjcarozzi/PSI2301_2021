@@ -1,0 +1,47 @@
+--- 
+title: "Apuntes PSI2301"
+author: "Profesor: Roberto González (rgonzale@uc.cl).\n Ayudantes: Josefina Bao (josefina.bao@uc.cl); Javiera Maechtig (jmaechtig@uc.cl); Pia Carozzi (pjcarozzi@uc.cl); Samuel Casale (scasale@uc.cl)."
+date: "Creado: 2021-03. Actualizado: `r Sys.Date()`"
+knit: bookdown::render_book
+site: bookdown::bookdown_site
+documentclass: book
+classoption: a4paper,12pt,twoside
+lot: no
+lof: no
+link-citations: yes
+bibliography:
+- book.bib
+- packages.bib
+biblio-style: apalike
+colorlinks: yes
+linktocpage: yes
+linkcolor: black
+urlcolor: blue
+monofont: Source Code Pro
+monofontoptions: Scale=0.7
+---
+
+# Presentacion {-}
+
+Este documento reune tutoriales y recursos producidos para el curso Metodos de Investigacion Cuantitativa de la Escuela de Psicologia de la Pontificia Universidad Catolica de Chile.
+
+Para reproducir el codigo presentado en este documento, se necesita una version reciente de [R](https://www.r-project.org) y  [RStudio](https://www.rstudio.com/products/rstudio/download/), instalar los paquetes especificados en cada guia y tenerlos actualizados. 
+
+Para compilar este documento localmente:
+
+1. Clona o descarga el [repositorio]() asociado y descomprime el archivo `.zip`. 
+2. Abre R Studio.
+3. Instalar el paquete `bookdown`
+4. Localiza la carpeta del repositorio. 
+5. Abre el archivo `index.Rmd` y haz click en **Build Book** en la pestaña **Build**. Alternativamente, ejecuta:
+
+```{r eval=FALSE}
+install.packages('bookdown') # instalar bookdown
+bookdown::render_book("index.Rmd") # para compilar
+browseURL("_book/index.html") # para ver
+```
+
+
+<p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#"><a rel="cc:attributionURL" href="www.completar.com"><span rel="dct:title">Apuntes PSI2301</span></a>, <a rel="cc:attributionURL" href="mailto:pjcarozzi@uc.cl"><span rel="cc:attributionName">Escuela de Psicologia PUC</span></a> esta bajo una licencia de Creative Commons <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">Atribución-NoComercial-CompartirIgual 4.0 Internacional</a> (CC BY-NC-SA 4.0) </p> <p align="center"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es"><img style="height:22px!important;margin-left: 3px;vertical-align:text-bottom;" src="https://search.creativecommons.org/static/img/cc_icon.svg" /><img  style="height:22px!important;margin-left: 3px;vertical-align:text-bottom;" src="https://search.creativecommons.org/static/img/cc-by_icon.svg" /><img  style="height:22px!important;margin-left: 3px;vertical-align:text-bottom;" src="https://search.creativecommons.org/static/img/cc-nc_icon.svg" /><img  style="height:22px!important;margin-left: 3px;vertical-align:text-bottom;" src="https://search.creativecommons.org/static/img/cc-sa_icon.svg" /></a></p>
+
+
