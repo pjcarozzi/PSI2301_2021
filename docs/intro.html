@@ -235,7 +235,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Una vez que hemos instalado R en nuestro computador, podemos abrirlo. Veremos una pantalla como la siguiente.</p>
 <div class="figure">
-<img src="C:/Users/pjcar/Dropbox/PSI2301_2021/bd_apuntes/_bookdown_files/Apuntes-PSI2301_files/figuras-ext/Screenshot_R.png" alt="" />
+<img src="img/Screenshot_R.png" alt="" />
 <p class="caption">Interfaz de R</p>
 </div>
 <p>Descarguemos R Studio, que sera el programa que utilizaremos en lo sucesivo en nuestra programacion de R. Para descargar e instalar R Studio, vamos a <a href="http://www.rstudio.com/products/rstudio/download/">http://www.rstudio.com/products/rstudio/download/</a> y seguimos las instrucciones.</p>
@@ -251,7 +251,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Files/Plots/Packages/Help</strong>: Estas pestañas muestran informacion util que veremos en detalle a continuacion.</li>
 </ol>
 <div class="figure">
-<img src="C:/Users/pjcar/Dropbox/PSI2301_2021/bd_apuntes/_bookdown_files/Apuntes-PSI2301_files/figuras-ext/Screenshot_RStudio.png" alt="" />
+<img src="img/Screenshot_RStudio.png" alt="" />
 <p class="caption">Interfaz de R Studio</p>
 </div>
 <div id="consola" class="section level4 unnumbered">
@@ -448,7 +448,7 @@ Figura 1.1: El panel Plot contiene los graficos, como este histograma de la dist
 <p>Si, por ejemplo, pedimos a R que cargue determinado archivo, R supone en primera instancia que este se encuentra en el directorio de trabajo, lo que nos ahorra tener que especificar la ruta completa.</p>
 <p>Solo podemos tener un directorio de trabajo activo por sesion. Para ver cual es el directorio de trabajo actual, usamos la funcion <code>getwd()</code></p>
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="intro.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;C:/Users/pjcar/Dropbox/PSI2301_2021/bd_apuntes&quot;</code></pre>
+<pre><code>## [1] &quot;C:/Users/pjcar/Dropbox/PSI2301_2021&quot;</code></pre>
 <p>Como podemos ver, cuando ejecuto la funcion, R me indica que el directorio de trabajo actual es una carpeta llamada <code>bd_apuntes</code>. Esto implica que cuando leo nuevos archivos en R, R asume que se encuentran en esta carpeta.</p>
 <p>Si queremos cambiar el directorio de trabajo, usamos la funcion <code>setwd()</code>. Por ejemplo, me gustaria cambiar mi directorio de trabajo a una carpeta en mi Escritorio llamada <code>ayud_1</code>.</p>
 <div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="intro.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/Users/pjcar/Desktop/ayud_1&quot;</span>)</span></code></pre></div>
