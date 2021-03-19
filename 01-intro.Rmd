@@ -35,7 +35,7 @@ Para instalar R, vamos a uno de los siguientes links y seguimos las instruccione
 
 Una vez que hemos instalado R en nuestro computador, podemos abrirlo. Veremos una pantalla como la siguiente. 
 
-![Interfaz de R](C:/Users/pjcar/Dropbox/PSI2301_2021/bd_apuntes/_bookdown_files/Apuntes-PSI2301_files/figuras-ext/Screenshot_R.png)
+![Interfaz de R](img/Screenshot_R.png)
 
 Descarguemos R Studio, que sera el programa que utilizaremos en lo sucesivo en nuestra programacion de R. Para descargar e instalar R Studio, vamos a [http://www.rstudio.com/products/rstudio/download/](http://www.rstudio.com/products/rstudio/download/) y seguimos las instrucciones.
 
@@ -50,7 +50,7 @@ La interfaz de R Studio tiene cuatro paneles principales:
 3. __Environment/History__: Son dos pestañas. Environment muestra todos los objetos activos e History va registrando todos los comandos que han sido ejecutados.
 4. __Files/Plots/Packages/Help__: Estas pestañas muestran informacion util que veremos en detalle a continuacion.
 
-![Interfaz de R Studio](C:/Users/pjcar/Dropbox/PSI2301_2021/bd_apuntes/_bookdown_files/Apuntes-PSI2301_files/figuras-ext/Screenshot_RStudio.png)
+![Interfaz de R Studio](img/Screenshot_RStudio.png)
 
 #### Consola {-} 
 La ventana __console__ es el lugar donde R espera recibir las instrucciones que escribimos en el lenguaje R, o __comandos__, y muestra los resultados de dichas instrucciones. En esta guia, los comandos en R que utilicemos apareceran en una caja gris como la siguiente:
